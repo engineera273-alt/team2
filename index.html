@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تيم دحيحة ZNU</title>
+  <style>
+    body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: radial-gradient(circle at top right, #eef4ff 0%, #d6e7fc 35%, #cddff7 70%, #f5f9ff 100%); color:#1f314b; margin:0; padding:0;}
+    body::before{content:''; position:fixed; inset:0; background: repeating-linear-gradient(45deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 20px), radial-gradient(circle at 20% 20%, rgba(255,255,255,.20), transparent 50%); pointer-events:none; z-index:-1;}
+    .container{max-width:1140px; margin:16px auto; padding:16px; animation:fadeIn 0.8s ease-out forwards; opacity:0; backdrop-filter:blur(1px);}
+    @keyframes fadeIn{from{opacity:0; transform:translateY(12px);}to{opacity:1; transform:translateY(0);}}
+    .hero{background:#ffffff; border-radius:16px; box-shadow:0 10px 25px rgba(65,95,140,.12); padding:28px; margin-bottom:18px; animation:zoomIn 0.6s ease-out forwards; opacity:0;}
+    @keyframes zoomIn{from{opacity:0; transform:scale(0.97);}to{opacity:1; transform:scale(1);} }
+    .top-banner{position:relative; margin-bottom:18px; border-radius:16px; overflow:hidden; box-shadow:0 10px 25px rgba(65,95,140,.15); animation:slideIn 0.8s ease-out forwards; opacity:0; transform:translateY(-20px);}
+    .top-banner img{transition:transform 0.5s ease;}
+    .top-banner:hover img{transform:scale(1.05);}
+    .top-banner-text{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:1.4rem; background:linear-gradient(180deg, rgba(20,43,95,.1), rgba(9,13,35,.7)); backdrop-filter:blur(2px);}
+    @keyframes slideIn{from{opacity:0; transform:translateY(-20px);}to{opacity:1; transform:translateY(0);} }
+    h1, h2, h3{margin:0 0 12px;}
+    .leader-card{display:flex; flex-wrap:wrap; align-items:center; gap:18px;}
+    .photo-circle{width:130px; height:130px; border-radius:50%; overflow:hidden; border:4px solid #2a57a7; display:flex; align-items:center; justify-content:center; background:#d3e1fb; box-shadow:0 0 0 0 #2a57a7; animation:glowCircle 2.8s ease-in-out infinite;}
+    @keyframes glowCircle{0%,100%{box-shadow:0 0 0 8px rgba(42,87,167,.15);}50%{box-shadow:0 0 0 16px rgba(42,87,167,.06);} }
+    .photo-circle img{width:100%; height:100%; object-fit:cover;}
+    .photo-circle-mini{width:80px; height:80px; border-radius:50%; overflow:hidden; border:3px solid #2a57a7; margin-bottom:10px; background:#d3e1fb;}
+    .photo-circle-mini img{width:100%; height:100%; object-fit:cover;}
+    .leader-info{flex:1; min-width:220px;}
+    .leader-info p{margin:6px 0; font-size:0.95rem;}
+    .leader-info .role{font-weight:700; color:#2c4f9a;}
+
+    .grid4{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;}
+    .card{background:#fff; border-radius:14px; border:1px solid #dde6f3; padding:14px; box-shadow:0 6px 16px rgba(35,62,101,.08); transition:transform .2s ease, border-color .2s ease;}
+    .card:hover{transform:translateY(-4px); border-color:#b8c8e8;}
+    .card h3{font-size:1rem; margin-bottom:8px; color:#1a2b4f;}
+    .tag{display:inline-block; font-size:.78rem; background:#e8f1ff; color:#2d5aaa; padding:3px 9px; border-radius:999px; font-weight:600;}
+
+    .table-wrap{overflow-x:auto; margin-top:18px;}
+    table{width:100%; border-collapse:collapse; margin-top:8px;}
+    th,td{border:1px solid #e0e8f0; padding:10px 8px; text-align:right; font-size:0.88rem;}
+    th{background:#f5f9ff; color:#1a3c71;}
+
+    .badge {font-size:.78rem; font-weight:700; color:#fff; border-radius:12px; padding:3px 8px;}
+    .status-1 {background:#2cae74;} .status-2 {background:#f5a623;} .status-3 {background:#d93f48;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-banner" style="position:relative; margin-bottom:18px; border-radius:16px; overflow:hidden; box-shadow:0 10px 25px rgba(65,95,140,.15);">
+      <img src="./image/image6.jpeg" alt="Team Photo" style="width:100%; height:auto; display:block;">
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,43,95,.1), rgba(9,13,35,.7)); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:1.4rem;">
+        صورة الفريق الرسمية - فريق دحيحة ZNU
+      </div>
+    </div>
+    <div class="hero">
+      <h1>لوحة قيادة فريق Ahmed Elshahat</h1>
+      <p>تحكّم كامل في التيم، التقدم في المواد، وتحديثات يومية متاحة للـLeader ولـAdmin.</p>
+      <div class="leader-card">
+        <div class="photo-circle">
+          <img src="./image/image1.jpg" alt="Ahmed Elshahat">
+        </div>
+        <div class="leader-info">
+          <h2>Ahmed Elshahat</h2>
+          <p class="role">Leader</p>
+          <p>هنا تقدر تضيف ملخص مدخلات اليوم، ملاحظات، أو هدف المشروع.</p>
+          <p>آخر تحديث: <strong>اليوم</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <h2>أعضاء التابعين</h2>
+    <div class="grid4">
+      <div class="card"><h3>1 - Ahmed Elshahat</h3><span class="tag">Leader</span><p>Programming 2 (OOP) </p></div>
+      <div class="card"><h3>2 - Elsayed Elfiky</h3><span class="tag">Admin</span><p>Logic design </p></div>
+      <div class="card"><h3>3 - Osama Mohamed</h3><span class="tag">Admin</span><p>Math 2</p></div>
+      <div class="card"><h3>4 - Abanob Ramzy</h3><span class="tag">Admin</span><p>Operation Research</p></div>
+      <div class="card"><h3>5 - Omar Elaidy</h3><span class="tag">Member</span><p>Discrete Math</p></div>
+    </div>
+
+    <h2 style="margin-top:22px;">قسم الـAdmin الثاني</h2>
+    <div class="grid4">
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image5.jpeg" alt="Elsayed Elfiky"></div><h3>1 - Elsayed Elfiky</h3><span class="tag">Admin</span><p>تقدم: 100%</p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image3.jpeg" alt="Osama Mohamed"></div><h3>2 - Osama Mohamed</h3><span class="tag">Admin</span><p>تقدم: 100%</p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image4.jpeg" alt="Abanob Ramzy"></div><h3>3 - Abanob Ramzy</h3><span class="tag">Admin</span><p>تقدم: 100%</p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image2 (2).jpeg" alt="Ahmed Mostafa"></div><h3>4 - Ahmed Mostafa</h3><span class="tag">Admin</span><p>تقدم: 100%</p></div>
+    </div>
+
+    <div class="hero" style="margin-top:18px;">
+      <h2>تتبع المواد / المهام</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>المادة / المهمة</th><th>القائم</th><th>وقفنا لحد فين</th><th>الحالة</th><th>ملخص</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Programming 2 (OOP)</td><td>Ahmed Elshahat</td><td>سيكشن6&7</td><td><span class="badge status-2">Leader</span></td><td>لم يتم الانتهاء منه بعد</td></tr>
+            <tr><td>Logic design</td><td>Elsayed Elfiky</td><td>chapter 2</td><td><span class="badge status-1">Admin</span></td><td>لم يتم الانتهاء منه بعد</td></tr>
+            <tr><td>Math 2</td><td>Osama Mohamed</td><td>Chapter 2 (2.4)</td><td><span class="badge status-3">Admin</span></td><td>لم يتم الانتهاء منه بعد</td></tr>
+            <tr><td>Operation Research</td><td>Abanob Ramzy</td><td>Chapter 3</td><td><span class="badge status-1">Admin</span></td><td>لم يتم الانتهاء منه بعد</td></tr>
+            <tr><td>Discrete Math</td><td>Omar Elaidy</td><td>Chapter 2</td><td><span class="badge status-1">Member</span></td><td>لم يتم الانتهاء منه بعد</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
