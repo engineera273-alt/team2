@@ -33,6 +33,17 @@
     .card h3{font-size:1rem; margin-bottom:8px; color:#1a2b4f;}
     .tag{display:inline-block; font-size:.78rem; background:#e8f1ff; color:#2d5aaa; padding:3px 9px; border-radius:999px; font-weight:600;}
 
+    .section-title{font-size:1.2rem; margin:0 0 14px; color:#19345f; border-bottom:2px solid #e4ebf6; padding-bottom:8px;}
+    .info-text{margin:8px 0 16px; color:#405e87; line-height:1.6;}
+    .notes-card{display:flex; flex-direction:column; gap:8px;}
+    .notes-card p{font-size:.88rem; color:#3f5173; margin:0;}
+    .notes-card a{display:inline-block; color:#2a57a7; text-decoration:none; font-weight:700;}
+
+    .controls {display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:16px;}
+    .controls input, .controls select, .controls button {padding:8px 10px; border-radius:10px; border:1px solid #b8c8e8; background:#f8fbff; color:#1f3557; font-size:.94rem;}
+    .controls button {cursor:pointer; border:2px solid #2a57a7; background:#2a57a7; color:#fff; transition:background .2s ease;}
+    .controls button:hover {background:#1f4f96;}
+
     .table-wrap{overflow-x:auto; margin-top:18px;}
     table{width:100%; border-collapse:collapse; margin-top:8px;}
     th,td{border:1px solid #e0e8f0; padding:10px 8px; text-align:right; font-size:0.88rem;}
@@ -51,7 +62,7 @@
       </div>
     </div>
     <div class="hero">
-      <h1>لوحة قيادة فريق Ahmed Elshahat</h1>
+      <h1>لوحة قيادة فريق دحيحة ZNU</h1>
       <p>تحكّم كامل في التيم، التقدم في المواد، وتحديثات يومية متاحة للـLeader ولـAdmin.</p>
       <div class="leader-card">
         <div class="photo-circle">
@@ -83,6 +94,96 @@
       <div class="card"><div class="photo-circle-mini"><img src="./image/image2 (2).jpeg" alt="Ahmed Mostafa"></div><h3>4 - Ahmed Mostafa</h3><span class="tag">Admin</span><p>تقدم: 100%</p></div>
     </div>
 
+        <h2 style="margin-top:22px;">أعضاء التيم</h2>
+    <div class="grid4">
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image7.jpeg" alt="Member 1"></div><h3>1 - Ali Hendawy </h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image8.jpeg" alt="Member 2"></div><h3>2 - Ahmed Kairy </h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image9.jpeg" alt="Member 3"></div><h3>3 - Mohamed emam</h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image10.jpeg" alt="Member 4"></div><h3>4 - Ibrahim Salama</h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image11.jpeg" alt="Member 5"></div><h3>5 - Ibrahim Yasser </h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image12.jpeg" alt="Member 6"></div><h3>6 - Ahmed Metwally </h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image12 (2).jpeg" alt="Member 7"></div><h3>7 - Islam Mohamed </h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image13.jpeg" alt="Member 8"></div><h3>8 - Peter Azmy</h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image14.jpeg" alt="Member 9"></div><h3>9 - Ahmed Ashraf</h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image15.png" alt="Member 10"></div><h3>10 - Islam Adelsattar </h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image16.jpeg" alt="Member 10"></div><h3>10 - Omar Elaidy </h3><span class="tag">Member</span><p></p></div>
+    </div>
+
+    <div class="hero" style="margin-top:18px;">
+      <h2 class="section-title">ملخصات وريكوردات المحاضرات</h2>
+      <p class="info-text"></p>
+      <div class="controls">
+        <input id="searchLecture" type="text" placeholder="بحث عن رقم محاضرة أو مادة...">
+        <select id="filterSubject">
+          <option value="all">كل المواد</option>
+          <option value="Programming 2">Programming 2</option>
+          <option value="Logic Design">Logic Design</option>
+          <option value="Math 2">Math 2</option>
+          <option value="Operation Research">Operation Research</option>
+        </select>
+        <button id="exportCsv">تصدير CSV</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th># المحاضرة</th>
+              <th>Section</th>
+              <th>المادة</th>
+              <th>رابط الملخص</th>
+              <th>رابط الريكورد</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Programming 2 - 10 محاضرات -->
+            <tr><td>1</td><td>1</td><td>Programming 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>2</td><td>2</td><td>Programming 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>3</td><td>3</td><td>Programming 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>4</td><td>4</td><td>Programming 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>5</td><td>5</td><td>Programming 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>6</td><td>6</td><td>Programming 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>7</td><td>7</td><td>Programming 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>8</td><td>8</td><td>Programming 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>9</td><td>9</td><td>Programming 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>10</td><td>10</td><td>Programming 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <!-- Logic Design - 10 محاضرات -->
+            <tr><td>1</td><td>1</td><td>Logic Design</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>2</td><td>2</td><td>Logic Design</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>3</td><td>3</td><td>Logic Design</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>4</td><td>4</td><td>Logic Design</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>5</td><td>5</td><td>Logic Design</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>6</td><td>6</td><td>Logic Design</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>7</td><td>7</td><td>Logic Design</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>8</td><td>8</td><td>Logic Design</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>9</td><td>9</td><td>Logic Design</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>10</td><td>10</td><td>Logic Design</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <!-- Math 2 - 10 محاضرات -->
+            <tr><td>1</td><td>1</td><td>Math 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>2</td><td>2</td><td>Math 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>3</td><td>3</td><td>Math 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>4</td><td>4</td><td>Math 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>5</td><td>5</td><td>Math 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>6</td><td>6</td><td>Math 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>7</td><td>7</td><td>Math 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>8</td><td>8</td><td>Math 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>9</td><td>9</td><td>Math 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>10</td><td>10</td><td>Math 2</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <!-- Operation Research - 10 محاضرات -->
+            <tr><td>1</td><td>1</td><td>Operation Research</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>2</td><td>2</td><td>Operation Research</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>3</td><td>3</td><td>Operation Research</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>4</td><td>4</td><td>Operation Research</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>5</td><td>5</td><td>Operation Research</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>6</td><td>6</td><td>Operation Research</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>7</td><td>7</td><td>Operation Research</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>8</td><td>8</td><td>Operation Research</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>9</td><td>9</td><td>Operation Research</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+            <tr><td>10</td><td>10</td><td>Operation Research</td><td><a href="#">تحميل</a></td><td><a href="#">عرض</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="hero" style="margin-top:18px;">
       <h2>تتبع المواد / المهام</h2>
       <div class="table-wrap">
@@ -101,5 +202,57 @@
       </div>
     </div>
   </div>
+  <footer style="background:#1f3550; color:#fff; text-align:center; padding:14px 10px; border-top:1px solid rgba(255,255,255,.15); margin-top:18px;">
+    © حقوق الطبع والنشر تيم الدحيحة
+  </footer>
+  <script>
+    const searchInput = document.getElementById('searchLecture');
+    const subjectSelect = document.getElementById('filterSubject');
+    const table = document.querySelector('.hero .table-wrap table tbody');
+    const rows = Array.from(table.querySelectorAll('tr'));
+
+    function filterRows() {
+      const query = searchInput.value.trim().toLowerCase();
+      const subject = subjectSelect.value;
+      rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const lecture = cells[0]?.innerText.toLowerCase();
+        const section = cells[1]?.innerText.toLowerCase();
+        const course = cells[2]?.innerText;
+
+        const matchQuery = !query || lecture.includes(query) || section.includes(query) || course.toLowerCase().includes(query);
+        const matchSubject = subject === 'all' || course === subject;
+
+        row.style.display = (matchQuery && matchSubject) ? '' : 'none';
+      });
+    }
+
+    function downloadCSV() {
+      const visibleRows = rows.filter(r => r.style.display !== 'none');
+      const csvData = ['"# المحاضرة","Section","المادة","رابط الملخص","رابط الريكورد"'];
+      visibleRows.forEach(row => {
+        const cols = Array.from(row.querySelectorAll('td')).map(td => '"' + td.innerText.replace(/"/g, '""') + '"');
+        csvData.push(cols.join(','));
+      });
+
+      const blob = new Blob([csvData.join('\n')], {type: 'text/csv;charset=utf-8;'});
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'lecture-records.csv';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    searchInput.addEventListener('input', filterRows);
+    subjectSelect.addEventListener('change', filterRows);
+    document.getElementById('exportCsv').addEventListener('click', downloadCSV);
+  </script>
 </body>
 </html>
+
+
+ 
+   
+  
