@@ -105,8 +105,84 @@
       <div class="card"><div class="photo-circle-mini"><img src="./image/image12 (2).jpeg" alt="Member 7"></div><h3>7 - Islam Mohamed </h3><span class="tag">Member</span><p></p></div>
       <div class="card"><div class="photo-circle-mini"><img src="./image/image13.jpeg" alt="Member 8"></div><h3>8 - Peter Azmy</h3><span class="tag">Member</span><p></p></div>
       <div class="card"><div class="photo-circle-mini"><img src="./image/image14.jpeg" alt="Member 9"></div><h3>9 - Ahmed Ashraf</h3><span class="tag">Member</span><p></p></div>
-      <div class="card"><div class="photo-circle-mini"><img src="./image/image15.png" alt="Member 10"></div><h3>10 - Islam Abdelsattar </h3><span class="tag">Member</span><p></p></div>
+      <div class="card"><div class="photo-circle-mini"><img src="./image/image15.png" alt="Member 10"></div><h3>10 - Islam Adelsattar </h3><span class="tag">Member</span><p></p></div>
       <div class="card"><div class="photo-circle-mini"><img src="./image/image16.jpeg" alt="Member 10"></div><h3>10 - Omar Elaidy </h3><span class="tag">Member</span><p></p></div>
+    </div>
+
+    <div class="hero" style="margin-top:18px;">
+      <h2 class="section-title">كويز أسبوعي (10 أسئلة لكل مادة)</h2>
+      <p class="info-text">اختبار سهل لكل فصل: كل إجابة صحيحة = 1 نقطة. اضغط "ابدأ" وشارك اسمك، وسيظهر ترتيب النقاط تلقائياً.</p>
+      <div class="controls">
+        <input id="quizName" type="text" placeholder="اكتب اسمك هنا" list="teamNamesList">
+        <datalist id="teamNamesList">
+          <option value="Ahmed Elshahat"></option>
+          <option value="Elsayed Elfiky"></option>
+          <option value="Osama Mohamed"></option>
+          <option value="Abanob Ramzy"></option>
+          <option value="Omar Elaidy"></option>
+          <option value="Ahmed Mostafa"></option>
+          <option value="Ali Hendawy"></option>
+          <option value="Ahmed Kairy"></option>
+          <option value="Mohamed emam"></option>
+          <option value="Ibrahim Salama"></option>
+          <option value="Ibrahim Yasser"></option>
+          <option value="Ahmed Metwally"></option>
+          <option value="Islam Mohamed"></option>
+          <option value="Peter Azmy"></option>
+          <option value="Ahmed Ashraf"></option>
+          <option value="Islam Adelsattar"></option>
+        </datalist>
+        <select id="quizSubject">
+          <option value="">اختر المادة</option>
+          <option value="C++">C++</option>
+          <option value="Programming 2">Programming 2 - Chapter 1</option>
+          <option value="Logic Design">Logic Design - Chapter 1</option>
+          <option value="Math 2">Math 2 - Chapter 1</option>
+          <option value="Operation Research">Operation Research - Chapter 1</option>
+          <option value="Discrete Math">Discrete Math</option>
+        </select>
+        <div id="subjectHint" style="color:#aa3300; font-weight:700; margin-top:6px;"></div>
+        <label style="display:flex; align-items:center; gap:6px; font-size:.85rem;">
+          <input id="noAiCheckbox" type="checkbox"> أؤكد أني لن استخدم الذكاء الاصطناعي (AI)
+        </label>
+        <button id="startQuiz">ابدأ الكويز</button>
+        <input id="resetCode" type="password" placeholder="كود المسؤول" style="width:160px; margin-left:8px; display:none;">
+        <button id="resetQuiz" style="background:#cc3333; margin-left:8px; display:none;">محو كل الداتا وابدأ من جديد (admin only)</button>
+      </div>
+      <div style="margin:12px 0; font-size:.88rem; color:#1f3d6a;">
+        سجل الأعضاء:
+        <ul id="registeredNames" style="padding-inline-start:20px; margin:8px 0 0;"></ul>
+      </div>
+      <div style="margin:12px 0; padding:12px; border:1px dashed #2a5ea2; border-radius:10px; background:#f7faff;">
+        <strong>أضف سؤال جديد للمادة الحالية</strong>
+        <div style="display:grid; gap:6px; margin-top:8px;">
+          <input id="newQText" type="text" placeholder="نص السؤال" style="width:100%;">
+          <input id="newQOpt1" type="text" placeholder="اختيار 1">
+          <input id="newQOpt2" type="text" placeholder="اختيار 2">
+          <input id="newQOpt3" type="text" placeholder="اختيار 3">
+          <input id="newQOpt4" type="text" placeholder="اختيار 4">
+          <select id="newQAnswer"><option value="">اختر الإجابة الصحيحة</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
+          <button id="addQuestionBtn" style="width:fit-content;">أضف سؤال</button>
+        </div>
+      </div>
+      <div id="quizArea" style="display:none; margin-top:12px;">
+        <div id="quizQuestion" style="min-height:110px; font-weight:600"></div>
+        <div id="quizOptions" style="margin-top:10px;"></div>
+        <div style="margin-top:12px; display:flex; gap:8px; align-items:center;">
+          <button id="nextQuestion">التالي</button>
+          <span id="quizProgress" style="font-size:.9rem; color:#1f314b;"></span>
+        </div>
+        <div id="quizResult" style="margin-top:12px; font-weight:700;"></div>
+      </div>
+      <div style="margin-top:14px;">
+        <h3>الت ranking للنتائج</h3>
+        <div class="table-wrap">
+          <table id="leaderboard" style="width:100%;">
+             <thead><tr><th>الترتيب</th><th>الاسم</th><th>المادة</th><th>النقاط</th><th>وقت النتيجة</th></tr></thead>
+             <tbody></tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
     <div class="hero" style="margin-top:18px;">
@@ -248,6 +324,335 @@
     searchInput.addEventListener('input', filterRows);
     subjectSelect.addEventListener('change', filterRows);
     document.getElementById('exportCsv').addEventListener('click', downloadCSV);
+
+    const quizData = {
+      'C++': [
+        {q:'Which line is correct to start a C++ program?', options:['#include <iostream>','using namespace std;','int main()','cout << "Hello";'], answer:'#include <iostream>'},
+        {q:'What statement enables cout without std:: prefix?', options:['#include <iostream>','using namespace std;','std::cout','namespace std;'], answer:'using namespace std;'},
+        {q:'What is the correct signature for the main function?', options:['main() {}','int main() {}','void main[]','function main()'], answer:'int main() {}'},
+        {q:'How do you print text to the console?', options:['print("hi");','cout << "hi";','console.log("hi");','printf("hi");'], answer:'cout << "hi";'},
+        {q:'The correct way to declare an integer variable x is:', options:['int x;','x int;','int = x;','int(x);'], answer:'int x;'},
+        {q:'How to assign value 5 to variable x?', options:['x = 5;','int x = 5','x <- 5','5 = x;'], answer:'x = 5;'},
+        {q:'Which is a float variable declaration?', options:['float y;','int y;','string y;','double y;'], answer:'float y;'},
+        {q:'How to read user input into variable a?', options:['cin >> a;','cout >> a;','scanf("%d", &a);','cin << a;'], answer:'cin >> a;'},
+        {q:'Which symbol ends a statement in C++?', options:[';','.',':','?'], answer:';'},
+        {q:'How do you write a single-line comment?', options:['// comment','/* comment */','# comment','<!-- comment -->'], answer:'// comment'},
+        {q:'How to declare a function named add that takes two ints?', options:['int add(int a, int b);','function add(int a, int b);','add(int a, int b);','int add(a, b);'], answer:'int add(int a, int b);'},
+        {q:'How to define the function add that returns a+b?', options:['int add(int a, int b) { return a + b; }','int add(int a, int b) => a + b;','function add(int a, int b){return a+b;}','add(int a, int b){return a+b;}'], answer:'int add(int a, int b) { return a + b; }'},
+        {q:'How to call function add with 2 and 3?', options:['add(2,3);','add 2, 3;','add{2,3};','add(2 3);'], answer:'add(2,3);'},
+        {q:'How does function return value to caller?', options:['return value;','end value;','stop value;','output value;'], answer:'return value;'},
+        {q:'Which is correct to define a void function?', options:['void printMessage() { cout << "Hi"; }','void printMessage[] { cout << "Hi"; }','void printMessage() : cout << "Hi";','printMessage() { cout << "Hi"; }'], answer:'void printMessage() { cout << "Hi"; }'},
+        {q:'Which is call by value example?', options:['int r = add(x, y);','int &r = add(x,y);','int r = &add(x,y);','int r = add(&x,&y);'], answer:'int r = add(x, y);'},
+        {q:'How to declare a constant int MAX with value 100?', options:['const int MAX = 100;','int const MAX=100','#define MAX 100','const MAX = 100;'], answer:'const int MAX = 100;'},
+        {q:'Which is correct array declaration?', options:['int arr[5];','int arr();','arr int[5];','int arr{5};'], answer:'int arr[5];'},
+        {q:'How to initialize array values at declaration?', options:['int arr[3] = {1,2,3};','int arr = {1,2,3};','int arr[3] = [1,2,3];','int arr(3)={1,2,3};'], answer:'int arr[3] = {1,2,3};'},
+        {q:'How to loop over array of 5 ints using for?', options:['for(int i=0;i<5;i++) cout<<arr[i];','for(i=0;i<=5;i++) cout<<arr[i];','for(int i=1;i<=5;i++) cout<<arr[i];','for(int i=5;i>0;i--) cout<<arr[i];'], answer:'for(int i=0;i<5;i++) cout<<arr[i];'},
+        {q:'How to declare a function that returns double?', options:['double avg(int a,int b);','int avg(int a,int b);','void avg(int a,int b);','avg(int a,int b) -> double;'], answer:'double avg(int a,int b);'},
+        {q:'What is the correct include for string type?', options:['#include <string>','#include <iostream>','#include <vector>','#include <sstream>'], answer:'#include <string>'},
+        {q:'How to use the string type?', options:['string name;','String name;','str name;','char name;'], answer:'string name;'},
+        {q:'Which is right to define function that returns square of n?', options:['int square(int n) { return n * n; }','int square(int n) { return n + n; }','square(int n) { return n*n; }','int square(n) => n*n;'], answer:'int square(int n) { return n * n; }'},
+        {q:'Which is correct default return for main?', options:['return 0;','return 1;','exit(0);','None;'], answer:'return 0;'},
+        {q:'Function with no parameter and no return should be declared as:', options:['void hello()','int hello()','hello()','function hello()'], answer:'void hello()'},
+        {q:'Which option declares a reference parameter?', options:['void update(int &x)','void update(int x)','void update(int *x)','void update(reference x)'], answer:'void update(int &x)'},
+        {q:'How to pass argument by value?', options:['add(2, 3);','add(&a, &b);','add(a, b);','add(*a, *b);'], answer:'add(a, b);'},
+        {q:'How to declare a pointer to an integer?', options:['int *ptr;','int ptr*;','pointer<int> ptr;','int ^ptr;'], answer:'int *ptr;'},
+        {q:'What is the valid C++ header include syntax?', options:['#include <iostream>','#include "iostream"','import iostream;','using <iostream>;'], answer:'#include <iostream>'},
+      ],
+      'Logic Design': [
+        {q:'ماذا يعني boolean algebra؟', options:['حساب حقيقي','حساب دوائي','حساب ضرب','حساب قوى'], answer:'حساب دوائي'},
+        {q:'البوابة NOT ينتج:', options:['0 عندما الإدخال 1','1 عندما الإدخال 1','0 دائما','1 دائما'], answer:'0 عندما الإدخال 1'},
+        {q:'بوابة AND تعطي 1 عندما:', options:['كل الإدخالات 1','إدخال واحد 1','كل الإدخالات 0','إدخال واحد 0'], answer:'كل الإدخالات 1'},
+        {q:'بوابة OR تعطي 0 عندما:', options:['كل المدخلات 0','مدخل واحد 1','كل المدخلات 1','مدخلات مختلفة'], answer:'كل المدخلات 0'},
+        {q:'التمثيل المبدئي ل XOR هو:', options:['A•B + A•¬B','A+B','A•B','¬A + B'], answer:'A•B + A•¬B'},
+        {q:'في جدول الحقيقة A OR B إذا A=1 B=0 النتيجة=', options:['0','1','غير معرف','A'], answer:'1'},
+        {q:'الـ De Morgan يعبر عن:', options:['مُركب','حقيقة','قواعد تحويل','نقطة التوصيل'], answer:'قواعد تحويل'},
+        {q:'تقليل التعبير المنطقي هدفه:', options:['زيادة التعقيد','تبسيط الدارة','إلغاء القرارات','تغيير الإدخالات'], answer:'تبسيط الدارة'},
+        {q:'بوابة NAND هي:', options:['عكس AND','عكس OR','AND و OR','لا شيء'], answer:'عكس AND'},
+        {q:'بوابة NOR تنتج 1 عندما:', options:['كلها 0','كلها 1','واحد 1 فقط','مزيج غير محدد'], answer:'كلها 0'}
+      ],
+      'Math 2': [
+        {q:'العلاقة المثلثية sin(π/2)=', options:['0','1','-1','غير معرف'], answer:'1'},
+        {q:'d/dx x^2 =', options:['x','2x','x^2','2'], answer:'2x'},
+        {q:'مجموع الأعداد من 1 إلى 10 هو', options:['50','55','45','60'], answer:'55'},
+        {q:'إذا f(x)=x+1 فـ f(2)=', options:['1','2','3','4'], answer:'3'},
+        {q:'التكامل ∫1 dx =', options:['x + C','1','0','2x'], answer:'x + C'},
+        {q:'جذر 16 هو', options:['2','3','4','5'], answer:'4'},
+        {q:'2^3 =', options:['5','6','7','8'], answer:'8'},
+        {q:'المتسلسلة 1+1+1 =', options:['1','2','3','غير منتهية'], answer:'3'},
+        {q:'الزاوية القائمة درجة', options:['45','90','180','30'], answer:'90'},
+        {q:'إذا x=3 و y=4 فـ x^2+y^2 =', options:['5','12','25','7'], answer:'25'}
+      ],
+      'Operation Research': [
+        {q:'الهدف في linear programming هو', options:['زيادة أو تقليل دالة هدف','إنشاء مخطط','كتابة معادلات فقط','حل دروس'], answer:'زيادة أو تقليل دالة هدف'},
+        {q:'أداة simplex تستخدم لـ', options:['حل معادلات غير خطية','تحسين خطي','رسم المربعات','حساب المشتقات'], answer:'تحسين خطي'},
+        {q:'قيود problem تسمى', options:['constraints','variables','objective','outcome'], answer:'constraints'},
+        {q:'متغيرات القرار عادة تكون', options:['ثابتة','قابلة للتغيير','بحجم ثابت','خارجية'], answer:'قابلة للتغيير'},
+        {q:'حلfeasible يعني', options:['قابل للتطبيق','غير قابل للتطبيق','مثالي','أولي'], answer:'قابل للتطبيق'},
+        {q:'المنطقة المسموح بها تسمى', options:['feasible region','objective area','core set','base'], answer:'feasible region'},
+        {q:'انتهى من memilih', options:['لا شيء','حل أمثل','خطأ','متداخل'], answer:'حل أمثل'},
+        {q:'متغير slack يُضاف لتحويل', options:['= إلى ≤','≤ إلى =','≥ إلى ≤','< إلى >'], answer:'≤ إلى ='},
+        {q:'زيادة في d تابع بالأحرى تؤثر على', options:['الحل','المتغيرات','القيود','المدخلات'], answer:'الحل'},
+        {q:'إذا objective = max 2x+3y فإن القيمة الأكبر تعتمد على', options:['x و y',' فقط x',' فقط y','الثوابت'], answer:'x و y'}
+      ]
+    };
+
+    const teamMembers = [
+      'Ahmed Elshahat', 'Elsayed Elfiky', 'Osama Mohamed', 'Abanob Ramzy', 'Omar Elaidy',
+      'Ahmed Mostafa', 'Ali Hendawy', 'Ahmed Kairy', 'Mohamed emam', 'Ibrahim Salama',
+      'Ibrahim Yasser', 'Ahmed Metwally', 'Islam Mohamed', 'Peter Azmy', 'Ahmed Ashraf', 'Islam Adelsattar'
+    ];
+
+    const quizName = document.getElementById('quizName');
+    const quizSubject = document.getElementById('quizSubject');
+    const subjectHint = document.getElementById('subjectHint');
+    const startQuiz = document.getElementById('startQuiz');
+    const noAiCheckbox = document.getElementById('noAiCheckbox');
+    const registeredNamesArea = document.getElementById('registeredNames');
+    const newQText = document.getElementById('newQText');
+    const newQOpt1 = document.getElementById('newQOpt1');
+    const newQOpt2 = document.getElementById('newQOpt2');
+    const newQOpt3 = document.getElementById('newQOpt3');
+    const newQOpt4 = document.getElementById('newQOpt4');
+    const newQAnswer = document.getElementById('newQAnswer');
+    const addQuestionBtn = document.getElementById('addQuestionBtn');
+    const quizArea = document.getElementById('quizArea');
+    const quizQuestion = document.getElementById('quizQuestion');
+    const quizOptions = document.getElementById('quizOptions');
+    const nextQuestion = document.getElementById('nextQuestion');
+    const quizProgress = document.getElementById('quizProgress');
+    const quizResult = document.getElementById('quizResult');
+    const resetCode = document.getElementById('resetCode');
+    const leaderboardTableBody = document.querySelector('#leaderboard tbody');
+
+    let activeQuiz = [];
+    let currentQ = 0;
+    let currentScore = 0;
+
+    function renderQuestion() {
+      if (currentQ >= activeQuiz.length) {
+        finishQuiz();
+        return;
+      }
+      const item = activeQuiz[currentQ];
+      quizQuestion.innerText = `${currentQ + 1}. ${item.q}`;
+      quizOptions.innerHTML = item.options.map((opt,i)=>
+        `<label style="display:block; margin-bottom:6px;"><input type=\"radio\" name=\"quizOption\" value=\"${opt}\"> ${opt}</label>`
+      ).join('');
+      quizProgress.innerText = `سؤال ${currentQ+1} من ${activeQuiz.length}`;
+      quizResult.innerText = '';
+    }
+
+    quizSubject.addEventListener('change', ()=>{
+      const subject = quizSubject.value;
+      if (subject === 'Programming 2' || subject === 'Logic Design' || subject === 'Math 2' || subject === 'Operation Research' || subject === 'Discrete Math') {
+        subjectHint.innerText = 'ملاحظة: احنا لسه مش اخدنا JavaScript، بنشتغل على C++ في الكويز.';
+      } else if (subject === 'C++') {
+        subjectHint.innerText = 'تمام! الكويز في C++ جاهز الآن.';
+      } else {
+        subjectHint.innerText = '';
+      }
+    });
+
+    function loadRegisteredNames() {
+      try { return JSON.parse(localStorage.getItem('registeredQuizUsers')||'[]'); }
+      catch { return []; }
+    }
+
+    function saveRegisteredNames(users) {
+      localStorage.setItem('registeredQuizUsers', JSON.stringify(users));
+    }
+
+    function showRegisteredNames() {
+      const users = loadRegisteredNames();
+      const now = new Date();
+      const validUsers = users.filter(u => {
+        const age = now - new Date(u.time);
+        return age <= 30 * 60 * 1000; // نص ساعة
+      });
+      saveRegisteredNames(validUsers); // نظّف القديم
+      registeredNamesArea.innerHTML = validUsers.slice(-20).reverse().map(u => {
+        const age = now - new Date(u.time);
+        const remaining = Math.max(0, 30 * 60 * 1000 - age);
+        const mins = Math.floor(remaining / 60000);
+        const secs = Math.floor((remaining % 60000) / 1000).toString().padStart(2,'0');
+        return `<li>${u.name} - ${u.subject} - سجل: ${new Date(u.time).toLocaleString('ar-EG')} - وقت متبقي: ${mins}:${secs}</li>`;
+      }).join('');
+    }
+
+    function loadCustomQuestions() {
+      try { return JSON.parse(localStorage.getItem('extraQuizQuestions')||'{}'); }
+      catch { return {}; }
+    }
+
+    function saveCustomQuestions(data) {
+      localStorage.setItem('extraQuizQuestions', JSON.stringify(data));
+    }
+
+    function applyCustomQuestions() {
+      const custom = loadCustomQuestions();
+      Object.keys(custom).forEach(subject => {
+        quizData[subject] = (quizData[subject] || []).concat(custom[subject]);
+      });
+    }
+
+    function finishQuiz() {
+      quizArea.style.display = 'none';
+      const name = quizName.value.trim();
+      const subject = quizSubject.value;
+      const existing = loadLeaderboardData();
+      const found = existing.find(item => item.name === name && item.subject === subject);
+      if (found) {
+        found.score = Math.max(found.score, currentScore);
+        found.updated = new Date().toISOString();
+      } else {
+        existing.push({name, subject, score: currentScore, updated: new Date().toISOString()});
+      }
+      saveLeaderboardData(existing);
+      showLeaderboard();
+      quizResult.innerText = `انتهى الكويز! اسم: ${name} / مادة: ${subject} / النقاط: ${currentScore}/${activeQuiz.length}`;
+      quizResult.style.color = '#113f76';
+    }
+
+    function showLeaderboard() {
+      const saved = loadLeaderboardData();
+      const all = [...saved];
+      teamMembers.forEach(teamName => {
+        const exists = all.some(item => item.name === teamName && item.subject === 'C++');
+        if (!exists) {
+          all.push({name: teamName, subject: 'C++', score: 0, updated: null});
+        }
+      });
+      all.sort((a,b)=>{
+        if (b.score !== a.score) return b.score - a.score;
+        if (a.updated && b.updated) return new Date(a.updated) - new Date(b.updated);
+        if (a.updated) return -1;
+        if (b.updated) return 1;
+        return a.name.localeCompare(b.name, 'ar');
+      });
+      leaderboardTableBody.innerHTML = all.slice(0, 20).map((p,i)=>{
+        const timeText = p.updated ? new Date(p.updated).toLocaleString('ar-EG') : 'لم يُسجل بعد';
+        return `<tr><td>${i+1}${i===0?' 🏆': i===1?' 🥈': i===2?' 🥉':''}</td><td>${p.name}</td><td>${p.subject}</td><td>${p.score}</td><td>${timeText}</td></tr>`;
+      }).join('');
+    }
+
+    function loadLeaderboardData() {
+      try { return JSON.parse(localStorage.getItem('surveyLeaderboard')||'[]'); }
+      catch { return []; }
+    }
+    function saveLeaderboardData(data) { localStorage.setItem('surveyLeaderboard', JSON.stringify(data)); }
+
+    startQuiz.addEventListener('click', ()=>{
+      const name = quizName.value.trim();
+      const subject = quizSubject.value;
+      const mappedSubject = (subject === 'Programming 2' ? 'C++' : subject);
+      if (!name || !subject) {
+        alert('الرجاء ادخال اسمك واختيار المادة قبل البداية.');
+        return;
+      }
+      if (!teamMembers.includes(name)) {
+        alert('الاسم غير موجود ضمن أعضاء الفريق. الرجاء اختيار اسم مسجل في الموقع.');
+        return;
+      }
+      if (!noAiCheckbox.checked) {
+        alert('الرجاء التأكيد أنكَ لن تستخدم الذكاء الاصطناعي في حل الكويز.');
+        return;
+      }
+      const questions = quizData[mappedSubject];
+      if (!questions) {
+        alert('لا توجد أسئلة لهذا الموضوع بعد.');
+        return;
+      }
+      const registered = loadRegisteredNames();
+      const now = new Date().toISOString();
+      // Remove منتهية الصلاحية (أكثر من نص ساعة)
+      const filtered = registered.filter(u => (new Date() - new Date(u.time)) < 30 * 60 * 1000);
+      const existingIndex = filtered.findIndex(u=>u.name===name && u.subject===mappedSubject);
+      if (existingIndex === -1) {
+        filtered.push({name, subject: mappedSubject, time: now});
+      } else {
+        filtered[existingIndex].time = now;
+      }
+      saveRegisteredNames(filtered);
+      showRegisteredNames();
+
+      if (mappedSubject === 'C++') {
+        subjectHint.innerText = 'ربنا معاكوا في الكويز يا شباب';
+      } else {
+        subjectHint.innerText = 'ربنا معاكوا في الكويز يا شباب';
+      }
+
+      activeQuiz = questions.slice();
+      currentQ = 0;
+      currentScore = 0;
+      quizArea.style.display = 'block';
+      renderQuestion();
+    });
+
+    document.getElementById('resetQuiz').addEventListener('click', ()=>{
+      const adminName = 'Ahmed Elshahat';
+      const adminCode = 'team2026'; // غير الكود لو حبيت
+      if (quizName.value.trim() !== adminName) {
+        alert('فقط القائد Ahmed Elshahat يمكنه مسح البيانات.');
+        return;
+      }
+      if (resetCode.value !== adminCode) {
+        alert('الكود غير صحيح. لا يمكنك مسح البيانات.');
+        return;
+      }
+      if (!confirm('هل تريد فعلاً حذف كل البيانات والبدء من جديد؟ هذا سيؤثر على الجميع.')) return;
+      localStorage.removeItem('surveyLeaderboard');
+      localStorage.removeItem('registeredQuizUsers');
+      localStorage.removeItem('extraQuizQuestions');
+      showLeaderboard();
+      showRegisteredNames();
+      resetCode.value = '';
+      alert('تم مسح البيانات بنجاح. يمكنك الآن البدء من جديد.');
+    });
+
+    addQuestionBtn.addEventListener('click', ()=>{
+      const subject = quizSubject.value;
+      if (!subject) {
+        alert('اختر المادة أولاً قبل إضافة سؤال.');
+        return;
+      }
+      const q = newQText.value.trim();
+      const options = [newQOpt1.value.trim(), newQOpt2.value.trim(), newQOpt3.value.trim(), newQOpt4.value.trim()];
+      const answerIndex = parseInt(newQAnswer.value, 10) - 1;
+      if (!q || options.some(o=>!o) || isNaN(answerIndex) || answerIndex < 0 || answerIndex > 3) {
+        alert('من فضلك ادخل السؤال و4 اختيارات واختر جواب صحيح (1-4).');
+        return;
+      }
+      const questionObj = {q, options, answer: options[answerIndex]};
+      const custom = loadCustomQuestions();
+      custom[subject] = custom[subject] || [];
+      custom[subject].push(questionObj);
+      saveCustomQuestions(custom);
+      applyCustomQuestions();
+      alert('تم اضافة السؤال بنجاح! انتظر الآن وابدأ الكويز.');
+      newQText.value = '';
+      newQOpt1.value = '';
+      newQOpt2.value = '';
+      newQOpt3.value = '';
+      newQOpt4.value = '';
+      newQAnswer.value = '';
+    });
+
+    nextQuestion.addEventListener('click', ()=>{
+      const selected = document.querySelector('input[name="quizOption"]:checked');
+      if (!selected) {
+        alert('رجاءً اختر إجابة قبل الانتقال للسؤال التالي.');
+        return;
+      }
+      if (selected.value === activeQuiz[currentQ].answer) currentScore++;
+      currentQ++;
+      if (currentQ < activeQuiz.length) renderQuestion(); else finishQuiz();
+    });
+
+    applyCustomQuestions();
+    showLeaderboard();
+    showRegisteredNames();
+    setInterval(showRegisteredNames, 1000);
+
   </script>
 </body>
 </html>
