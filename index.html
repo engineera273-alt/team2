@@ -51,6 +51,28 @@
 
     .badge {font-size:.78rem; font-weight:700; color:#fff; border-radius:12px; padding:3px 8px;}
     .status-1 {background:#2cae74;} .status-2 {background:#f5a623;} .status-3 {background:#d93f48;}
+
+    /* leaderboard animation */
+    .leaderboard-row {transition:background 0.3s ease, transform 0.3s ease;}
+    .leaderboard-row:hover {background:#e8f2ff; transform:translateY(-2px);}
+    .rank-emoji {display:inline-block; margin-left:6px; font-size:1.05rem; vertical-align:middle;}
+    .rank-first .rank-emoji {animation:wobble 1.2s infinite;}    
+    .rank-second .rank-emoji {animation:pop 1.2s infinite 0.1s;}
+    .rank-third .rank-emoji {animation:pop 1.2s infinite 0.2s;}
+
+    @keyframes wobble {
+      0%,100% {transform:rotate(0deg);}
+      15% {transform:rotate(-10deg);}
+      30% {transform:rotate(10deg);}
+      45% {transform:rotate(-8deg);}
+      60% {transform:rotate(8deg);}
+      75% {transform:rotate(-4deg);}
+    }
+    @keyframes pop {
+      0%,100% {transform:scale(1);} 
+      50% {transform:scale(1.08);}
+    }
+
   </style>
 </head>
 <body>
@@ -152,18 +174,6 @@
       <div style="margin:12px 0; font-size:.88rem; color:#1f3d6a;">
         سجل الأعضاء:
         <ul id="registeredNames" style="padding-inline-start:20px; margin:8px 0 0;"></ul>
-      </div>
-      <div style="margin:12px 0; padding:12px; border:1px dashed #2a5ea2; border-radius:10px; background:#f7faff;">
-        <strong>أضف سؤال جديد للمادة الحالية</strong>
-        <div style="display:grid; gap:6px; margin-top:8px;">
-          <input id="newQText" type="text" placeholder="نص السؤال" style="width:100%;">
-          <input id="newQOpt1" type="text" placeholder="اختيار 1">
-          <input id="newQOpt2" type="text" placeholder="اختيار 2">
-          <input id="newQOpt3" type="text" placeholder="اختيار 3">
-          <input id="newQOpt4" type="text" placeholder="اختيار 4">
-          <select id="newQAnswer"><option value="">اختر الإجابة الصحيحة</option><option>1</option><option>2</option><option>3</option><option>4</option></select>
-          <button id="addQuestionBtn" style="width:fit-content;">أضف سؤال</button>
-        </div>
       </div>
       <div id="quizArea" style="display:none; margin-top:12px;">
         <div id="quizQuestion" style="min-height:110px; font-weight:600"></div>
@@ -408,13 +418,6 @@
     const startQuiz = document.getElementById('startQuiz');
     const noAiCheckbox = document.getElementById('noAiCheckbox');
     const registeredNamesArea = document.getElementById('registeredNames');
-    const newQText = document.getElementById('newQText');
-    const newQOpt1 = document.getElementById('newQOpt1');
-    const newQOpt2 = document.getElementById('newQOpt2');
-    const newQOpt3 = document.getElementById('newQOpt3');
-    const newQOpt4 = document.getElementById('newQOpt4');
-    const newQAnswer = document.getElementById('newQAnswer');
-    const addQuestionBtn = document.getElementById('addQuestionBtn');
     const quizArea = document.getElementById('quizArea');
     const quizQuestion = document.getElementById('quizQuestion');
     const quizOptions = document.getElementById('quizOptions');
@@ -479,22 +482,6 @@
       }).join('');
     }
 
-    function loadCustomQuestions() {
-      try { return JSON.parse(localStorage.getItem('extraQuizQuestions')||'{}'); }
-      catch { return {}; }
-    }
-
-    function saveCustomQuestions(data) {
-      localStorage.setItem('extraQuizQuestions', JSON.stringify(data));
-    }
-
-    function applyCustomQuestions() {
-      const custom = loadCustomQuestions();
-      Object.keys(custom).forEach(subject => {
-        quizData[subject] = (quizData[subject] || []).concat(custom[subject]);
-      });
-    }
-
     function finishQuiz() {
       quizArea.style.display = 'none';
       const name = quizName.value.trim();
@@ -531,7 +518,9 @@
       });
       leaderboardTableBody.innerHTML = all.slice(0, 20).map((p,i)=>{
         const timeText = p.updated ? new Date(p.updated).toLocaleString('ar-EG') : 'لم يُسجل بعد';
-        return `<tr><td>${i+1}${i===0?' 🏆': i===1?' 🥈': i===2?' 🥉':''}</td><td>${p.name}</td><td>${p.subject}</td><td>${p.score}</td><td>${timeText}</td></tr>`;
+        const rankClass = i === 0 ? 'rank-first' : i === 1 ? 'rank-second' : i === 2 ? 'rank-third' : '';
+        const medal = i===0 ? '🏆' : i===1 ? '🥈' : i===2 ? '🥉' : '';
+        return `<tr class="leaderboard-row ${rankClass}"><td>${i+1} <span class="rank-emoji">${medal}</span></td><td>${p.name}</td><td>${p.subject}</td><td>${p.score}</td><td>${timeText}</td></tr>`;
       }).join('');
     }
 
@@ -609,34 +598,6 @@
       alert('تم مسح البيانات بنجاح. يمكنك الآن البدء من جديد.');
     });
 
-    addQuestionBtn.addEventListener('click', ()=>{
-      const subject = quizSubject.value;
-      if (!subject) {
-        alert('اختر المادة أولاً قبل إضافة سؤال.');
-        return;
-      }
-      const q = newQText.value.trim();
-      const options = [newQOpt1.value.trim(), newQOpt2.value.trim(), newQOpt3.value.trim(), newQOpt4.value.trim()];
-      const answerIndex = parseInt(newQAnswer.value, 10) - 1;
-      if (!q || options.some(o=>!o) || isNaN(answerIndex) || answerIndex < 0 || answerIndex > 3) {
-        alert('من فضلك ادخل السؤال و4 اختيارات واختر جواب صحيح (1-4).');
-        return;
-      }
-      const questionObj = {q, options, answer: options[answerIndex]};
-      const custom = loadCustomQuestions();
-      custom[subject] = custom[subject] || [];
-      custom[subject].push(questionObj);
-      saveCustomQuestions(custom);
-      applyCustomQuestions();
-      alert('تم اضافة السؤال بنجاح! انتظر الآن وابدأ الكويز.');
-      newQText.value = '';
-      newQOpt1.value = '';
-      newQOpt2.value = '';
-      newQOpt3.value = '';
-      newQOpt4.value = '';
-      newQAnswer.value = '';
-    });
-
     nextQuestion.addEventListener('click', ()=>{
       const selected = document.querySelector('input[name="quizOption"]:checked');
       if (!selected) {
@@ -648,7 +609,6 @@
       if (currentQ < activeQuiz.length) renderQuestion(); else finishQuiz();
     });
 
-    applyCustomQuestions();
     showLeaderboard();
     showRegisteredNames();
     setInterval(showRegisteredNames, 1000);
