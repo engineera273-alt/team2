@@ -831,29 +831,436 @@
       background: #111827;
     }
 
-    @keyframes smoothScrollRightToLeft {
-      0% { transform: translateX(100vw); }
-      100% { transform: translateX(-100%); }
+    /* New Features Styles */
+    .debug-code {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: 'Consolas', monospace;
+      font-size: 0.9rem;
+      position: relative;
+      margin: 10px 0;
+      overflow-x: auto;
     }
+
+    .debug-answer {
+      display: none;
+      background: #065f46;
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 0.85rem;
+    }
+
+    /* Roulette */
+    .roulette-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      margin: 15px auto;
+    }
+
+    .wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 5px solid #1e3a8a;
+      background: conic-gradient(#3b82f6 0% 16.6%, #10b981 16.6% 33.3%, #ef4444 33.3% 50%, #f59e0b 50% 66.6%, #8b5cf6 66.6% 83.3%, #ec4899 83.3% 100%);
+      transition: transform 3s cubic-bezier(0.15, 0, 0.15, 1);
+    }
+
+    .needle {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 25px solid #1e3a8a;
+      z-index: 10;
+    }
+
+    /* Live Status & Streaks */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-top: 5px;
+    }
+
+    .status-online {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status-offline {
+      background: #f1f5f9;
+      color: #475569;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 0 rgba(34, 197, 94, 0.4);
+      animation: pulse-animation 2s infinite;
+    }
+
+    @keyframes pulse-animation {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+      }
+
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+      }
+
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+      }
+    }
+
+    .streak-fire {
+      font-size: 1.1rem;
+      margin-right: 5px;
+      filter: drop-shadow(0 0 3px rgba(239, 68, 68, 0.4));
+    }
+
+    /* Snippets Hub */
+    .snippet-category {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 12px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .snippet-header {
+      padding: 12px 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      background: #f8fafc;
+      transition: background 0.2s;
+    }
+
+    .snippet-header:hover {
+      background: #f1f5f9;
+    }
+
+    .snippet-content {
+      padding: 15px;
+      display: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    body.dark-mode .snippet-category {
+      background: rgba(30, 41, 59, 0.4);
+    }
+
+    body.dark-mode .snippet-header {
+      background: #1e293b;
+    }
+
+    .mock-btn {
+      background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
+      color: white !important;
+    }
+
+    /* Success Pop Animation */
+    @keyframes success-pop {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .btn-success-animate {
+      animation: success-pop 0.5s ease;
+    }
+
+    /* --- Professional Login Styles --- */
+    .login-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .login-modal {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2.5rem;
+      border-radius: 24px;
+      width: 90%;
+      max-width: 450px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      color: white;
+      animation: modalReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes modalReveal {
+      from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .login-header {
+      margin-bottom: 2rem;
+    }
+
+    .login-header h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .login-header p {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .input-group {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .input-group label {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      padding-right: 4px;
+    }
+
+    .login-input {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      color: white;
+      outline: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      text-align: right;
+      width: 100%;
+    }
+
+    .login-input:focus {
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .login-btn {
+      background: linear-gradient(135deg, #0ea5e9, #2563eb);
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.4);
+      opacity: 0.95;
+    }
+
+    .login-btn:active {
+      transform: translateY(0);
+    }
+
+    #loginError {
+      color: #f87171;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .user-greeting {
+      display: none;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(30, 41, 59, 0.5);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logout-btn {
+      background: rgba(239, 68, 68, 0.1);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background: #ef4444;
+      color: white;
+    }
+
+    .locked-btn {
+      opacity: 0.5;
+      cursor: not-allowed !important;
+      pointer-events: none;
+      filter: grayscale(1);
+    }
+
+    .award-btn {
+      display: none;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #f97316;
+      border-radius: 8px;
+      color: #f97316;
+      font-size: 10px;
+      cursor: pointer;
+      margin-top: 5px;
+      padding: 2px 6px;
+      transition: 0.3s;
+    }
+
+    .award-btn:hover {
+      background: #f97316;
+      color: #fff;
+    }
+
+    .is-admin .award-btn {
+      display: inline-block;
+    }
+
+    /* Marquee Animation */
     .scrolling-text {
       display: inline-block;
       white-space: nowrap;
-      animation: smoothScrollRightToLeft 15s linear infinite;
+      padding-left: 100%;
+      animation: scroll-left 15s linear infinite;
+    }
+    .scrolling-text:hover {
+      animation-play-state: paused;
+    }
+    @keyframes scroll-left {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
     }
   </style>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 </head>
 
 <body>
   <button id="themeToggle" class="theme-toggle" title="بدّل الوضع الليلي">🌙</button>
   <button id="focusToggle" class="focus-toggle-btn" title="وضع العزل الكامل">🎯</button>
+
+  <!-- Professional Login Overlay -->
+  <div id="loginOverlay" class="login-overlay">
+    <div class="login-modal">
+      <div class="login-header">
+        <h2>تسجيل الدخول للتيم 🛡️</h2>
+        <p>أهلاً بك يا بطل، سجل دخولك للبدء.</p>
+      </div>
+      <div class="login-form">
+        <div class="input-group">
+          <label>اسم العضو</label>
+          <select id="loginUserName" class="login-input">
+            <option value="" disabled selected>اختر اسمك من القائمة...</option>
+            <option>Ahmed Elshahat</option>
+            <option>Elsayed Elfiky</option>
+            <option>Osama Mohamed</option>
+            <option>Abanob Ramzy</option>
+            <option>Ahmed Mostafa</option>
+            <option>Omar Elaidy</option>
+            <option>Ali Hendawy</option>
+            <option>Ahmed Kairy</option>
+            <option>Mohamed emam</option>
+            <option>Ibrahim Salama</option>
+            <option>Ibrahim Yasser</option>
+            <option>Ahmed Metwally</option>
+            <option>Islam Mohamed</option>
+            <option>Peter Azmy</option>
+            <option>Ahmed Ashraf</option>
+            <option>Islam Adelsattar</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>كلمة المرور</label>
+          <input type="password" id="loginPassword" class="login-input" placeholder="••••••••">
+        </div>
+        <button class="login-btn" onclick="handleLogin()">دخول للمنصة 🚀</button>
+        <p id="loginError">⚠️ كلمة المرور غير صحيحة، حاول مرة أخرى.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="userGreeting" class="user-greeting"
+    style="position: fixed; top: 20px; left: 80px; z-index: 1001; display: none;">
+    <span id="welcomeText"></span>
+    <button class="logout-btn" onclick="handleLogout()" style="margin-right: 10px;">تسجيل خروج</button>
+  </div>
+
   <div class="container">
     <div id="announcementBanner"
-      style="background: linear-gradient(90deg, #ef4444, #f59e0b); color: white; padding: 10px 15px; border-radius: 8px; font-weight: bold; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);">
+      style="background: linear-gradient(90deg, #ef4444, #f59e0b); margin-top: 70px; color: white; padding: 10px 15px; border-radius: 8px; font-weight: bold; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);">
       <div style="display: flex; align-items: center; gap: 10px; flex: 1; overflow: hidden; position: relative;">
         <span style="font-size: 1.2rem; z-index: 2; color: #fff; background: transparent; padding-right: 5px;">📢</span>
         <div style="flex: 1; display: flex; align-items: center;">
           <div class="scrolling-text">
-            <span>تنبيه هام : اخر معاد دخول الكويز الساعه 12 مساء ! &nbsp;&nbsp;|&nbsp;&nbsp; وان شاء الله هنبدا مذاكره من يوم الاحد</span>
+            <span>تنبيه هام : اخر معاد دخول الكويز الساعه 12 مساء ! &nbsp;&nbsp;|&nbsp;&nbsp; وان شاء الله هنبدا مذاكره
+              من يوم الاحد</span>
           </div>
         </div>
       </div>
@@ -883,6 +1290,9 @@
           <p class="role">Leader</p>
           <p>هنا تقدر تضيف ملخص مدخلات اليوم، ملاحظات، أو هدف المشروع.</p>
           <p>آخر تحديث: <strong>اليوم</strong></p>
+          <button id="toggleLiveStatus" class="controls" onclick="toggleLiveStatus()"
+            style="margin-top: 10px; background: linear-gradient(135deg, #10b981, #059669);">أنا بذاكر دلوقتي!
+            📖</button>
         </div>
       </div>
     </div>
@@ -947,6 +1357,16 @@
         </div>
       </div>
 
+      <div class="hero" id="dailyChallengeHero" style="margin-bottom: 0;">
+        <h2 class="section-title">💡 تحدي اليوم</h2>
+        <p class="info-text">جاوب صح وخد 🔥 هدية لتيمك!</p>
+        <div id="dailyChallengeContent" style="background: rgba(255,255,255,0.5); padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+          <p id="challengeQuestion" style="font-weight: bold; margin-bottom: 10px;"></p>
+          <div id="challengeOptions" class="controls" style="flex-direction: column; gap: 8px;"></div>
+        </div>
+        <p id="challengeResult" style="text-align: center; font-weight: bold; min-height: 1.2rem;"></p>
+      </div>
+
       <div class="hero" style="margin-bottom: 0;">
         <h2 class="section-title">🗂️ فلاش كاردز (مراجعة سريعة)</h2>
         <p class="info-text">اضغط على البطاقة لقلبها ومعرفة الإجابة.</p>
@@ -969,6 +1389,35 @@
     </div>
 
     <div class="tools-grid">
+      <!-- 1. Daily Debugging Challenge -->
+      <div class="hero" style="margin-bottom: 0;">
+        <h2 class="section-title">🪲 تحدي الـ Bug اليومي</h2>
+        <p class="info-text">طلع الغلطة في الكود ده عشان تكسب نقطة التيم!</p>
+        <div class="debug-code">
+          <pre><code>int main() {
+  int x = 10
+  cout << "Value is: " << x;
+  return 0;
+}</code></pre>
+        </div>
+        <button id="showDebugAnswer" class="controls" style="width:100%; margin-top:5px;">إظهار الحل ✅</button>
+        <div id="debugAnswer" class="debug-answer">
+          الخطأ في السطر الثاني: نقصت الفاصلة المنقوطة (semicolon) بعد <code>int x = 10;</code>
+        </div>
+      </div>
+
+      <!-- 3. Study Roulette -->
+      <div class="hero" style="margin-bottom: 0; text-align: center;">
+        <h2 class="section-title">🎰 عجلة حظ المذاكرة</h2>
+        <p class="info-text">مش عارف تذاكر إيه؟ سيبها على الحظ!</p>
+        <div class="roulette-container">
+          <div class="needle"></div>
+          <div id="wheel" class="wheel"></div>
+        </div>
+        <button id="spinWheel" class="controls" style="width:100%;">لف العجلة 🚀</button>
+        <p id="rouletteResult" style="margin-top: 10px; font-weight: bold; color: #1e3a8a; min-height: 1.2rem;"></p>
+      </div>
+
       <div class="hero" style="margin-bottom: 0;">
         <h2 class="section-title">⏳ عداد الامتحانات والتسليمات</h2>
         <div id="countdownContainer"
@@ -1001,6 +1450,82 @@
           <button id="clearDrawBtn" style="background: #ef4444; padding: 6px 12px; font-size: 0.9rem;">امسح السبورة
             🗑️</button>
         </div>
+      </div>
+    </div>
+
+    <div class="hero hide-in-focus" style="margin-bottom: 24px; position: relative;">
+      <div
+        style="position: absolute; top: 0; right: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #ef4444, #f5a623, #10b981, #3b82f6); border-radius: 24px 24px 0 0;">
+      </div>
+      <h2 class="section-title"
+        style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-top: 5px;">
+        <span>🚀 خطة المذاكرة (مفرمة الميدتيرم)</span>
+        <span class="badge"
+          style="background: #ef4444; font-size: 0.85rem; padding: 5px 12px; box-shadow: 0 4px 10px rgba(239,68,68,0.4);">أسبوع
+          ما قبل الامتحانات</span>
+      </h2>
+      <p class="info-text">خطة المذاكرة العكسية، لتقسيم المواد وتجهيز الدماغ لأول امتحان (Math 2). تبدأ من الأحد 22
+        مارس.</p>
+
+      <div class="table-wrap">
+        <table style="text-align: center; width: 100%; margin-top: 10px;">
+          <thead>
+            <tr>
+              <th>اليوم</th>
+              <th>☀️ الفترة الصباحية (حل ومسائل)</th>
+              <th>🌙 الفترة المسائية (حفظ ومراجعة)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight: bold;">الأحد 22/3</td>
+              <td><strong style="color: #2563eb;">Operation Research</strong><br><span style="font-size: 0.85rem;">مسائل
+                  الجرافيك والـ Simplex</span></td>
+              <td><strong style="color: #8b5cf6;">Social & Ethical</strong><br><span style="font-size: 0.85rem;">
+                  قراءة الملف الدكتوره بعتاه فقط </span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">الإثنين 23/3</td>
+              <td><strong style="color: #2563eb;">Logic Design</strong><br><span style="font-size: 0.85rem;">
+                  حل design</span></td>
+              <td><strong style="color: #8b5cf6;">Discrete Math</strong><br><span style="font-size: 0.85rem;">
+                  مذاكره كويس جدا ل discrete math</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">الثلاثاء 24/3</td>
+              <td><strong style="color: #2563eb;">Programming 2</strong><br><span style="font-size: 0.85rem;">كتابة كود
+                  OOP وتطبيق عملي</span></td>
+              <td><strong style="color: #8b5cf6;">Operation Research</strong><br><span
+                  style="font-size: 0.85rem;">استكمال حل شيتات وتطبيقات</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;">الأربعاء 25/3</td>
+              <td><strong style="color: #2563eb;">Logic Design</strong><br><span style="font-size: 0.85rem;">تجميع
+                  مسارات وحل امتحانات سابقة</span></td>
+              <td><strong style="color: #8b5cf6;">Discrete Math</strong><br><span style="font-size: 0.85rem;">تثبيت
+                  قوانين ومسائل</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; background: rgba(239,68,68,0.05);">الخميس 26/3</td>
+              <td><strong style="color: #dc2626;">Math 2 (البدء)</strong><br><span style="font-size: 0.85rem;">مراجعة
+                  قوانين (تكامل واشتقاق)</span></td>
+              <td><strong style="color: #8b5cf6;">Programming 2</strong><br><span style="font-size: 0.85rem;">مراجعة
+                  أفكار سريعة فقط</span></td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold; background: rgba(239,68,68,0.1);">الجمعة 27/3</td>
+              <td colspan="2"><strong style="color: #dc2626; font-size: 1.1rem;">Math 2 فقط 💯</strong><br><span
+                  style="font-size: 0.9rem;">امتحانات سابقة + نوم مبكر استعداداً لورقة السبت</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div
+        style="margin-top: 15px; background: rgba(16,185,129,0.1); padding: 12px; border-radius: 8px; border-right: 4px solid #10b981;">
+        <h3 style="color: #059669; margin-bottom: 5px; font-size: 1rem;">💡 فترة الامتحانات (بداية من السبت 28 مارس):
+        </h3>
+        <p style="margin:0; font-size: 0.9rem; line-height: 1.6;">الجدول أيام الامتحانات: ارجع من الامتحان ← نام شوية ←
+          اصحى اعمل Refresh سريع لمادة بكرا اللي إنت أساساً مراجعها في الأسبوع ده!</p>
       </div>
     </div>
 
@@ -1050,27 +1575,100 @@
       </div>
     </div>
 
-    <h2>أعضاء التابعين</h2>
+    <div class="hero hide-in-focus" style="margin-bottom: 24px;">
+      <h2 class="section-title">📚 مكتبة الزتونة (Code Hub)</h2>
+      <p class="info-text">أهم الأكواد والقوانين اللي هتحتاجها في الميدتيرم، متجمعة في مكان واحد.</p>
+
+      <div class="snippet-category">
+        <div class="snippet-header" onclick="toggleSnippet(this)">
+          <span>💻 C++ OOP Cheat Sheet</span>
+          <span>▼</span>
+        </div>
+        <div class="snippet-content">
+          <p><strong>أساسيات الـ Class:</strong></p>
+          <div class="debug-code">
+            <pre><code>class Student {
+public:
+    string name;
+    void display() { cout << name; }
+};</code></pre>
+          </div>
+          <p>ركز على الـ <code>Access Modifiers</code> (public, private) والـ <code>Constructors</code>.</p>
+        </div>
+      </div>
+
+      <div class="snippet-category">
+        <div class="snippet-header" onclick="toggleSnippet(this)">
+          <span>📐 Math 2 - Derivatives (الاشتقاق)</span>
+          <span>▼</span>
+        </div>
+        <div class="snippet-content">
+          <ul style="padding-right: 20px;">
+            <li><code>d/dx (sin x) = cos x</code></li>
+            <li><code>d/dx (cos x) = -sin x</code></li>
+            <li><code>d/dx (e^x) = e^x</code></li>
+            <li><code>d/dx (ln x) = 1/x</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="margin-top:22px;">أعضاء التابعين</h2>
     <div class="grid4">
       <div class="card">
-        <h3>1 - Ahmed Elshahat</h3><span class="tag">Leader</span>
-        <p>Programming 2 (OOP) </p>
+        <div class="photo-circle-mini"><img src="./image/image1.jpg" alt="Ahmed Elshahat"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>1 - Ahmed Elshahat</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Leader</span>
+        <p>Programming 2 (OOP)</p>
+        <div class="status-badge status-offline" id="status-Ahmed-Elshahat">أوفلاين</div>
       </div>
       <div class="card">
-        <h3>2 - Elsayed Elfiky</h3><span class="tag">Admin</span>
-        <p>Logic design </p>
+        <div class="photo-circle-mini"><img src="./image/image5.jpeg" alt="Elsayed Elfiky"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>2 - Elsayed Elfiky</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Admin</span>
+        <p>Logic design</p>
+        <div class="status-badge status-offline" id="status-Elsayed-Elfiky">أوفلاين</div>
       </div>
       <div class="card">
-        <h3>3 - Osama Mohamed</h3><span class="tag">Admin</span>
+        <div class="photo-circle-mini"><img src="./image/image3.jpeg" alt="Osama Mohamed"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>3 - Osama Mohamed</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Admin</span>
         <p>Math 2</p>
+        <div class="status-badge status-offline" id="status-Osama-Mohamed">أوفلاين</div>
       </div>
       <div class="card">
-        <h3>4 - Abanob Ramzy</h3><span class="tag">Admin</span>
+        <div class="photo-circle-mini"><img src="./image/image4.jpeg" alt="Abanob Ramzy"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>4 - Abanob Ramzy</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Admin</span>
         <p>Operation Research</p>
+        <div class="status-badge status-offline" id="status-Abanob-Ramzy">أوفلاين</div>
       </div>
       <div class="card">
-        <h3>5 - Omar Elaidy</h3><span class="tag">Member</span>
+        <div class="photo-circle-mini"><img src="./image/image16.jpeg" alt="Omar Elaidy"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>5 - Omar Elaidy</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Member</span>
         <p>Discrete Math</p>
+        <div class="status-badge status-offline" id="status-Omar-Elaidy-Sub">أوفلاين</div>
       </div>
     </div>
 
@@ -1078,84 +1676,158 @@
     <div class="grid4">
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image5.jpeg" alt="Elsayed Elfiky"></div>
-        <h3>1 - Elsayed Elfiky</h3><span class="tag">Admin</span>
-        <p>تقدم: 100%</p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>1 - Elsayed Elfiky</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Admin</span>
+        <div class="status-badge status-offline" id="status-Elsayed-Elfiky-Admin">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image3.jpeg" alt="Osama Mohamed"></div>
-        <h3>2 - Osama Mohamed</h3><span class="tag">Admin</span>
-        <p>تقدم: 100%</p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>2 - Osama Mohamed</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Admin</span>
+        <div class="status-badge status-offline" id="status-Osama-Mohamed-Admin">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image4.jpeg" alt="Abanob Ramzy"></div>
-        <h3>3 - Abanob Ramzy</h3><span class="tag">Admin</span>
-        <p>تقدم: 100%</p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>3 - Abanob Ramzy</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Admin</span>
+        <div class="status-badge status-offline" id="status-Abanob-Ramzy-Admin">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image2 (2).jpeg" alt="Ahmed Mostafa"></div>
-        <h3>4 - Ahmed Mostafa</h3><span class="tag">Admin</span>
-        <p>تقدم: 100%</p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>4 - Ahmed Mostafa</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Admin</span>
+        <div class="status-badge status-offline" id="status-Ahmed-Mostafa">أوفلاين</div>
       </div>
     </div>
 
     <h2 style="margin-top:22px;">أعضاء التيم</h2>
     <div class="grid4">
+
+
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image7.jpeg" alt="Member 1"></div>
-        <h3>1 - Ali Hendawy </h3><span class="tag">Member</span>
-        <p></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>1 - Ali Hendawy</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Ali-Hendawy">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image8.jpeg" alt="Member 2"></div>
-        <h3>2 - Ahmed Kairy </h3><span class="tag">Member</span>
-        <p></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>2 - Ahmed Kairy</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Ahmed-Kairy">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image9.jpeg" alt="Member 3"></div>
-        <h3>3 - Mohamed emam</h3><span class="tag">Member</span>
-        <p></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>3 - Mohamed emam</h3>
+          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        </div>
+        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Mohamed-emam">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image10.jpeg" alt="Member 4"></div>
-        <h3>4 - Ibrahim Salama</h3><span class="tag">Member</span>
-        <p></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>4 - Ibrahim Salama</h3>
+          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        </div>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Ibrahim-Salama">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image111.jpeg" alt="Member 5"></div>
-        <h3>5 - Ibrahim Yasser </h3><span class="tag">Member</span>
-        <p></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>5 - Ibrahim Yasser</h3>
+          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        </div>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Ibrahim-Yasser">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image12.jpeg" alt="Member 6"></div>
-        <h3>6 - Ahmed Metwally </h3><span class="tag">Member</span>
-        <p></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>6 - Ahmed Metwally</h3>
+          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        </div>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Ahmed-Metwally">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image12 (2).jpeg" alt="Member 7"></div>
-        <h3>7 - Islam Mohamed </h3><span class="tag">Member</span>
-        <p></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>7 - Islam Mohamed</h3>
+          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        </div>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Islam-Mohamed">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image13.jpeg" alt="Member 8"></div>
-        <h3>8 - Peter Azmy</h3><span class="tag">Member</span>
-        <p></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>8 - Peter Azmy</h3>
+          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        </div>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Peter-Azmy">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image14.jpeg" alt="Member 9"></div>
-        <h3>9 - Ahmed Ashraf</h3><span class="tag">Member</span>
-        <p></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>9 - Ahmed Ashraf</h3>
+          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        </div>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Ahmed-Ashraf">أوفلاين</div>
       </div>
       <div class="card">
         <div class="photo-circle-mini"><img src="./image/image15.png" alt="Member 10"></div>
-        <h3>10 - Islam Adelsattar </h3><span class="tag">Member</span>
-        <p></p>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>10 - Islam Adelsattar</h3>
+          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        </div>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Islam-Adelsattar">أوفلاين</div>
       </div>
       <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image16.jpeg" alt="Member 10"></div>
-        <h3>10 - Omar Elaidy </h3><span class="tag">Member</span>
-        <p></p>
+        <div class="photo-circle-mini"><img src="./image/image16.jpeg" alt="Member 11"></div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <h3>11 - Omar Elaidy</h3>
+          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        </div>
+        <span class="tag">Member</span>
+        <div class="status-badge status-offline" id="status-Omar-Elaidy">أوفلاين</div>
       </div>
     </div>
+
+
+
+
+
 
     <div class="hero" style="margin-top:18px;">
       <h2 class="section-title">كويز أسبوعي (30 أسئلة لكل مادة)</h2>
@@ -1195,6 +1867,7 @@
           <input id="noAiCheckbox" type="checkbox"> أؤكد أني لن استخدم الذكاء الاصطناعي (AI)
         </label>
         <button id="startQuiz">ابدأ الكويز</button>
+        <button id="startMockExam" class="mock-btn" style="margin-right: 10px;">🏆 محاكي الميدتيرم الشامل</button>
       </div>
       <div style="margin:12px 0; font-size:.88rem; color:#1f3d6a;">
         سجل الأعضاء:
@@ -1251,7 +1924,7 @@
               <td><a href="https://drive.google.com/drive/folders/1q6Pj04kaE-6e2rE2eKPbs9hPoliHaXsH" target="_blank"
                   style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
                   الماتيريال 📁</a></td>
-              <td><a href="#" target="_blank"
+              <td><a href="https://drive.google.com/drive/folders/1r3fnYVDqSgXM4-Fok71PC1pd7v3y1Z_A" target="_blank"
                   style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
                   ليست الريكوردات 📺</a></td>
             </tr>
@@ -1261,7 +1934,7 @@
               <td><a href="https://drive.google.com/drive/folders/1MklaAC7n11ikHzVjS5yhd8WkMSv2B1is" target="_blank"
                   style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
                   الماتيريال 📁</a></td>
-              <td><a href="#" target="_blank"
+              <td><a href="https://drive.google.com/drive/folders/1me0Btt4Vq_ObwSZDtkGSPnzRg5ftJ5iX" target="_blank"
                   style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
                   ليست الريكوردات 📺</a></td>
             </tr>
@@ -1271,7 +1944,7 @@
               <td><a href="https://drive.google.com/drive/folders/14qtHDSjKiBK6Kafxi5FCSU4V3NKXQPnP" target="_blank"
                   style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
                   الماتيريال 📁</a></td>
-              <td><a href="https://drive.google.com/drive/folders/14qtHDSjKiBK6Kafxi5FCSU4V3NKXQPnP" target="_blank"
+              <td><a href="https://drive.google.com/drive/folders/1Zhy8xTkp5Zbbwf9ycdsqaY5B1c13Gwju" target="_blank"
                   style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
                   ليست الريكوردات 📺</a></td>
             </tr>
@@ -1494,222 +2167,213 @@
       'Ibrahim Yasser', 'Ahmed Metwally', 'Islam Mohamed', 'Peter Azmy', 'Ahmed Ashraf', 'Islam Adelsattar'
     ];
 
-    const quizName = document.getElementById('quizName');
-    const quizSubject = document.getElementById('quizSubject');
-    const subjectHint = document.getElementById('subjectHint');
-    const startQuiz = document.getElementById('startQuiz');
-    const noAiCheckbox = document.getElementById('noAiCheckbox');
-    const registeredNamesArea = document.getElementById('registeredNames');
-    // Quiz Area variables moved to quiz.js
-    const resetCode = document.getElementById('resetCode');
-    const leaderboardTableBody = document.querySelector('#leaderboard tbody');
-
-    // Quiz rendering functions moved to quiz.js
+    const quizName = document.getElementById('quizName'), quizSubject = document.getElementById('quizSubject'), subjectHint = document.getElementById('subjectHint'), startQuiz = document.getElementById('startQuiz'), noAiCheckbox = document.getElementById('noAiCheckbox'), registeredNamesArea = document.getElementById('registeredNames');
 
     quizSubject.addEventListener('change', () => {
-      const subject = quizSubject.value;
-      if (subject === 'Programming 2' || subject === 'Logic Design' || subject === 'Math 2' || subject === 'Operation Research' || subject === 'Discrete Math') {
-        subjectHint.innerText = 'ملاحظة: احنا لسه مش اخدنا JavaScript، بنشتغل على C++ في الكويز.';
-      } else if (subject === 'C++') {
-        subjectHint.innerText = 'تمام! الكويز في C++ جاهز الآن.';
-      } else {
-        subjectHint.innerText = '';
-      }
+      const s = quizSubject.value;
+      if (['Programming 2', 'Logic Design', 'Math 2', 'Operation Research', 'Discrete Math'].includes(s)) subjectHint.innerText = 'ملاحظة: احنا لسه مش اخدنا JavaScript، بنشتغل على C++ في الكويز.';
+      else if (s === 'C++') subjectHint.innerText = 'تمام! الكويز في C++ جاهز الآن.';
+      else subjectHint.innerText = '';
     });
 
-    function loadRegisteredNames() {
-      try { return JSON.parse(localStorage.getItem('registeredQuizUsers') || '[]'); }
-      catch { return []; }
-    }
-
-    function saveRegisteredNames(users) {
-      localStorage.setItem('registeredQuizUsers', JSON.stringify(users));
-    }
-
+    function loadRegisteredNames() { try { return JSON.parse(localStorage.getItem('registeredQuizUsers') || '[]'); } catch { return []; } }
+    function saveRegisteredNames(u) { localStorage.setItem('registeredQuizUsers', JSON.stringify(u)); }
     function showRegisteredNames() {
-      const users = loadRegisteredNames();
-      const now = new Date();
-      const validUsers = users.filter(u => {
-        const age = now - new Date(u.time);
-        return age <= 30 * 60 * 1000; // نص ساعة
-      });
-      if (validUsers.length !== users.length) {
-        saveRegisteredNames(validUsers); // نظّف القديم فقط
-      }
-      registeredNamesArea.innerHTML = validUsers.slice(-20).reverse().map(u => {
-        const age = now - new Date(u.time);
-        const remaining = Math.max(0, 30 * 60 * 1000 - age);
-        const mins = Math.floor(remaining / 60000);
-        const secs = Math.floor((remaining % 60000) / 1000).toString().padStart(2, '0');
+      const now = new Date(), users = loadRegisteredNames();
+      const valid = users.filter(u => (now - new Date(u.time)) <= 30 * 60 * 1000);
+      if (valid.length !== users.length) saveRegisteredNames(valid);
+      registeredNamesArea.innerHTML = valid.slice(-20).reverse().map(u => {
+        const remaining = Math.max(0, 30 * 60 * 1000 - (now - new Date(u.time)));
+        const mins = Math.floor(remaining / 60000), secs = Math.floor((remaining % 60000) / 1000).toString().padStart(2, '0');
         return `<li>${u.name} - ${u.subject} - سجل: ${new Date(u.time).toLocaleString('ar-EG')} - وقت متبقي: ${mins}:${secs}</li>`;
       }).join('');
     }
-
-    // finishQuiz moved to quiz.js
-
-    function showLeaderboard() {
-      const saved = loadLeaderboardData();
-      const all = [...saved];
-      teamMembers.forEach(teamName => {
-        const exists = all.some(item => item.name === teamName && item.subject === 'C++');
-        if (!exists) {
-          all.push({ name: teamName, subject: 'C++', score: 0, updated: null });
-        }
-      });
-      all.sort((a, b) => {
-        if (b.score !== a.score) return b.score - a.score;
-        if (a.updated && b.updated) return new Date(a.updated) - new Date(b.updated);
-        if (a.updated) return -1;
-        if (b.updated) return 1;
-        return a.name.localeCompare(b.name, 'ar');
-      });
-      leaderboardTableBody.innerHTML = all.slice(0, 20).map((p, i) => {
-        const timeText = p.updated ? new Date(p.updated).toLocaleString('ar-EG') : 'لم يُسجل بعد';
-        const rankClass = i === 0 ? 'rank-first' : i === 1 ? 'rank-second' : i === 2 ? 'rank-third' : '';
-        const medal = i === 0 ? '🏆' : i === 1 ? '🥈' : i === 2 ? '🥉' : '';
-        return `<tr class="leaderboard-row ${rankClass}"><td>${i + 1} <span class="rank-emoji">${medal}</span></td><td>${p.name}</td><td>${p.subject}</td><td>${p.score}</td><td>${timeText}</td></tr>`;
-      }).join('');
-    }
-
-    function loadLeaderboardData() {
-      try { return JSON.parse(localStorage.getItem('surveyLeaderboard') || '[]'); }
-      catch { return []; }
-    }
-    function saveLeaderboardData(data) { localStorage.setItem('surveyLeaderboard', JSON.stringify(data)); }
+    setInterval(showRegisteredNames, 10000); showRegisteredNames();
 
     startQuiz.addEventListener('click', () => {
-      const name = quizName.value.trim();
-      const subject = quizSubject.value;
-      const mappedSubject = (subject === 'Programming 2' ? 'C++' : subject);
-      if (!name || !subject) {
-        alert('الرجاء ادخال اسمك واختيار المادة قبل البداية.');
-        return;
+      const n = quizName.value.trim(), s = quizSubject.value, ms = (s === 'Programming 2' ? 'C++' : s);
+      if (ms === 'C++') { alert('عذراً، انتهى وقت كويز C++!'); return; }
+      if (!n || !s) { alert('ادخل الاسم والمادة!'); return; }
+      if (!teamMembers.includes(n)) { alert('الاسم غير مسجل!'); return; }
+      if (!noAiCheckbox.checked) { alert('أكد عدم استخدام AI!'); return; }
+      const reg = loadRegisteredNames(), now = new Date().toISOString();
+      const exist = reg.findIndex(u => u.name === n && u.subject === ms);
+      if (exist === -1) {
+        reg.push({ name: n, subject: ms, time: now });
       }
-      if (!teamMembers.includes(name)) {
-        alert('الاسم غير موجود ضمن أعضاء الفريق. الرجاء اختيار اسم مسجل في الموقع.');
-        return;
-      }
-      if (!noAiCheckbox.checked) {
-        alert('الرجاء التأكيد أنكَ لن تستخدم الذكاء الاصطناعي في حل الكويز.');
-        return;
-      }
-      const questions = quizData[mappedSubject];
-      if (!questions) {
-        alert('لا توجد أسئلة لهذا الموضوع بعد.');
-        return;
-      }
-      const registered = loadRegisteredNames();
-      const now = new Date().toISOString();
-      // Remove منتهية الصلاحية (أكثر من نص ساعة)
-      const filtered = registered.filter(u => (new Date() - new Date(u.time)) < 30 * 60 * 1000);
-      const existingIndex = filtered.findIndex(u => u.name === name && u.subject === mappedSubject);
-      if (existingIndex === -1) {
-        filtered.push({ name, subject: mappedSubject, time: now });
-      } else {
-        filtered[existingIndex].time = now;
-      }
-      saveRegisteredNames(filtered);
+      saveRegisteredNames(reg);
       showRegisteredNames();
-
-      if (mappedSubject === 'C++') {
-        subjectHint.innerText = 'ربنا معاكوا في الكويز يا شباب';
-      } else {
-        subjectHint.innerText = 'ربنا معاكوا في الكويز يا شباب';
-      }
-
-      // Prevent retaking the quiz if already completed
-      let existingScoreData;
-      try { existingScoreData = JSON.parse(localStorage.getItem('surveyLeaderboard') || '[]'); } catch { existingScoreData = []; }
-      const alreadyTaken = existingScoreData.find(item => item.name === name && item.subject === mappedSubject);
-      if (alreadyTaken && name !== 'Ahmed Elshahat') {
-        alert('لقد قمت باختبار هذه المادة من قبل، لا يمكنك إعادتها لتعديل النتيجة!');
-        return;
-      }
-
-      // Redirect to new quiz page
-      window.location.href = `quiz.html?name=${encodeURIComponent(name)}&subject=${encodeURIComponent(mappedSubject)}`;
+      window.location.href = `quiz.html?name=${encodeURIComponent(n)}&subject=${encodeURIComponent(ms)}`;
     });
 
-    document.getElementById('resetQuiz').addEventListener('click', () => {
-      const adminCode = 'team2026'; // غير الكود لو حبيت
-      if (resetCode.value !== adminCode) {
-        alert('الكود غير صحيح. لا يمكنك مسح البيانات.');
-        return;
-      }
-      if (!confirm('هل تريد فعلاً حذف كل البيانات والبدء من جديد؟ هذا سيؤثر على الجميع.')) return;
-      localStorage.removeItem('surveyLeaderboard');
-      localStorage.removeItem('registeredQuizUsers');
-      localStorage.removeItem('extraQuizQuestions');
-      showLeaderboard();
-      showRegisteredNames();
-      resetCode.value = '';
-      alert('تم مسح البيانات بنجاح. يمكنك الآن البدء من جديد.');
-    });
+    document.getElementById('startMockExam').onclick = () => { alert('تجهيز امتحان 15 سؤال...'); window.location.href = `quiz.html?name=${encodeURIComponent((JSON.parse(localStorage.getItem('teamUser')) || {}).name || 'Guest')}&subject=MockExam`; };
 
-    // Next question listener moved to quiz.js
-
-    window.addEventListener('storage', (event) => {
-      if (!event.key) return;
-      if (event.key === 'surveyLeaderboard' || event.key === 'surveyLeaderboardSync' || event.key === 'registeredQuizUsers') {
-        showLeaderboard();
-        showRegisteredNames();
-      }
-    });
-
-    showLeaderboard();
-    showRegisteredNames();
-    setInterval(() => {
-      showLeaderboard();
-      showRegisteredNames();
-    }, 1500);
-
-    /* --- Dark Mode Logic --- */
-    const themeToggle = document.getElementById('themeToggle');
-    const toggleTheme = () => {
-      document.body.classList.toggle('dark-mode');
-      const isDark = document.body.classList.contains('dark-mode');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      themeToggle.innerText = isDark ? '☀️' : '🌙';
+    /* --- AUTH & FIREBASE --- */
+    const firebaseConfig = {
+      apiKey: "AIzaSyA...",
+      authDomain: "znu-team-dashboard.firebaseapp.com",
+      databaseURL: "https://znu-team-dashboard-default-rtdb.firebaseio.com",
+      projectId: "znu-team-dashboard",
+      storageBucket: "znu-team-dashboard.appspot.com",
+      messagingSenderId: "...",
+      appId: "..."
     };
-    if (localStorage.getItem('theme') === 'dark') {
-      document.body.classList.add('dark-mode');
-      themeToggle.innerText = '☀️';
-    }
-    themeToggle.addEventListener('click', toggleTheme);
+    let db = null;
+    try {
+      if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+      db = firebaseConfig.apiKey.includes('...') ? null : firebase.database();
+    } catch(e) { console.warn("Firebase init failed: ", e); }
 
-    /* --- Pomodoro Logic --- */
+    const creds = { "Ahmed Elshahat": "shahat_team_2024", "Elsayed Elfiky": "fiky_team_2024", "Osama Mohamed": "osama_team_2024", "Abanob Ramzy": "abanob_team_2024", "Ahmed Mostafa": "mostafa_team_2024", "Omar Elaidy": "omar_team_2024", "Ali Hendawy": "ali_team_2024", "Ahmed Kairy": "kairy_team_2024", "Mohamed emam": "emam_team_2024", "Ibrahim Salama": "salama_team_2024", "Ibrahim Yasser": "yasser_team_2024", "Ahmed Metwally": "metwally_team_2024", "Islam Mohamed": "islam_team_2024", "Peter Azmy": "peter_team_2024", "Ahmed Ashraf": "ashraf_team_2024", "Islam Adelsattar": "adelsattar_team_2024" };
+    let cU = JSON.parse(localStorage.getItem('teamUser')) || null;
+
+    window.handleLogin = () => {
+      const n = document.getElementById('loginUserName').value, p = document.getElementById('loginPassword').value, err = document.getElementById('loginError');
+      if (creds[n] === p) {
+        cU = { name: n, role: n === "Ahmed Elshahat" ? "Leader" : (["Elsayed Elfiky", "Osama Mohamed", "Abanob Ramzy", "Ahmed Mostafa"].includes(n) ? "Admin" : "Member") };
+        localStorage.setItem('teamUser', JSON.stringify(cU)); updateUI();
+      } else { err.style.display = 'block'; }
+    };
+
+    window.handleLogout = () => { localStorage.removeItem('teamUser'); location.reload(); };
+
+    function updateUI() {
+      const o = document.getElementById('loginOverlay'), g = document.getElementById('userGreeting'), w = document.getElementById('welcomeText'), s = document.getElementById('toggleLiveStatus');
+      if (cU) {
+        if (o) o.style.display = 'none';
+        if (g) { g.style.display = 'flex'; w.innerHTML = `مرحباً بك يا <span style="color: #0ea5e9; font-weight: bold;">${cU.role} ${cU.name}</span> 👋`; }
+        if (s) { s.classList.remove('locked-btn'); s.innerHTML = 'أنا أذاكر الآن ✍️🔥'; }
+        document.body.classList.toggle('is-admin', cU.role !== 'Member');
+      } else {
+        if (o) o.style.display = 'flex'; if (g) g.style.display = 'none';
+        if (s) { s.classList.add('locked-btn'); s.innerHTML = 'سجل دخولك لتعديل حالتك 🔒'; }
+      }
+    }
+
+    function updateCardsLocally() {
+      const sts = JSON.parse(localStorage.getItem('mockStatusData') || '{}');
+      const sks = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
+      document.querySelectorAll('.card').forEach(card => {
+        const b = card.querySelector('.status-badge');
+        if (!b) return;
+        const id = b.id.replace('status-', '').replace('-Admin', '').replace('-Sub', ''), s = sts[id] || 'offline';
+        b.className = `status-badge status-${s}`;
+        b.innerHTML = s === 'online' ? '<div class="pulse"></div> يذاكر الآن' : 'أوفلاين';
+        const sc = card.querySelector('.streak-count');
+        if (sc) {
+          // preserve original HTML integer if localStorage lacks record
+          if(sks[id] !== undefined) {
+             sc.innerText = sks[id];
+          } else if(!sks[id] && !sc.getAttribute('data-init')) {
+             sks[id] = parseInt(sc.innerText) || 0;
+             sc.setAttribute('data-init', 'true');
+             localStorage.setItem('mockStreakData', JSON.stringify(sks));
+          }
+        }
+      });
+    }
+
+    window.toggleLiveStatus = async () => {
+      if (!cU) return;
+      const btn = document.getElementById('toggleLiveStatus'), key = cU.name.replace(/\s+/g, '-');
+      if (db) {
+        const ref = db.ref('status/' + key);
+        try {
+          const snap = await ref.once('value');
+          const next = snap.val() === 'online' ? 'offline' : 'online';
+          await ref.set(next);
+          btn.classList.add('btn-success-animate'); setTimeout(() => btn.classList.remove('btn-success-animate'), 500);
+        } catch (e) { alert("Error: " + e); }
+      } else {
+        let statusData = JSON.parse(localStorage.getItem('mockStatusData') || '{}');
+        const next = statusData[key] === 'online' ? 'offline' : 'online';
+        statusData[key] = next;
+        localStorage.setItem('mockStatusData', JSON.stringify(statusData));
+        btn.classList.add('btn-success-animate'); setTimeout(() => btn.classList.remove('btn-success-animate'), 500);
+        updateCardsLocally();
+      }
+    };
+
+    window.awardStreak = async (btn) => {
+      if (!cU || cU.role === 'Member') return;
+      const b = btn.closest('.card').querySelector('.status-badge');
+      if (!b) return;
+      const id = b.id.replace('status-', '').replace('-Admin', '').replace('-Sub', '');
+      
+      if (db) {
+        const ref = db.ref('streaks/' + id);
+        try {
+          const snap = await ref.once('value');
+          await ref.set((snap.val() || 0) + 1);
+          btn.innerHTML = 'تم! ✨'; setTimeout(() => btn.innerHTML = 'إعطاء 🔥', 1500);
+        } catch (err) { console.error(err); }
+      } else {
+        let streakData = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
+        streakData[id] = (streakData[id] || 0) + 1;
+        localStorage.setItem('mockStreakData', JSON.stringify(streakData));
+        btn.innerHTML = 'تم! ✨'; setTimeout(() => btn.innerHTML = 'إعطاء 🔥', 1500);
+        updateCardsLocally();
+      }
+    };
+
+    if (db) {
+      db.ref().on('value', (snap) => {
+        const data = snap.val() || {}, sts = data.status || {}, sks = data.streaks || {};
+        document.querySelectorAll('.card').forEach(card => {
+          const b = card.querySelector('.status-badge');
+          if (!b) return;
+          const id = b.id.replace('status-', '').replace('-Admin', '').replace('-Sub', ''), s = sts[id] || 'offline';
+          b.className = `status-badge status-${s}`;
+          b.innerHTML = s === 'online' ? '<div class="pulse"></div> يذاكر الآن' : 'أوفلاين';
+          const sc = card.querySelector('.streak-count');
+          if (sc) sc.innerText = sks[id] || 0;
+        });
+      });
+    } else {
+      updateCardsLocally();
+    }
+
+    updateUI();
+
+    // === Accessory Tools Logic ===
+
+    // 1. Pomodoro Timer
     let pomoInterval;
     let pomoTimeLeft = 25 * 60;
     let isPomoRunning = false;
+    let isPomoBreak = false;
+    let pomoSessions = parseInt(localStorage.getItem('pomoSessions') || '0');
+    
     const pomoTimeDisplay = document.getElementById('pomoTime');
-    const pomoStartBtn = document.getElementById('pomoStart');
+    const btnFocus = document.getElementById('pomoStart');
+    const btnBreak = document.getElementById('pomoBreak');
+    const btnReset = document.getElementById('pomoReset');
+    const pomoCountEl = document.getElementById('pomoSessionCount');
+    const pomoHoursEl = document.getElementById('pomoSessionHours');
+    const audioSelector = document.getElementById('audioSelector');
+    const focusAudio = document.getElementById('focusAudio');
 
-    let todayDateStr = new Date().toLocaleDateString();
-    let pomoStats = JSON.parse(localStorage.getItem('teamPomoStats') || '{"date":"","count":0}');
-    if (pomoStats.date !== todayDateStr) {
-      pomoStats = { date: todayDateStr, count: 0 };
-      localStorage.setItem('teamPomoStats', JSON.stringify(pomoStats));
+    function updatePomoStats() {
+      if(pomoCountEl) pomoCountEl.innerText = pomoSessions;
+      if(pomoHoursEl) pomoHoursEl.innerText = (pomoSessions * 25 / 60).toFixed(1);
     }
-    const updateStatsUI = () => {
-      document.getElementById('pomoSessionCount').innerText = pomoStats.count;
-      document.getElementById('pomoSessionHours').innerText = (pomoStats.count * 25 / 60).toFixed(1);
-    };
-    updateStatsUI();
+    updatePomoStats();
 
     function updatePomoDisplay() {
+      if(!pomoTimeDisplay) return;
       const m = Math.floor(pomoTimeLeft / 60).toString().padStart(2, '0');
       const s = (pomoTimeLeft % 60).toString().padStart(2, '0');
       pomoTimeDisplay.innerText = `${m}:${s}`;
     }
 
-    document.getElementById('pomoStart').addEventListener('click', () => {
+    function togglePomo() {
       if (isPomoRunning) {
         clearInterval(pomoInterval);
         isPomoRunning = false;
-        pomoStartBtn.innerText = 'استكمال';
+        if(btnFocus) btnFocus.innerText = isPomoBreak ? "استئناف الراحة" : "استئناف التركيز";
       } else {
         isPomoRunning = true;
-        pomoStartBtn.innerText = 'إيقاف مؤقت';
+        if(btnFocus) btnFocus.innerText = "إيقاف مؤقت";
         pomoInterval = setInterval(() => {
           if (pomoTimeLeft > 0) {
             pomoTimeLeft--;
@@ -1717,380 +2381,476 @@
           } else {
             clearInterval(pomoInterval);
             isPomoRunning = false;
-            pomoStartBtn.innerText = 'بدأ التركيز';
-            alert('عاش يا بطل! انتهى الـ 25 دقيقة، خد لك راحة 5 دقايق.');
-            pomoStats.count++;
-            localStorage.setItem('teamPomoStats', JSON.stringify(pomoStats));
-            updateStatsUI();
-            new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3').play().catch(() => { });
+            if (!isPomoBreak) {
+              pomoSessions++;
+              localStorage.setItem('pomoSessions', pomoSessions);
+              updatePomoStats();
+              alert("انتهى وقت التركيز! خذ استراحة.");
+              setBreak();
+            } else {
+              alert("انتهت الاستراحة! حان وقت التركيز.");
+              setFocus();
+            }
           }
         }, 1000);
       }
-    });
-
-    document.getElementById('pomoBreak').addEventListener('click', () => {
-      clearInterval(pomoInterval);
-      isPomoRunning = false;
-      pomoTimeLeft = 5 * 60;
-      updatePomoDisplay();
-      pomoStartBtn.innerText = 'بدأ التركيز';
-    });
-
-    document.getElementById('pomoReset').addEventListener('click', () => {
-      clearInterval(pomoInterval);
-      isPomoRunning = false;
-      pomoTimeLeft = 25 * 60;
-      updatePomoDisplay();
-      pomoStartBtn.innerText = 'بدأ التركيز';
-    });
-
-    /* --- Audio Player Logic --- */
-    const audioSelector = document.getElementById('audioSelector');
-    const focusAudio = document.getElementById('focusAudio');
-    audioSelector.addEventListener('change', (e) => {
-      const src = e.target.value;
-      if (src) {
-        focusAudio.src = src;
-        focusAudio.play().catch(() => { });
-      } else {
-        focusAudio.pause();
-        focusAudio.src = '';
-      }
-    });
-
-    /* --- Todo List Logic --- */
-    const todoInput = document.getElementById('todoInput');
-    const todoAddBtn = document.getElementById('todoAdd');
-    const todoList = document.getElementById('todoList');
-    let todos = JSON.parse(localStorage.getItem('teamTodos') || '[]');
-
-    function saveTodos() {
-      localStorage.setItem('teamTodos', JSON.stringify(todos));
     }
 
+    function setFocus() {
+      clearInterval(pomoInterval);
+      isPomoRunning = false;
+      isPomoBreak = false;
+      pomoTimeLeft = 25 * 60;
+      if(btnFocus) btnFocus.innerText = "بدأ التركيز";
+      updatePomoDisplay();
+    }
+
+    function setBreak() {
+      clearInterval(pomoInterval);
+      isPomoRunning = false;
+      isPomoBreak = true;
+      pomoTimeLeft = 5 * 60;
+      if(btnFocus) btnFocus.innerText = "بدأ الراحة";
+      updatePomoDisplay();
+    }
+
+    if(btnFocus) btnFocus.addEventListener('click', togglePomo);
+    if(btnBreak) btnBreak.addEventListener('click', setBreak);
+    if(btnReset) btnReset.addEventListener('click', setFocus);
+
+    if (audioSelector && focusAudio) {
+      audioSelector.addEventListener('change', (e) => {
+        if (e.target.value) {
+          focusAudio.src = e.target.value;
+          focusAudio.play();
+        } else {
+          focusAudio.pause();
+          focusAudio.src = '';
+        }
+      });
+    }
+
+    // 2. Todo List
+    const todoInput = document.getElementById('todoInput');
+    const todoAdd = document.getElementById('todoAdd');
+    const todoList = document.getElementById('todoList');
+    let todos = JSON.parse(localStorage.getItem('dailyTodos') || '[]');
+
     function renderTodos() {
+      if (!todoList) return;
       todoList.innerHTML = '';
-      todos.forEach((todo, index) => {
+      todos.forEach((t, i) => {
         const li = document.createElement('li');
-        li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
-
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = todo.completed;
-        checkbox.style.marginLeft = '10px';
-        checkbox.addEventListener('change', () => {
-          todos[index].completed = checkbox.checked;
-          saveTodos();
-          renderTodos();
-        });
-
+        li.style.display = 'flex';
+        li.style.justifyContent = 'space-between';
+        li.style.background = '#f8fafc';
+        li.style.padding = '8px';
+        li.style.marginBottom = '5px';
+        li.style.borderRadius = '5px';
+        
         const span = document.createElement('span');
-        span.innerText = todo.text;
+        span.innerText = t.text;
+        if (t.done) span.style.textDecoration = 'line-through';
+        span.style.cursor = 'pointer';
+        span.style.flex = '1';
+        span.onclick = () => { todos[i].done = !todos[i].done; saveTodos(); };
 
         const delBtn = document.createElement('button');
-        delBtn.className = 'todo-delete';
-        delBtn.innerHTML = '×';
-        delBtn.title = 'حذف المهمة';
-        delBtn.addEventListener('click', () => {
-          todos.splice(index, 1);
-          saveTodos();
-          renderTodos();
-        });
+        delBtn.innerText = '❌';
+        delBtn.style.background = 'transparent';
+        delBtn.style.color = 'red';
+        delBtn.style.border = 'none';
+        delBtn.style.cursor = 'pointer';
+        delBtn.onclick = () => { todos.splice(i, 1); saveTodos(); };
 
-        li.appendChild(checkbox);
         li.appendChild(span);
         li.appendChild(delBtn);
         todoList.appendChild(li);
       });
     }
 
-    todoAddBtn.addEventListener('click', () => {
-      const text = todoInput.value.trim();
-      if (text) {
-        todos.push({ text, completed: false });
-        todoInput.value = '';
-        saveTodos();
-        renderTodos();
-      }
-    });
-
-    todoInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') todoAddBtn.click();
-    });
-
-    renderTodos();
-
-    /* --- Daily Motivation --- */
-    const quotes = [
-      "النجاح ليس النهاية، والفشل ليس قاتلاً، بل الشجاعة لمواصلة الطريق هي ما يهم.",
-      "لا تنتظر الفرصة، اصنعها بنفسك.",
-      "الطريقة الوحيدة للقيام بعمل عظيم هي أن تحب ما تفعله.",
-      "ركز على الهدف، وليس على العقبات.",
-      "التعليم ليس استعداداً للحياة، التعليم هو الحياة ذاتها.",
-      "كلما زادت صعوبة المعركة، كلما كان النصر أحلى.",
-      "الاستمرارية أهم من السرعة، استمر في التقدم ولو بخطوات صغيرة."
-    ];
-    document.getElementById('motivationalQuote').innerText = quotes[Math.floor(Math.random() * quotes.length)];
-
-    /* --- GPA Calculator --- */
-    const gpaCoursesContainer = document.getElementById('gpaCourses');
-
-    function addGpaRow() {
-      const row = document.createElement('div');
-      row.className = 'gpa-row controls';
-
-      const input = document.createElement('input');
-      input.type = 'text';
-      input.placeholder = 'اسم المادة (اختياري)';
-
-      const credits = document.createElement('select');
-      [1, 2, 3, 4, 5, 6].forEach(c => {
-        const opt = document.createElement('option');
-        opt.value = c;
-        opt.innerText = `${c} ساعات`;
-        if (c === 3) opt.selected = true;
-        credits.appendChild(opt);
-      });
-
-      const grade = document.createElement('select');
-      const gradePoints = { 'A+': 4.0, 'A': 3.7, 'B+': 3.3, 'B': 3.0, 'C+': 2.7, 'C': 2.4, 'D+': 2.2, 'D': 2.0, 'F': 0.0 };
-      Object.keys(gradePoints).forEach(g => {
-        const opt = document.createElement('option');
-        opt.value = gradePoints[g];
-        opt.innerText = g;
-        grade.appendChild(opt);
-      });
-
-      const delBtn = document.createElement('button');
-      delBtn.className = 'remove-btn';
-      delBtn.innerText = '×';
-      delBtn.title = 'حذف المادة';
-      delBtn.addEventListener('click', () => {
-        row.remove();
-      });
-
-      row.appendChild(input);
-      row.appendChild(credits);
-      row.appendChild(grade);
-      row.appendChild(delBtn);
-
-      gpaCoursesContainer.appendChild(row);
+    function saveTodos() {
+      localStorage.setItem('dailyTodos', JSON.stringify(todos));
+      renderTodos();
     }
 
-    // Add 4 rows initially
-    for (let i = 0; i < 4; i++) addGpaRow();
-
-    document.getElementById('addGpaCourse').addEventListener('click', addGpaRow);
-
-    document.getElementById('calcGpaBtn').addEventListener('click', () => {
-      let totalPoints = 0;
-      let totalCredits = 0;
-
-      Array.from(gpaCoursesContainer.children).forEach(row => {
-        const selects = row.querySelectorAll('select');
-        if (selects.length === 2) {
-          const cred = parseFloat(selects[0].value);
-          const points = parseFloat(selects[1].value);
-          totalCredits += cred;
-          totalPoints += cred * points;
+    if (todoAdd && todoInput) {
+      todoAdd.addEventListener('click', () => {
+        if (todoInput.value.trim()) {
+          todos.push({ text: todoInput.value.trim(), done: false });
+          todoInput.value = '';
+          saveTodos();
         }
       });
-
-      const finalGpa = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : 0.00;
-      const gpaResultEl = document.getElementById('gpaResult');
-      gpaResultEl.innerText = finalGpa;
-      if (document.body.classList.contains('dark-mode')) {
-        gpaResultEl.style.color = '#93c5fd';
-      } else {
-        gpaResultEl.style.color = '#1e3a8a';
-      }
-    });
-
-    /* --- Flashcards System --- */
-    const flashcardsData = [
-      { q: 'ما هو الهدف من الـ Object Oriented Programming (OOP)؟', a: 'تنظيم الكود وجعله قابل لإعادة الاستخدام بسهولة عن طريق ربط البيانات بالوظائف داخل الكائن.' },
-      { q: 'ما هو مؤشر This (this pointer) في C++؟', a: 'مؤشر خفي في أي دالة غير static، يشير دائماً للكائن الذي تم استدعاء الدالة منه.' },
-      { q: 'ما الفرق بين بوابات AND و OR؟', a: 'AND تُنتج 1 لو كانت كل المداخل 1، أما OR تُنتج 1 لو كان هناك على الأقل مدخل واحد 1.' },
-      { q: 'ما هي خطوات طريقة Simplex؟', a: '1. تحويل المتباينات لمعادلات بـ Slack\\n2. تحديد المحور (عمود وصف البيفوت)\\n3. حساب الجدول الجديد للحصول على الأوبتيما.' },
-      { q: 'ما هي الـ Constructor في الـ OOP؟', a: 'دالة تُستدعى تلقائياً عند أخذ Object من الـ Class لإعطائه قيماً مبدئية.' }
-    ];
-    let fcIndex = 0;
-    const flashcardElement = document.getElementById('flashcardElement');
-    const fcQuestion = document.getElementById('fcQuestion');
-    const fcAnswer = document.getElementById('fcAnswer');
-
-    function loadFlashcard() {
-      flashcardElement.classList.remove('is-flipped');
-      setTimeout(() => {
-        fcQuestion.innerText = flashcardsData[fcIndex].q;
-        fcAnswer.innerText = flashcardsData[fcIndex].a;
-      }, 300);
+      todoInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') todoAdd.click();
+      });
+      renderTodos();
     }
 
-    flashcardElement.addEventListener('click', () => {
-      flashcardElement.classList.toggle('is-flipped');
-    });
+    // 3. GPA Calculator
+    const gpaCourses = document.getElementById('gpaCourses');
+    const addGpaCourse = document.getElementById('addGpaCourse');
+    const calcGpaBtn = document.getElementById('calcGpaBtn');
+    const gpaResult = document.getElementById('gpaResult');
 
-    document.getElementById('fcNext').addEventListener('click', () => {
-      fcIndex = (fcIndex + 1) % flashcardsData.length;
-      loadFlashcard();
-    });
+    function createGpaRow() {
+      const div = document.createElement('div');
+      div.style.display = 'flex';
+      div.style.gap = '5px';
+      div.style.marginBottom = '8px';
+      div.className = 'gpa-row';
+      div.innerHTML = `
+        <input type="text" placeholder="المادة" style="flex:2; padding:5px; min-width:0;">
+        <select class="gpa-grade" style="flex:1; padding:5px; min-width:0;">
+          <option value="4.0">A+</option>
+          <option value="3.8">A</option>
+          <option value="3.5">B+</option>
+          <option value="3.0">B</option>
+          <option value="2.5">C+</option>
+          <option value="2.0">C</option>
+          <option value="1.5">D+</option>
+          <option value="1.0">D</option>
+          <option value="0.0">F</option>
+        </select>
+        <input type="number" class="gpa-hours" placeholder="ساعات" style="flex:1; padding:5px; min-width:0;" min="1" max="6" value="3">
+        <button onclick="this.parentElement.remove()" style="background:#ef4444; color:white; padding:5px; border:none; cursor:pointer; width:30px;">❌</button>
+      `;
+      if(gpaCourses) gpaCourses.appendChild(div);
+    }
 
-    loadFlashcard();
+    if (addGpaCourse) {
+      addGpaCourse.addEventListener('click', createGpaRow);
+      if (gpaCourses && gpaCourses.children.length === 0) {
+        createGpaRow(); createGpaRow(); createGpaRow();
+      }
+    }
 
-    /* --- Countdown Timer --- */
-    let countdowns = JSON.parse(localStorage.getItem('teamCountdowns') || '[]');
-    const cdContainer = document.getElementById('countdownContainer');
-
-    function renderCountdowns() {
-      cdContainer.innerHTML = '';
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-
-      countdowns.forEach((cd, index) => {
-        const cdDate = new Date(cd.date);
-        const diffTime = cdDate - today;
-        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-        let daysText = diffDays > 0 ? `باقي ${diffDays} يوم` : diffDays === 0 ? 'اليوم!' : 'انتهى';
-
-        const div = document.createElement('div');
-        div.className = 'cd-item';
-        div.innerHTML = `
-          <span style="font-weight: 600;">${cd.name}</span>
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <span class="cd-days">${daysText}</span>
-            <button class="remove-btn" onclick="deleteCd(${index})" style="background:transparent; border:none; color:#ef4444; font-size:1.2rem; cursor:pointer;" title="حذف">×</button>
-          </div>
-        `;
-        cdContainer.appendChild(div);
+    if (calcGpaBtn) {
+      calcGpaBtn.addEventListener('click', () => {
+        let totalPts = 0;
+        let totalHrs = 0;
+        document.querySelectorAll('.gpa-row').forEach(row => {
+          const g = parseFloat(row.querySelector('.gpa-grade').value);
+          const h = parseFloat(row.querySelector('.gpa-hours').value) || 0;
+          if (h > 0) {
+            totalPts += (g * h);
+            totalHrs += h;
+          }
+        });
+        if(gpaResult) gpaResult.innerText = totalHrs > 0 ? (totalPts / totalHrs).toFixed(2) : "0.00";
       });
     }
 
-    window.deleteCd = function (index) {
-      countdowns.splice(index, 1);
-      localStorage.setItem('teamCountdowns', JSON.stringify(countdowns));
+    // 4. Flashcards
+    const flashcardsData = [
+      {q: "ما هو الـ OOP؟", a: "برمجة كائنية التوجه."},
+      {q: "ما هي Database؟", a: "قاعدة بيانات لتخزين المعلومات بشكل منظم."},
+      {q: "ما هو الـ API؟", a: "واجهة برمجة تطبيقات للتواصل بين الأنظمة."}
+    ];
+    let fcIndex = 0;
+    const fcQuestion = document.getElementById('fcQuestion');
+    const fcAnswer = document.getElementById('fcAnswer');
+    const flashcardElement = document.getElementById('flashcardElement');
+    const fcNext = document.getElementById('fcNext');
+    let fcFlipped = false;
+
+    if (fcNext && flashcardElement) {
+      flashcardElement.addEventListener('click', () => {
+        fcFlipped = !fcFlipped;
+        flashcardElement.classList.toggle('is-flipped', fcFlipped);
+      });
+      fcNext.addEventListener('click', () => {
+        fcFlipped = false;
+        flashcardElement.classList.remove('is-flipped');
+        fcIndex = (fcIndex + 1) % flashcardsData.length;
+        setTimeout(() => {
+          if(fcQuestion) fcQuestion.innerText = flashcardsData[fcIndex].q;
+          if(fcAnswer) fcAnswer.innerText = flashcardsData[fcIndex].a;
+        }, 150);
+      });
+    }
+
+    // 5. Debug Challenge
+    const showDebugAnswer = document.getElementById('showDebugAnswer');
+    const debugAnswer = document.getElementById('debugAnswer');
+    if (showDebugAnswer && debugAnswer) {
+      showDebugAnswer.addEventListener('click', () => {
+        debugAnswer.style.display = debugAnswer.style.display === 'block' ? 'none' : 'block';
+      });
+    }
+
+    // 6. Roulette
+    const spinWheelBtn = document.getElementById('spinWheel');
+    const wheel = document.getElementById('wheel');
+    const rouletteResult = document.getElementById('rouletteResult');
+    const wheelSubjects = ["C++", "Logic Design", "Math 2", "Operation Research", "English", "Physics"];
+    
+    if (spinWheelBtn && wheel) {
+      wheel.style.background = 'conic-gradient(#fca5a5 0 60deg, #fcd34d 60deg 120deg, #86efac 120deg 180deg, #93c5fd 180deg 240deg, #c4b5fd 240deg 300deg, #f9a8d4 300deg 360deg)';
+      wheel.style.borderRadius = '50%';
+      
+      spinWheelBtn.addEventListener('click', () => {
+        spinWheelBtn.disabled = true;
+        if(rouletteResult) rouletteResult.innerText = "جاري اللف...";
+        const deg = Math.floor(Math.random() * 360) + 1440;
+        wheel.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.2, 1)';
+        wheel.style.transform = `rotate(${deg}deg)`;
+        
+        setTimeout(() => {
+          const finalDeg = deg % 360;
+          const index = Math.floor((360 - finalDeg) / 60) % 6;
+          if(rouletteResult) rouletteResult.innerText = `ذاكر دلوقتي: ${wheelSubjects[index]} 🎯`;
+          spinWheelBtn.disabled = false;
+          wheel.style.transition = 'none';
+          wheel.style.transform = `rotate(${finalDeg}deg)`;
+        }, 3000);
+      });
+    }
+
+    // 7. Countdown
+    const countdownContainer = document.getElementById('countdownContainer');
+    const cdName = document.getElementById('cdName');
+    const cdDate = document.getElementById('cdDate');
+    const addCdBtn = document.getElementById('addCdBtn');
+    let countdowns = JSON.parse(localStorage.getItem('studyCountdowns') || '[]');
+
+    function renderCountdowns() {
+      if(!countdownContainer) return;
+      countdownContainer.innerHTML = '';
+      countdowns.forEach((cd, i) => {
+        const diff = new Date(cd.date) - new Date();
+        const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+        const div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.justifyContent = 'space-between';
+        div.style.padding = '8px';
+        div.style.background = days >= 0 ? '#eff6ff' : '#fef2f2';
+        div.style.marginBottom = '5px';
+        div.style.borderRadius = '5px';
+        div.innerHTML = `
+          <span>${cd.name}</span>
+          <span style="font-weight:bold; color:${days >= 0 ? '#2563eb' : '#dc2626'};">${days >= 0 ? 'باقي ' + days + ' يوم' : 'انتهى'}</span>
+          <button style="border:none; background:transparent; color:red; cursor:pointer;" onclick="deleteCd(${i})">❌</button>
+        `;
+        countdownContainer.appendChild(div);
+      });
+    }
+    
+    window.deleteCd = (i) => {
+      countdowns.splice(i, 1);
+      localStorage.setItem('studyCountdowns', JSON.stringify(countdowns));
       renderCountdowns();
     };
 
-    document.getElementById('addCdBtn').addEventListener('click', () => {
-      const name = document.getElementById('cdName').value.trim();
-      const date = document.getElementById('cdDate').value;
-      if (name && date) {
-        countdowns.push({ name, date });
-        countdowns.sort((a, b) => new Date(a.date) - new Date(b.date));
-        localStorage.setItem('teamCountdowns', JSON.stringify(countdowns));
+    if (addCdBtn && cdName && cdDate) {
+      addCdBtn.addEventListener('click', () => {
+        if (cdName.value && cdDate.value) {
+          countdowns.push({ name: cdName.value, date: cdDate.value });
+          localStorage.setItem('studyCountdowns', JSON.stringify(countdowns));
+          cdName.value = '';
+          cdDate.value = '';
+          renderCountdowns();
+        }
+      });
+      renderCountdowns();
+      if(countdowns.length === 0) {
+        countdowns.push({name: 'الميدتيرم', date: '2026-04-02'});
         renderCountdowns();
-        document.getElementById('cdName').value = '';
-        document.getElementById('cdDate').value = '';
-      } else {
-        alert('الرجاء إدخال اسم الحدث وتاريخه.');
+        localStorage.setItem('studyCountdowns', JSON.stringify(countdowns));
       }
-    });
-    renderCountdowns();
+    }
 
-    /* --- Quick Notes --- */
+    // 8. Quick Notes
     const quickNotes = document.getElementById('quickNotes');
-    quickNotes.value = localStorage.getItem('teamNotes') || '';
-    quickNotes.addEventListener('input', () => {
-      localStorage.setItem('teamNotes', quickNotes.value);
-    });
-    document.getElementById('clearNotesBtn').addEventListener('click', () => {
-      if (confirm('هل أنت متأكد من مسح كل الملاحظات؟')) {
-        quickNotes.value = '';
-        localStorage.removeItem('teamNotes');
+    const clearNotesBtn = document.getElementById('clearNotesBtn');
+    if (quickNotes) {
+      quickNotes.value = localStorage.getItem('studyQuickNotes') || '';
+      quickNotes.addEventListener('input', () => {
+        localStorage.setItem('studyQuickNotes', quickNotes.value);
+      });
+      if (clearNotesBtn) {
+        clearNotesBtn.addEventListener('click', () => {
+          if (confirm('هل أنت متأكد من مسح الملاحظات؟')) {
+            quickNotes.value = '';
+            localStorage.removeItem('studyQuickNotes');
+          }
+        });
       }
-    });
+    }
 
-    /* --- Drawing Board --- */
+    // 9. Drawing Board
     const canvas = document.getElementById('drawingBoard');
-    const ctx = canvas.getContext('2d');
-    let isDrawing = false;
-    let lastX = 0;
-    let lastY = 0;
-
-    function initCanvas() {
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width || canvas.clientWidth || 300;
-      canvas.height = rect.height || canvas.clientHeight || 200;
-
-      ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#1e293b' : '#ffffff';
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.parentElement.clientWidth || 300;
+      canvas.height = 200;
+      // Background white
+      ctx.fillStyle = "white";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-    }
-    setTimeout(initCanvas, 100);
+      let drawing = false;
 
-    function getMousePos(evt) {
-      const rect = canvas.getBoundingClientRect();
-      const clientX = evt.clientX || (evt.touches && evt.touches[0].clientX);
-      const clientY = evt.clientY || (evt.touches && evt.touches[0].clientY);
-      return {
-        x: clientX - rect.left,
-        y: clientY - rect.top
+      canvas.style.touchAction = 'none';
+
+      const getPos = (e) => {
+        const rect = canvas.getBoundingClientRect();
+        if(e.touches) {
+          return { x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top };
+        }
+        return { x: e.clientX - rect.left, y: e.clientY - rect.top };
       };
+
+      const startDraw = (e) => {
+        drawing = true;
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+      };
+
+      const draw = (e) => {
+        if (!drawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+      };
+
+      const stopDraw = () => {
+        drawing = false;
+        ctx.closePath();
+      };
+
+      canvas.addEventListener('mousedown', startDraw);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDraw);
+      canvas.addEventListener('mouseleave', stopDraw);
+      
+      canvas.addEventListener('touchstart', startDraw, {passive: false});
+      canvas.addEventListener('touchmove', draw, {passive: false});
+      canvas.addEventListener('touchend', stopDraw);
     }
 
-    function startDraw(e) {
-      isDrawing = true;
-      const pos = getMousePos(e);
-      lastX = pos.x;
-      lastY = pos.y;
-      e.preventDefault();
-    }
-
-    function draw(e) {
-      if (!isDrawing) return;
-      e.preventDefault();
-      const pos = getMousePos(e);
-
-      ctx.strokeStyle = document.getElementById('drawColor').value;
-      ctx.lineWidth = document.getElementById('drawSize').value;
-      ctx.lineJoin = 'round';
-      ctx.lineCap = 'round';
-
-      ctx.beginPath();
-      ctx.moveTo(lastX, lastY);
-      ctx.lineTo(pos.x, pos.y);
-      ctx.stroke();
-
-      lastX = pos.x;
-      lastY = pos.y;
-    }
-
-    function endDraw() {
-      isDrawing = false;
-    }
-
-    canvas.addEventListener('mousedown', startDraw);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', endDraw);
-    canvas.addEventListener('mouseout', endDraw);
-
-    canvas.addEventListener('touchstart', startDraw, { passive: false });
-    canvas.addEventListener('touchmove', draw, { passive: false });
-    canvas.addEventListener('touchend', endDraw);
-
-    document.getElementById('clearDrawBtn').addEventListener('click', () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = document.body.classList.contains('dark-mode') ? '#1e293b' : '#ffffff';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-    });
-
-    /* --- Focus Mode Logic --- */
+    // 10. Theme and Focus Toggles
+    const themeToggle = document.getElementById('themeToggle');
     const focusToggle = document.getElementById('focusToggle');
-    focusToggle.addEventListener('click', () => {
-      document.body.classList.toggle('focus-active');
-      if (document.body.classList.contains('focus-active')) {
-        focusToggle.innerHTML = '×';
-        focusToggle.title = 'إلغاء وضع العزل';
-        document.body.classList.add('dark-mode'); // Focus mode looks better deep dark
-        localStorage.setItem('theme', 'dark');
-        themeToggle.innerText = '☀️';
-      } else {
-        focusToggle.innerHTML = '🎯';
-        focusToggle.title = 'وضع العزل الكامل';
+    
+    if (themeToggle) {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.innerHTML = '☀️';
       }
-    });
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        themeToggle.innerHTML = isDark ? '☀️' : '🌙';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+    }
+    
+    if (focusToggle) {
+      focusToggle.addEventListener('click', () => {
+        document.body.classList.toggle('focus-active');
+        if (document.body.classList.contains('focus-active')) {
+          const pomoSection = document.getElementById('pomoHero');
+          if(pomoSection) pomoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    }
 
+    // 11. Motivational Quotes
+    const quotes = [
+      "النجاح هو مجموع محاولات صغيرة تتكرر كل يوم.",
+      "تذكر دائماً لماذا بدأت، لا تتوقف الآن.",
+      "تعب اليوم هو راحة الغد المشرق بإذن الله.",
+      "كلما زاد اجتهادك، زاد حظك في النجاح.",
+      "المذاكرة هي سلاحك لتغيير مستقبلك.",
+      "لا تنتظر الفرصة، بل اصنعها بنفسك.",
+      "القمة تتسع للجميع، لكنها لا تقبل إلا المجتهدين."
+    ];
+    const quoteEl = document.getElementById('motivationalQuote');
+    if (quoteEl) {
+      quoteEl.innerText = quotes[Math.floor(Math.random() * quotes.length)];
+      setInterval(() => {
+        quoteEl.style.opacity = 0;
+        setTimeout(() => {
+          quoteEl.innerText = quotes[Math.floor(Math.random() * quotes.length)];
+          quoteEl.style.opacity = 1;
+        }, 1000);
+      }, 30000);
+      quoteEl.style.transition = 'opacity 1s ease';
+    }
+
+    // 12. Auto-streak while studying (Every 5 minutes)
+    let studyTimer = 0;
+    setInterval(() => {
+      if (isPomoRunning && !isPomoBreak && cU) {
+        studyTimer++;
+        if (studyTimer >= 5) { // 5 minutes
+          studyTimer = 0;
+          let streakData = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
+          const id = cU.name.replace(/\s+/g, '-');
+          streakData[id] = (streakData[id] || 0) + 1;
+          localStorage.setItem('mockStreakData', JSON.stringify(streakData));
+          updateCardsLocally();
+          console.log("Auto-streak awarded!");
+        }
+      } else {
+        studyTimer = 0;
+      }
+    }, 60000); // Check every minute
+
+    // 13. Daily Challenge
+    const challenges = [
+      { q: "ما هي اللغة المستخدمة في برمجة Android الأساسية بجانب Java؟", a: "Kotlin", o: ["Swift", "Kotlin", "Python", "C#"] },
+      { q: "ما هو اختصار SQL؟", a: "Structured Query Language", o: ["Simple Query Lang", "Structured Query Language", "System Quick Link"] },
+      { q: "ما هو الـ DOM في تطوير الويب؟", a: "Document Object Model", o: ["Data Object Mode", "Document Object Model", "Direct Order Maker"] }
+    ];
+    const dailyChallengeContent = document.getElementById('dailyChallengeContent');
+    const challengeQuestion = document.getElementById('challengeQuestion');
+    const challengeOptions = document.getElementById('challengeOptions');
+    const challengeResult = document.getElementById('challengeResult');
+
+    function loadDailyChallenge() {
+      if (!challengeQuestion) return;
+      const today = new Date().toDateString();
+      const lastAnswered = localStorage.getItem('lastAnsweredChallenge');
+      
+      if (lastAnswered === today) {
+        dailyChallengeContent.innerHTML = "<p style='text-align:center;'>✅ أنجزت تحدي اليوم بنجاح! عد غداً لتحدي جديد.</p>";
+        return;
+      }
+
+      const challenge = challenges[Math.floor(Math.random() * challenges.length)];
+      challengeQuestion.innerText = challenge.q;
+      challengeOptions.innerHTML = '';
+      challenge.o.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.innerText = opt;
+        btn.style.width = '100%';
+        btn.onclick = () => {
+          if (opt === challenge.a) {
+            challengeResult.innerText = "صح! 🎉 خد 🔥 هدية.";
+            challengeResult.style.color = "green";
+            localStorage.setItem('lastAnsweredChallenge', today);
+            
+            // Award streak
+            if (cU) {
+              let streakData = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
+              const id = cU.name.replace(/\s+/g, '-');
+              streakData[id] = (streakData[id] || 0) + 1;
+              localStorage.setItem('mockStreakData', JSON.stringify(streakData));
+              updateCardsLocally();
+            }
+            setTimeout(loadDailyChallenge, 2000);
+          } else {
+            challengeResult.innerText = "لأ، حاول تاني! 🤔";
+            challengeResult.style.color = "red";
+          }
+        };
+        challengeOptions.appendChild(btn);
+      });
+    }
+    loadDailyChallenge();
   </script>
 </body>
 
