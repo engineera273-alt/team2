@@ -1189,12 +1189,19 @@
       padding-left: 100%;
       animation: scroll-left 15s linear infinite;
     }
+
     .scrolling-text:hover {
       animation-play-state: paused;
     }
+
     @keyframes scroll-left {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-100%, 0); }
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(-100%, 0);
+      }
     }
   </style>
   <!-- Firebase SDK -->
@@ -1234,6 +1241,7 @@
             <option>Peter Azmy</option>
             <option>Ahmed Ashraf</option>
             <option>Islam Adelsattar</option>
+            <option>Anas Salah</option>
           </select>
         </div>
         <div class="input-group">
@@ -1259,8 +1267,8 @@
         <span style="font-size: 1.2rem; z-index: 2; color: #fff; background: transparent; padding-right: 5px;">📢</span>
         <div style="flex: 1; display: flex; align-items: center;">
           <div class="scrolling-text">
-            <span>تنبيه هام : اخر معاد دخول الكويز الساعه 12 مساء ! &nbsp;&nbsp;|&nbsp;&nbsp; وان شاء الله هنبدا مذاكره
-              من يوم الاحد</span>
+            <span>ان شاء الله انهارده هنذاكر التصميم المنطقي (Logic design) وان شاء الله هنفتح zoom الي حابب يسأل في
+              حاجه + هيكون في حل اسئله</span>
           </div>
         </div>
       </div>
@@ -1275,184 +1283,6 @@
         صورة الفريق الرسمية - فريق دحيحة ZNU
       </div>
     </div>
-    <div class="hero">
-      <h1>لوحة قيادة فريق دحيحة ZNU</h1>
-      <p>تحكّم كامل في التيم، التقدم في المواد، وتحديثات يومية متاحة للـLeader ولـAdmin.</p>
-      <p id="motivationalQuote"
-        style="font-style: italic; color: #2563eb; font-weight: bold; margin: 10px 0; font-size: 1.1rem; text-align: center; background: rgba(37,99,235,0.1); padding: 10px; border-radius: 8px;">
-      </p>
-      <div class="leader-card">
-        <div class="photo-circle">
-          <img src="./image/image1.jpg" alt="Ahmed Elshahat">
-        </div>
-        <div class="leader-info">
-          <h2>Ahmed Elshahat</h2>
-          <p class="role">Leader</p>
-          <p>هنا تقدر تضيف ملخص مدخلات اليوم، ملاحظات، أو هدف المشروع.</p>
-          <p>آخر تحديث: <strong>اليوم</strong></p>
-          <button id="toggleLiveStatus" class="controls" onclick="toggleLiveStatus()"
-            style="margin-top: 10px; background: linear-gradient(135deg, #10b981, #059669);">أنا بذاكر دلوقتي!
-            📖</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="tools-grid">
-      <div id="pomoHero" class="hero" style="margin-bottom: 0;">
-        <h2 class="section-title">⏱️ مؤقت المذاكرة (Pomodoro)</h2>
-        <p class="info-text">ركز 25 دقيقة وخد بريك 5 دقايق.</p>
-        <div class="pomodoro-timer" id="pomoTime">25:00</div>
-        <div class="pomo-controls controls">
-          <button id="pomoStart">بدأ التركيز</button>
-          <button id="pomoBreak" style="background: linear-gradient(135deg, #10b981, #059669);">راحة 5د</button>
-          <button id="pomoReset" style="background: linear-gradient(135deg, #64748b, #475569);">إعادة</button>
-        </div>
-        <p
-          style="text-align: center; font-size: 0.95rem; margin-top: 15px; margin-bottom: 10px; color: #10b981; font-weight: bold;">
-          أنجزت اليوم: <span id="pomoSessionCount">0</span> جلسة (<span id="pomoSessionHours">0.0</span> ساعة المجموع)
-        </p>
-        <div class="focus-audio-player" style="padding-top: 15px; border-top: 1px dashed rgba(0,0,0,0.1);">
-          <label style="font-size:0.95rem; font-weight:bold; margin-bottom:8px; display:block;">🎧 استمع أثناء المذاكرة
-            (قرآن/أصوات):</label>
-          <select id="audioSelector" class="controls"
-            style="width: 100%; margin-bottom: 8px; padding: 6px; border-radius: 8px; cursor: pointer;">
-            <option value="">-- إيقاف الصوت --</option>
-            <optgroup label="القرآن الكريم (الشيخ مشاري العفاسي)">
-              <option value="https://server8.mp3quran.net/afs/001.mp3">سورة الفاتحة</option>
-              <option value="https://server8.mp3quran.net/afs/036.mp3">سورة يس</option>
-              <option value="https://server8.mp3quran.net/afs/055.mp3">سورة الرحمن</option>
-              <option value="https://server8.mp3quran.net/afs/056.mp3">سورة الواقعة</option>
-              <option value="https://server8.mp3quran.net/afs/067.mp3">سورة الملك</option>
-            </optgroup>
-            <optgroup label="أصوات للتركيز">
-              <option value="https://assets.mixkit.co/active_storage/sfx/2515/2515-preview.mp3">صوت مطر خفيف</option>
-              <option value="https://assets.mixkit.co/active_storage/sfx/135/135-preview.mp3">أجواء كافيه وهدوء</option>
-            </optgroup>
-          </select>
-          <audio id="focusAudio" controls loop
-            style="width: 100%; height: 35px; border-radius: 8px; outline: none;"></audio>
-        </div>
-      </div>
-
-      <div class="hero" style="margin-bottom: 0;">
-        <h2 class="section-title">📝 مهامي اليومية</h2>
-        <div class="controls" style="margin-bottom: 10px; flex-wrap: nowrap;">
-          <input type="text" id="todoInput" placeholder="اكتب مهمة جديدة..." style="flex: 1; min-width: 0;">
-          <button id="todoAdd">إضافة</button>
-        </div>
-        <ul class="todo-list" id="todoList"></ul>
-      </div>
-
-      <div class="hero" style="margin-bottom: 0;">
-        <h2 class="section-title">🧮 حاسبة المعدل التراكمي (GPA)</h2>
-        <div id="gpaCourses" style="max-height: 150px; overflow-y: auto; margin-bottom: 10px; padding-right: 5px;">
-        </div>
-        <div class="controls" style="flex-wrap: nowrap; display: flex; gap: 10px;">
-          <button id="addGpaCourse" style="flex: 1; padding: 6px; font-size: 0.9rem;">+ مادة</button>
-          <button id="calcGpaBtn"
-            style="flex: 1; padding: 6px; font-size: 0.9rem; background: linear-gradient(135deg, #10b981, #059669);">احسب</button>
-        </div>
-        <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold; text-align: center; color: #1e3a8a;">
-          GPA: <span id="gpaResult">0.00</span>
-        </div>
-      </div>
-
-      <div class="hero" id="dailyChallengeHero" style="margin-bottom: 0;">
-        <h2 class="section-title">💡 تحدي اليوم</h2>
-        <p class="info-text">جاوب صح وخد 🔥 هدية لتيمك!</p>
-        <div id="dailyChallengeContent" style="background: rgba(255,255,255,0.5); padding: 15px; border-radius: 12px; margin-bottom: 10px;">
-          <p id="challengeQuestion" style="font-weight: bold; margin-bottom: 10px;"></p>
-          <div id="challengeOptions" class="controls" style="flex-direction: column; gap: 8px;"></div>
-        </div>
-        <p id="challengeResult" style="text-align: center; font-weight: bold; min-height: 1.2rem;"></p>
-      </div>
-
-      <div class="hero" style="margin-bottom: 0;">
-        <h2 class="section-title">🗂️ فلاش كاردز (مراجعة سريعة)</h2>
-        <p class="info-text">اضغط على البطاقة لقلبها ومعرفة الإجابة.</p>
-        <div class="flashcard-container" id="flashcardContainer">
-          <div class="flashcard" id="flashcardElement">
-            <div class="flashcard-inner">
-              <div class="flashcard-front">
-                <p id="fcQuestion">ما هو تعريف الـ OOP؟</p>
-              </div>
-              <div class="flashcard-back">
-                <p id="fcAnswer">برمجة كائنية التوجه، تعتمد على الكائنات والفئات.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="controls" style="justify-content: center; margin-top: 10px;">
-          <button id="fcNext">التالي ➡️</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="tools-grid">
-      <!-- 1. Daily Debugging Challenge -->
-      <div class="hero" style="margin-bottom: 0;">
-        <h2 class="section-title">🪲 تحدي الـ Bug اليومي</h2>
-        <p class="info-text">طلع الغلطة في الكود ده عشان تكسب نقطة التيم!</p>
-        <div class="debug-code">
-          <pre><code>int main() {
-  int x = 10
-  cout << "Value is: " << x;
-  return 0;
-}</code></pre>
-        </div>
-        <button id="showDebugAnswer" class="controls" style="width:100%; margin-top:5px;">إظهار الحل ✅</button>
-        <div id="debugAnswer" class="debug-answer">
-          الخطأ في السطر الثاني: نقصت الفاصلة المنقوطة (semicolon) بعد <code>int x = 10;</code>
-        </div>
-      </div>
-
-      <!-- 3. Study Roulette -->
-      <div class="hero" style="margin-bottom: 0; text-align: center;">
-        <h2 class="section-title">🎰 عجلة حظ المذاكرة</h2>
-        <p class="info-text">مش عارف تذاكر إيه؟ سيبها على الحظ!</p>
-        <div class="roulette-container">
-          <div class="needle"></div>
-          <div id="wheel" class="wheel"></div>
-        </div>
-        <button id="spinWheel" class="controls" style="width:100%;">لف العجلة 🚀</button>
-        <p id="rouletteResult" style="margin-top: 10px; font-weight: bold; color: #1e3a8a; min-height: 1.2rem;"></p>
-      </div>
-
-      <div class="hero" style="margin-bottom: 0;">
-        <h2 class="section-title">⏳ عداد الامتحانات والتسليمات</h2>
-        <div id="countdownContainer"
-          style="max-height: 160px; overflow-y: auto; margin-bottom: 10px; padding-right: 5px;"></div>
-        <div class="controls" style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <input type="text" id="cdName" placeholder="اسم الحدث" style="flex: 2; min-width: 100px;">
-          <input type="date" id="cdDate" style="flex: 1; min-width: 120px; text-align: left;">
-          <button id="addCdBtn" style="flex: 1; min-width: 80px;">أضف</button>
-        </div>
-      </div>
-
-      <div id="notesHero" class="hero" style="margin-bottom: 0;">
-        <h2 class="section-title">📝 مفكرتي السريعة (Auto-Save)</h2>
-        <textarea id="quickNotes" placeholder="اكتب ملاحظاتك هنا أثناء المذاكرة..."></textarea>
-        <div class="controls" style="justify-content: flex-end; margin-top: 10px;">
-          <button id="clearNotesBtn" style="background: #ef4444; padding: 6px 12px; font-size: 0.9rem;">مسح الملاحظات
-            🗑️</button>
-        </div>
-      </div>
-
-      <div class="hero" style="margin-bottom: 0;">
-        <h2 class="section-title">🎨 سبورة الشخبطة</h2>
-        <canvas id="drawingBoard"></canvas>
-        <div class="controls" style="justify-content: space-between; margin-top: 10px; align-items: center;">
-          <div style="display: flex; gap: 10px; align-items: center;">
-            <input type="color" id="drawColor" value="#2563eb"
-              style="padding: 0; width: 40px; height: 35px; border: none; cursor: pointer; border-radius: 8px; background: transparent;">
-            <input type="range" id="drawSize" min="1" max="15" value="3" style="width: 100px;">
-          </div>
-          <button id="clearDrawBtn" style="background: #ef4444; padding: 6px 12px; font-size: 0.9rem;">امسح السبورة
-            🗑️</button>
-        </div>
-      </div>
-    </div>
-
     <div class="hero hide-in-focus" style="margin-bottom: 24px; position: relative;">
       <div
         style="position: absolute; top: 0; right: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #ef4444, #f5a623, #10b981, #3b82f6); border-radius: 24px 24px 0 0;">
@@ -1479,38 +1309,37 @@
           <tbody>
             <tr>
               <td style="font-weight: bold;">الأحد 22/3</td>
-              <td><strong style="color: #2563eb;">Operation Research</strong><br><span style="font-size: 0.85rem;">مسائل
-                  الجرافيك والـ Simplex</span></td>
-              <td><strong style="color: #8b5cf6;">Social & Ethical</strong><br><span style="font-size: 0.85rem;">
-                  قراءة الملف الدكتوره بعتاه فقط </span></td>
+              <td><strong style="color: #2563eb;">logic design</strong><br><span style="font-size: 0.85rem;">
+                </span></td>
+              <td><strong style="color: #8b5cf6;">logic design</strong><br><span style="font-size: 0.85rem;">
+                </span></td>
             </tr>
             <tr>
               <td style="font-weight: bold;">الإثنين 23/3</td>
-              <td><strong style="color: #2563eb;">Logic Design</strong><br><span style="font-size: 0.85rem;">
-                  حل design</span></td>
-              <td><strong style="color: #8b5cf6;">Discrete Math</strong><br><span style="font-size: 0.85rem;">
-                  مذاكره كويس جدا ل discrete math</span></td>
+              <td><strong style="color: #2563eb;">Programming 2</strong><br><span style="font-size: 0.85rem;">
+                </span></td>
+              <td><strong style="color: #8b5cf6;">Programming 2</strong><br><span style="font-size: 0.85rem;">
+                </span></td>
             </tr>
             <tr>
               <td style="font-weight: bold;">الثلاثاء 24/3</td>
-              <td><strong style="color: #2563eb;">Programming 2</strong><br><span style="font-size: 0.85rem;">كتابة كود
-                  OOP وتطبيق عملي</span></td>
-              <td><strong style="color: #8b5cf6;">Operation Research</strong><br><span
-                  style="font-size: 0.85rem;">استكمال حل شيتات وتطبيقات</span></td>
+              <td><strong style="color: #2563eb;">Discrete math </strong><br><span style="font-size: 0.85rem;">
+              <td><strong style="color: #8b5cf6;">Discrete math</strong><br><span style="font-size: 0.85rem;"></span>
+              </td>
             </tr>
             <tr>
               <td style="font-weight: bold;">الأربعاء 25/3</td>
-              <td><strong style="color: #2563eb;">Logic Design</strong><br><span style="font-size: 0.85rem;">تجميع
-                  مسارات وحل امتحانات سابقة</span></td>
-              <td><strong style="color: #8b5cf6;">Discrete Math</strong><br><span style="font-size: 0.85rem;">تثبيت
-                  قوانين ومسائل</span></td>
+              <td><strong style="color: #2563eb;">Operation Research</strong><br><span style="font-size: 0.85rem;">
+                </span></td>
+              <td><strong style="color: #8b5cf6;">Operation Research</strong><br><span style="font-size: 0.85rem;">
+                </span></td>
             </tr>
             <tr>
               <td style="font-weight: bold; background: rgba(239,68,68,0.05);">الخميس 26/3</td>
-              <td><strong style="color: #dc2626;">Math 2 (البدء)</strong><br><span style="font-size: 0.85rem;">مراجعة
-                  قوانين (تكامل واشتقاق)</span></td>
-              <td><strong style="color: #8b5cf6;">Programming 2</strong><br><span style="font-size: 0.85rem;">مراجعة
-                  أفكار سريعة فقط</span></td>
+              <td><strong style="color: #dc2626;">Math 2 (البدء)</strong><br><span style="font-size: 0.85rem;">
+                </span></td>
+              <td><strong style="color: #8b5cf6;">Math 2</strong><br><span style="font-size: 0.85rem;">
+                </span></td>
             </tr>
             <tr>
               <td style="font-weight: bold; background: rgba(239,68,68,0.1);">الجمعة 27/3</td>
@@ -1527,798 +1356,924 @@
         <p style="margin:0; font-size: 0.9rem; line-height: 1.6;">الجدول أيام الامتحانات: ارجع من الامتحان ← نام شوية ←
           اصحى اعمل Refresh سريع لمادة بكرا اللي إنت أساساً مراجعها في الأسبوع ده!</p>
       </div>
-    </div>
-
-    <div class="hero hide-in-focus" style="margin-bottom: 24px;">
-      <h2 class="section-title">📅 جدول المحاضرات الأسبوعي</h2>
-      <div class="table-wrap">
-        <table class="schedule-table" style="text-align: center; width: 100%; margin-top: 10px;">
-          <thead>
-            <tr>
-              <th>اليوم</th>
-              <th>المحاضرة الأولى (9:00 - 11:00)</th>
-              <th>المحاضرة الثانية (11:00 - 1:00)</th>
-              <th>المحاضرة الثالثة (1:00 - 3:00)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="font-weight: bold; background: rgba(37,99,235,0.05);">الأحد</td>
-              <td>Programming 2</td>
-              <td>Logic Design (Section)</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td style="font-weight: bold; background: rgba(37,99,235,0.05);">الاثنين</td>
-              <td>Math 2</td>
-              <td>Discrete Math</td>
-              <td>-</td>
-            </tr>
-            <tr>
-              <td style="font-weight: bold; background: rgba(37,99,235,0.05);">الثلاثاء</td>
-              <td>-</td>
-              <td>Operation Research</td>
-              <td>Programming 2 (Section)</td>
-            </tr>
-            <tr>
-              <td style="font-weight: bold; background: rgba(37,99,235,0.05);">الأربعاء</td>
-              <td>Logic Design</td>
-              <td>-</td>
-              <td>Math 2 (Section)</td>
-            </tr>
-            <tr>
-              <td style="font-weight: bold; background: rgba(37,99,235,0.05);">الخميس</td>
-              <td colspan="3" style="color: #10b981; font-weight: bold; padding: 15px;">يوم الأبحاث والمهام (إجازة)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="hero hide-in-focus" style="margin-bottom: 24px;">
-      <h2 class="section-title">📚 مكتبة الزتونة (Code Hub)</h2>
-      <p class="info-text">أهم الأكواد والقوانين اللي هتحتاجها في الميدتيرم، متجمعة في مكان واحد.</p>
-
-      <div class="snippet-category">
-        <div class="snippet-header" onclick="toggleSnippet(this)">
-          <span>💻 C++ OOP Cheat Sheet</span>
-          <span>▼</span>
+      <div class="hero">
+        <h1>لوحة قيادة فريق دحيحة ZNU</h1>
+        <p>تحكّم كامل في التيم، التقدم في المواد، وتحديثات يومية متاحة للـLeader ولـAdmin.</p>
+        <p id="motivationalQuote"
+          style="font-style: italic; color: #2563eb; font-weight: bold; margin: 10px 0; font-size: 1.1rem; text-align: center; background: rgba(37,99,235,0.1); padding: 10px; border-radius: 8px;">
+        </p>
+        <div class="leader-card">
+          <div class="photo-circle">
+            <img src="./image/image1.jpg" alt="Ahmed Elshahat">
+          </div>
+          <div class="leader-info">
+            <h2>Ahmed Elshahat</h2>
+            <p class="role">Leader</p>
+            <p>هنا تقدر تضيف ملخص مدخلات اليوم، ملاحظات، أو هدف المشروع.</p>
+            <p>آخر تحديث: <strong>اليوم</strong></p>
+            <button id="toggleLiveStatus" class="controls" onclick="toggleLiveStatus()"
+              style="margin-top: 10px; background: linear-gradient(135deg, #10b981, #059669);">أنا بذاكر دلوقتي!
+              📖</button>
+          </div>
         </div>
-        <div class="snippet-content">
-          <p><strong>أساسيات الـ Class:</strong></p>
+      </div>
+
+      <div class="tools-grid">
+        <div id="pomoHero" class="hero" style="margin-bottom: 0;">
+          <h2 class="section-title">⏱️ مؤقت المذاكرة (Pomodoro)</h2>
+          <p class="info-text">ركز 25 دقيقة وخد بريك 5 دقايق.</p>
+          <div class="pomodoro-timer" id="pomoTime">25:00</div>
+          <div class="pomo-controls controls">
+            <button id="pomoStart">بدأ التركيز</button>
+            <button id="pomoBreak" style="background: linear-gradient(135deg, #10b981, #059669);">راحة 5د</button>
+            <button id="pomoReset" style="background: linear-gradient(135deg, #64748b, #475569);">إعادة</button>
+          </div>
+          <p
+            style="text-align: center; font-size: 0.95rem; margin-top: 15px; margin-bottom: 10px; color: #10b981; font-weight: bold;">
+            أنجزت اليوم: <span id="pomoSessionCount">0</span> جلسة (<span id="pomoSessionHours">0.0</span> ساعة المجموع)
+          </p>
+          <div class="focus-audio-player" style="padding-top: 15px; border-top: 1px dashed rgba(0,0,0,0.1);">
+            <label style="font-size:0.95rem; font-weight:bold; margin-bottom:8px; display:block;">🎧 استمع أثناء
+              المذاكرة
+              (قرآن/أصوات):</label>
+            <select id="audioSelector" class="controls"
+              style="width: 100%; margin-bottom: 8px; padding: 6px; border-radius: 8px; cursor: pointer;">
+              <option value="">-- إيقاف الصوت --</option>
+              <optgroup label="القرآن الكريم (الشيخ مشاري العفاسي)">
+                <option value="https://server8.mp3quran.net/afs/001.mp3">سورة الفاتحة</option>
+                <option value="https://server8.mp3quran.net/afs/036.mp3">سورة يس</option>
+                <option value="https://server8.mp3quran.net/afs/055.mp3">سورة الرحمن</option>
+                <option value="https://server8.mp3quran.net/afs/056.mp3">سورة الواقعة</option>
+                <option value="https://server8.mp3quran.net/afs/067.mp3">سورة الملك</option>
+              </optgroup>
+              <optgroup label="أصوات للتركيز">
+                <option value="https://assets.mixkit.co/active_storage/sfx/2515/2515-preview.mp3">صوت مطر خفيف</option>
+                <option value="https://assets.mixkit.co/active_storage/sfx/135/135-preview.mp3">أجواء كافيه وهدوء
+                </option>
+              </optgroup>
+            </select>
+            <audio id="focusAudio" controls loop
+              style="width: 100%; height: 35px; border-radius: 8px; outline: none;"></audio>
+          </div>
+        </div>
+
+        <div class="hero" style="margin-bottom: 0;">
+          <h2 class="section-title">📝 مهامي اليومية</h2>
+          <div class="controls" style="margin-bottom: 10px; flex-wrap: nowrap;">
+            <input type="text" id="todoInput" placeholder="اكتب مهمة جديدة..." style="flex: 1; min-width: 0;">
+            <button id="todoAdd">إضافة</button>
+          </div>
+          <ul class="todo-list" id="todoList"></ul>
+        </div>
+
+        <div class="hero" style="margin-bottom: 0;">
+          <h2 class="section-title">🧮 حاسبة المعدل التراكمي (GPA)</h2>
+          <div id="gpaCourses" style="max-height: 150px; overflow-y: auto; margin-bottom: 10px; padding-right: 5px;">
+          </div>
+          <div class="controls" style="flex-wrap: nowrap; display: flex; gap: 10px;">
+            <button id="addGpaCourse" style="flex: 1; padding: 6px; font-size: 0.9rem;">+ مادة</button>
+            <button id="calcGpaBtn"
+              style="flex: 1; padding: 6px; font-size: 0.9rem; background: linear-gradient(135deg, #10b981, #059669);">احسب</button>
+          </div>
+          <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold; text-align: center; color: #1e3a8a;">
+            GPA: <span id="gpaResult">0.00</span>
+          </div>
+        </div>
+
+        <div class="hero" id="dailyChallengeHero" style="margin-bottom: 0;">
+          <h2 class="section-title">💡 تحدي اليوم</h2>
+          <p class="info-text">جاوب صح وخد 🔥 هدية لتيمك!</p>
+          <div id="dailyChallengeContent"
+            style="background: rgba(255,255,255,0.5); padding: 15px; border-radius: 12px; margin-bottom: 10px;">
+            <p id="challengeQuestion" style="font-weight: bold; margin-bottom: 10px;"></p>
+            <div id="challengeOptions" class="controls" style="flex-direction: column; gap: 8px;"></div>
+          </div>
+          <p id="challengeResult" style="text-align: center; font-weight: bold; min-height: 1.2rem;"></p>
+        </div>
+
+        <div class="hero" style="margin-bottom: 0;">
+          <h2 class="section-title">🗂️ فلاش كاردز (مراجعة سريعة)</h2>
+          <p class="info-text">اضغط على البطاقة لقلبها ومعرفة الإجابة.</p>
+          <div class="flashcard-container" id="flashcardContainer">
+            <div class="flashcard" id="flashcardElement">
+              <div class="flashcard-inner">
+                <div class="flashcard-front">
+                  <p id="fcQuestion">ما هو تعريف الـ OOP؟</p>
+                </div>
+                <div class="flashcard-back">
+                  <p id="fcAnswer">برمجة كائنية التوجه، تعتمد على الكائنات والفئات.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="controls" style="justify-content: center; margin-top: 10px;">
+            <button id="fcNext">التالي ➡️</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tools-grid">
+        <!-- 1. Daily Debugging Challenge -->
+        <div class="hero" style="margin-bottom: 0;">
+          <h2 class="section-title">🪲 تحدي الـ Bug اليومي</h2>
+          <p class="info-text">طلع الغلطة في الكود ده عشان تكسب نقطة التيم!</p>
           <div class="debug-code">
-            <pre><code>class Student {
+            <pre><code>int main() {
+  int x = 10
+  cout << "Value is: " << x;
+  return 0;
+}</code></pre>
+          </div>
+          <button id="showDebugAnswer" class="controls" style="width:100%; margin-top:5px;">إظهار الحل ✅</button>
+          <div id="debugAnswer" class="debug-answer">
+            الخطأ في السطر الثاني: نقصت الفاصلة المنقوطة (semicolon) بعد <code>int x = 10;</code>
+          </div>
+        </div>
+
+        <!-- 3. Study Roulette -->
+        <div class="hero" style="margin-bottom: 0; text-align: center;">
+          <h2 class="section-title">🎰 عجلة حظ المذاكرة</h2>
+          <p class="info-text">مش عارف تذاكر إيه؟ سيبها على الحظ!</p>
+          <div class="roulette-container">
+            <div class="needle"></div>
+            <div id="wheel" class="wheel"></div>
+          </div>
+          <button id="spinWheel" class="controls" style="width:100%;">لف العجلة 🚀</button>
+          <p id="rouletteResult" style="margin-top: 10px; font-weight: bold; color: #1e3a8a; min-height: 1.2rem;"></p>
+        </div>
+
+        <div class="hero" style="margin-bottom: 0;">
+          <h2 class="section-title">⏳ عداد الامتحانات والتسليمات</h2>
+          <div id="countdownContainer"
+            style="max-height: 160px; overflow-y: auto; margin-bottom: 10px; padding-right: 5px;"></div>
+          <div class="controls" style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <input type="text" id="cdName" placeholder="اسم الحدث" style="flex: 2; min-width: 100px;">
+            <input type="date" id="cdDate" style="flex: 1; min-width: 120px; text-align: left;">
+            <button id="addCdBtn" style="flex: 1; min-width: 80px;">أضف</button>
+          </div>
+        </div>
+
+        <div id="notesHero" class="hero" style="margin-bottom: 0;">
+          <h2 class="section-title">📝 مفكرتي السريعة (Auto-Save)</h2>
+          <textarea id="quickNotes" placeholder="اكتب ملاحظاتك هنا أثناء المذاكرة..."></textarea>
+          <div class="controls" style="justify-content: flex-end; margin-top: 10px;">
+            <button id="clearNotesBtn" style="background: #ef4444; padding: 6px 12px; font-size: 0.9rem;">مسح الملاحظات
+              🗑️</button>
+          </div>
+        </div>
+
+        <div class="hero" style="margin-bottom: 0;">
+          <h2 class="section-title">🎨 سبورة الشخبطة</h2>
+          <canvas id="drawingBoard"></canvas>
+          <div class="controls" style="justify-content: space-between; margin-top: 10px; align-items: center;">
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <input type="color" id="drawColor" value="#2563eb"
+                style="padding: 0; width: 40px; height: 35px; border: none; cursor: pointer; border-radius: 8px; background: transparent;">
+              <input type="range" id="drawSize" min="1" max="15" value="3" style="width: 100px;">
+            </div>
+            <button id="clearDrawBtn" style="background: #ef4444; padding: 6px 12px; font-size: 0.9rem;">امسح السبورة
+              🗑️</button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="hero hide-in-focus" style="margin-bottom: 24px;">
+        <h2 class="section-title">📅 جدول المحاضرات الأسبوعي</h2>
+        <div class="table-wrap">
+          <table class="schedule-table" style="text-align: center; width: 100%; margin-top: 10px;">
+            <thead>
+              <tr>
+                <th>اليوم</th>
+                <th>المحاضرة الأولى (9:00 - 11:00)</th>
+                <th>المحاضرة الثانية (11:00 - 1:00)</th>
+                <th>المحاضرة الثالثة (1:00 - 3:00)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: bold; background: rgba(37,99,235,0.05);">الأحد</td>
+                <td>Programming 2</td>
+                <td>Logic Design (Section)</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; background: rgba(37,99,235,0.05);">الاثنين</td>
+                <td>Math 2</td>
+                <td>Discrete Math</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; background: rgba(37,99,235,0.05);">الثلاثاء</td>
+                <td>-</td>
+                <td>Operation Research</td>
+                <td>Programming 2 (Section)</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; background: rgba(37,99,235,0.05);">الأربعاء</td>
+                <td>Logic Design</td>
+                <td>-</td>
+                <td>Math 2 (Section)</td>
+              </tr>
+              <tr>
+                <td style="font-weight: bold; background: rgba(37,99,235,0.05);">الخميس</td>
+                <td colspan="3" style="color: #10b981; font-weight: bold; padding: 15px;">يوم الأبحاث والمهام (إجازة)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="hero hide-in-focus" style="margin-bottom: 24px;">
+        <h2 class="section-title">📚 مكتبة الزتونة (Code Hub)</h2>
+        <p class="info-text">أهم الأكواد والقوانين اللي هتحتاجها في الميدتيرم، متجمعة في مكان واحد.</p>
+
+        <div class="snippet-category">
+          <div class="snippet-header" onclick="toggleSnippet(this)">
+            <span>💻 C++ OOP Cheat Sheet</span>
+            <span>▼</span>
+          </div>
+          <div class="snippet-content">
+            <p><strong>أساسيات الـ Class:</strong></p>
+            <div class="debug-code">
+              <pre><code>class Student {
 public:
     string name;
     void display() { cout << name; }
 };</code></pre>
+            </div>
+            <p>ركز على الـ <code>Access Modifiers</code> (public, private) والـ <code>Constructors</code>.</p>
           </div>
-          <p>ركز على الـ <code>Access Modifiers</code> (public, private) والـ <code>Constructors</code>.</p>
+        </div>
+
+        <div class="snippet-category">
+          <div class="snippet-header" onclick="toggleSnippet(this)">
+            <span>📐 Math 2 - Derivatives (الاشتقاق)</span>
+            <span>▼</span>
+          </div>
+          <div class="snippet-content">
+            <ul style="padding-right: 20px;">
+              <li><code>d/dx (sin x) = cos x</code></li>
+              <li><code>d/dx (cos x) = -sin x</code></li>
+              <li><code>d/dx (e^x) = e^x</code></li>
+              <li><code>d/dx (ln x) = 1/x</code></li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div class="snippet-category">
-        <div class="snippet-header" onclick="toggleSnippet(this)">
-          <span>📐 Math 2 - Derivatives (الاشتقاق)</span>
-          <span>▼</span>
+      <h2 style="margin-top:22px;">أعضاء التابعين</h2>
+      <div class="grid4">
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image1.jpg" alt="Ahmed Elshahat"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>1 - Ahmed Elshahat</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Leader</span>
+          <p>Programming 2 (OOP)</p>
+          <div class="status-badge status-offline" id="status-Ahmed-Elshahat">أوفلاين</div>
         </div>
-        <div class="snippet-content">
-          <ul style="padding-right: 20px;">
-            <li><code>d/dx (sin x) = cos x</code></li>
-            <li><code>d/dx (cos x) = -sin x</code></li>
-            <li><code>d/dx (e^x) = e^x</code></li>
-            <li><code>d/dx (ln x) = 1/x</code></li>
-          </ul>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image5.jpeg" alt="Elsayed Elfiky"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>2 - Elsayed Elfiky</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Admin</span>
+          <p>Logic design</p>
+          <div class="status-badge status-offline" id="status-Elsayed-Elfiky">أوفلاين</div>
+        </div>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image3.jpeg" alt="Osama Mohamed"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>3 - Osama Mohamed</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Admin</span>
+          <p>Math 2</p>
+          <div class="status-badge status-offline" id="status-Osama-Mohamed">أوفلاين</div>
+        </div>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image4.jpeg" alt="Abanob Ramzy"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>4 - Abanob Ramzy</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Admin</span>
+          <p>Operation Research</p>
+          <div class="status-badge status-offline" id="status-Abanob-Ramzy">أوفلاين</div>
+        </div>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image16.jpeg" alt="Omar Elaidy"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>5 - Omar Elaidy</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Member</span>
+          <p>Discrete Math</p>
+          <div class="status-badge status-offline" id="status-Omar-Elaidy-Sub">أوفلاين</div>
         </div>
       </div>
-    </div>
 
-    <h2 style="margin-top:22px;">أعضاء التابعين</h2>
-    <div class="grid4">
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image1.jpg" alt="Ahmed Elshahat"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>1 - Ahmed Elshahat</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+      <h2 style="margin-top:22px;">قسم الـAdmin الثاني</h2>
+      <div class="grid4">
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image5.jpeg" alt="Elsayed Elfiky"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>1 - Elsayed Elfiky</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Admin</span>
+          <div class="status-badge status-offline" id="status-Elsayed-Elfiky-Admin">أوفلاين</div>
         </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Leader</span>
-        <p>Programming 2 (OOP)</p>
-        <div class="status-badge status-offline" id="status-Ahmed-Elshahat">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image5.jpeg" alt="Elsayed Elfiky"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>2 - Elsayed Elfiky</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image3.jpeg" alt="Osama Mohamed"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>2 - Osama Mohamed</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Admin</span>
+          <div class="status-badge status-offline" id="status-Osama-Mohamed-Admin">أوفلاين</div>
         </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Admin</span>
-        <p>Logic design</p>
-        <div class="status-badge status-offline" id="status-Elsayed-Elfiky">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image3.jpeg" alt="Osama Mohamed"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>3 - Osama Mohamed</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image4.jpeg" alt="Abanob Ramzy"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>3 - Abanob Ramzy</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Admin</span>
+          <div class="status-badge status-offline" id="status-Abanob-Ramzy-Admin">أوفلاين</div>
         </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Admin</span>
-        <p>Math 2</p>
-        <div class="status-badge status-offline" id="status-Osama-Mohamed">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image4.jpeg" alt="Abanob Ramzy"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>4 - Abanob Ramzy</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image2 (2).jpeg" alt="Ahmed Mostafa"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>4 - Ahmed Mostafa</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Admin</span>
+          <div class="status-badge status-offline" id="status-Ahmed-Mostafa">أوفلاين</div>
         </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Admin</span>
-        <p>Operation Research</p>
-        <div class="status-badge status-offline" id="status-Abanob-Ramzy">أوفلاين</div>
       </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image16.jpeg" alt="Omar Elaidy"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>5 - Omar Elaidy</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
-        </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Member</span>
-        <p>Discrete Math</p>
-        <div class="status-badge status-offline" id="status-Omar-Elaidy-Sub">أوفلاين</div>
-      </div>
-    </div>
 
-    <h2 style="margin-top:22px;">قسم الـAdmin الثاني</h2>
-    <div class="grid4">
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image5.jpeg" alt="Elsayed Elfiky"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>1 - Elsayed Elfiky</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
-        </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Admin</span>
-        <div class="status-badge status-offline" id="status-Elsayed-Elfiky-Admin">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image3.jpeg" alt="Osama Mohamed"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>2 - Osama Mohamed</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
-        </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Admin</span>
-        <div class="status-badge status-offline" id="status-Osama-Mohamed-Admin">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image4.jpeg" alt="Abanob Ramzy"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>3 - Abanob Ramzy</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
-        </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Admin</span>
-        <div class="status-badge status-offline" id="status-Abanob-Ramzy-Admin">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image2 (2).jpeg" alt="Ahmed Mostafa"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>4 - Ahmed Mostafa</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
-        </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Admin</span>
-        <div class="status-badge status-offline" id="status-Ahmed-Mostafa">أوفلاين</div>
-      </div>
-    </div>
-
-    <h2 style="margin-top:22px;">أعضاء التيم</h2>
-    <div class="grid4">
+      <h2 style="margin-top:22px;">أعضاء التيم</h2>
+      <div class="grid4">
 
 
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image7.jpeg" alt="Member 1"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>1 - Ali Hendawy</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image7.jpeg" alt="Member 1"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>1 - Ali Hendawy</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Ali-Hendawy">أوفلاين</div>
         </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Ali-Hendawy">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image8.jpeg" alt="Member 2"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>2 - Ahmed Kairy</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image8.jpeg" alt="Member 2"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>2 - Ahmed Kairy</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Ahmed-Kairy">أوفلاين</div>
         </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Ahmed-Kairy">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image9.jpeg" alt="Member 3"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>3 - Mohamed emam</h3>
-          <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image9.jpeg" alt="Member 3"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>3 - Mohamed emam</h3>
+            <span class="streak-fire" title="Study Streak">🔥 <span class="streak-count">0</span></span>
+          </div>
+          <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Mohamed-emam">أوفلاين</div>
         </div>
-        <button class="award-btn" onclick="awardStreak(this)">إعطاء 🔥</button>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Mohamed-emam">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image10.jpeg" alt="Member 4"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>4 - Ibrahim Salama</h3>
-          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image10.jpeg" alt="Member 4"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>4 - Ibrahim Salama</h3>
+            <span class="streak-fire" title="Study Streak">🔥 0</span>
+          </div>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Ibrahim-Salama">أوفلاين</div>
         </div>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Ibrahim-Salama">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image111.jpeg" alt="Member 5"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>5 - Ibrahim Yasser</h3>
-          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image111.jpeg" alt="Member 5"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>5 - Ibrahim Yasser</h3>
+            <span class="streak-fire" title="Study Streak">🔥 0</span>
+          </div>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Ibrahim-Yasser">أوفلاين</div>
         </div>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Ibrahim-Yasser">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image12.jpeg" alt="Member 6"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>6 - Ahmed Metwally</h3>
-          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image12.jpeg" alt="Member 6"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>6 - Ahmed Metwally</h3>
+            <span class="streak-fire" title="Study Streak">🔥 0</span>
+          </div>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Ahmed-Metwally">أوفلاين</div>
         </div>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Ahmed-Metwally">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image12 (2).jpeg" alt="Member 7"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>7 - Islam Mohamed</h3>
-          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image12 (2).jpeg" alt="Member 7"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>7 - Islam Mohamed</h3>
+            <span class="streak-fire" title="Study Streak">🔥 0</span>
+          </div>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Islam-Mohamed">أوفلاين</div>
         </div>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Islam-Mohamed">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image13.jpeg" alt="Member 8"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>8 - Peter Azmy</h3>
-          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image13.jpeg" alt="Member 8"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>8 - Peter Azmy</h3>
+            <span class="streak-fire" title="Study Streak">🔥 0</span>
+          </div>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Peter-Azmy">أوفلاين</div>
         </div>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Peter-Azmy">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image14.jpeg" alt="Member 9"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>9 - Ahmed Ashraf</h3>
-          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image14.jpeg" alt="Member 9"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>9 - Ahmed Ashraf</h3>
+            <span class="streak-fire" title="Study Streak">🔥 0</span>
+          </div>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Ahmed-Ashraf">أوفلاين</div>
         </div>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Ahmed-Ashraf">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image15.png" alt="Member 10"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>10 - Islam Abdelsattar</h3>
-          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image15.png" alt="Member 10"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>10 - Islam Adelsattar</h3>
+            <span class="streak-fire" title="Study Streak">🔥 0</span>
+          </div>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Islam-Adelsattar">أوفلاين</div>
         </div>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Islam-Adelsattar">أوفلاين</div>
-      </div>
-      <div class="card">
-        <div class="photo-circle-mini"><img src="./image/image16.jpeg" alt="Member 11"></div>
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-          <h3>11 - Omar Elaidy</h3>
-          <span class="streak-fire" title="Study Streak">🔥 0</span>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image16.jpeg" alt="Member 11"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>11 - Omar Elaidy</h3>
+            <span class="streak-fire" title="Study Streak">🔥 0</span>
+          </div>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Omar-Elaidy">أوفلاين</div>
         </div>
-        <span class="tag">Member</span>
-        <div class="status-badge status-offline" id="status-Omar-Elaidy">أوفلاين</div>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image18.jpeg" alt="Member 11"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>12 - Anas Salah</h3>
+            <span class="streak-fire" title="Study Streak">🔥 0</span>
+          </div>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Anas-Salah">أوفلاين</div>
+        </div>
       </div>
-    </div>
 
 
 
 
 
 
-    <div class="hero" style="margin-top:18px;">
-      <h2 class="section-title">كويز أسبوعي (30 أسئلة لكل مادة)</h2>
-      <p class="info-text">اختبار سهل لكل فصل: كل إجابة صحيحة = 1 نقطة. اضغط "ابدأ" وشارك اسمك، وسيظهر ترتيب النقاط
-        تلقائياً.</p>
-      <div class="controls">
-        <input id="quizName" type="text" placeholder="اكتب اسمك هنا" list="teamNamesList">
-        <datalist id="teamNamesList">
-          <option value="Ahmed Elshahat"></option>
-          <option value="Elsayed Elfiky"></option>
-          <option value="Osama Mohamed"></option>
-          <option value="Abanob Ramzy"></option>
-          <option value="Omar Elaidy"></option>
-          <option value="Ahmed Mostafa"></option>
-          <option value="Ali Hendawy"></option>
-          <option value="Ahmed Kairy"></option>
-          <option value="Mohamed emam"></option>
-          <option value="Ibrahim Salama"></option>
-          <option value="Ibrahim Yasser"></option>
-          <option value="Ahmed Metwally"></option>
-          <option value="Islam Mohamed"></option>
-          <option value="Peter Azmy"></option>
-          <option value="Ahmed Ashraf"></option>
-          <option value="Islam Adelsattar"></option>
-        </datalist>
-        <select id="quizSubject">
-          <option value="">اختر المادة</option>
-          <option value="C++">C++</option>
-          <option value="Programming 2">Programming 2 - Chapter 1</option>
-          <option value="Logic Design">Logic Design - Chapter 1</option>
-          <option value="Math 2">Math 2 - Chapter 1</option>
-          <option value="Operation Research">Operation Research - Chapter 1</option>
-          <option value="Discrete Math">Discrete Math</option>
-        </select>
-        <div id="subjectHint" style="color:#aa3300; font-weight:700; margin-top:6px;"></div>
-        <label style="display:flex; align-items:center; gap:6px; font-size:.85rem;">
-          <input id="noAiCheckbox" type="checkbox"> أؤكد أني لن استخدم الذكاء الاصطناعي (AI)
-        </label>
-        <button id="startQuiz">ابدأ الكويز</button>
-        <button id="startMockExam" class="mock-btn" style="margin-right: 10px;">🏆 محاكي الميدتيرم الشامل</button>
+      <div class="hero" style="margin-top:18px;">
+        <h2 class="section-title">كويز أسبوعي (30 أسئلة لكل مادة)</h2>
+        <p class="info-text">اختبار سهل لكل فصل: كل إجابة صحيحة = 1 نقطة. اضغط "ابدأ" وشارك اسمك، وسيظهر ترتيب النقاط
+          تلقائياً.</p>
+        <div class="controls">
+          <input id="quizName" type="text" placeholder="اكتب اسمك هنا" list="teamNamesList">
+          <datalist id="teamNamesList">
+            <option value="Ahmed Elshahat"></option>
+            <option value="Elsayed Elfiky"></option>
+            <option value="Osama Mohamed"></option>
+            <option value="Abanob Ramzy"></option>
+            <option value="Omar Elaidy"></option>
+            <option value="Ahmed Mostafa"></option>
+            <option value="Ali Hendawy"></option>
+            <option value="Ahmed Kairy"></option>
+            <option value="Mohamed emam"></option>
+            <option value="Ibrahim Salama"></option>
+            <option value="Ibrahim Yasser"></option>
+            <option value="Ahmed Metwally"></option>
+            <option value="Islam Mohamed"></option>
+            <option value="Peter Azmy"></option>
+            <option value="Ahmed Ashraf"></option>
+            <option value="Islam Adelsattar"></option>
+            <option value="Anas Salah"></option>
+          </datalist>
+          <select id="quizSubject">
+            <option value="">اختر المادة</option>
+            <option value="C++">C++</option>
+            <option value="Programming 2">Programming 2 - Chapter 1</option>
+            <option value="Logic Design">Logic Design - Chapter 1</option>
+            <option value="Math 2">Math 2 - Chapter 1</option>
+            <option value="Operation Research">Operation Research - Chapter 1</option>
+            <option value="Discrete Math">Discrete Math</option>
+          </select>
+          <div id="subjectHint" style="color:#aa3300; font-weight:700; margin-top:6px;"></div>
+          <label style="display:flex; align-items:center; gap:6px; font-size:.85rem;">
+            <input id="noAiCheckbox" type="checkbox"> أؤكد أني لن استخدم الذكاء الاصطناعي (AI)
+          </label>
+          <button id="startQuiz">ابدأ الكويز</button>
+          <button id="startMockExam" class="mock-btn" style="margin-right: 10px;">🏆 محاكي الميدتيرم الشامل</button>
+        </div>
+        <div style="margin:12px 0; font-size:.88rem; color:#1f3d6a;">
+          سجل الأعضاء:
+          <ul id="registeredNames" style="padding-inline-start:20px; margin:8px 0 0;"></ul>
+        </div>
+        <!-- Quiz UI has been moved to quiz.html -->
+        <div style="margin-top:14px;">
+          <h3>الت ranking للنتائج</h3>
+          <div class="table-wrap">
+            <table id="leaderboard" style="width:100%;">
+              <thead>
+                <tr>
+                  <th>الترتيب</th>
+                  <th>الاسم</th>
+                  <th>المادة</th>
+                  <th>النقاط</th>
+                  <th>وقت النتيجة</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <div style="margin:12px 0; font-size:.88rem; color:#1f3d6a;">
-        سجل الأعضاء:
-        <ul id="registeredNames" style="padding-inline-start:20px; margin:8px 0 0;"></ul>
-      </div>
-      <!-- Quiz UI has been moved to quiz.html -->
-      <div style="margin-top:14px;">
-        <h3>الت ranking للنتائج</h3>
+
+      <div class="hero" style="margin-top:18px;">
+        <h2 class="section-title">ملخصات وريكوردات المحاضرات</h2>
+        <p class="info-text"></p>
+        <div class="controls">
+          <input id="searchLecture" type="text" placeholder="بحث عن رقم محاضرة أو مادة...">
+          <select id="filterSubject">
+            <option value="all">كل المواد</option>
+            <option value="Programming 2">Programming 2</option>
+            <option value="Logic Design">Logic Design</option>
+            <option value="Math 2">Math 2</option>
+            <option value="Operation Research">Operation Research</option>
+          </select>
+          <button id="exportCsv">تصدير CSV</button>
+        </div>
         <div class="table-wrap">
-          <table id="leaderboard" style="width:100%;">
+          <table>
             <thead>
               <tr>
-                <th>الترتيب</th>
-                <th>الاسم</th>
+                <th>م.</th>
                 <th>المادة</th>
-                <th>النقاط</th>
-                <th>وقت النتيجة</th>
+                <th>فولدر الماتيريال والملخصات</th>
+                <th>فولدر ريكوردات المحاضرات</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td style="font-weight: bold; color: #1d4ed8;">Programming 2 (OOP)</td>
+                <td><a href="https://drive.google.com/drive/folders/1q6Pj04kaE-6e2rE2eKPbs9hPoliHaXsH" target="_blank"
+                    style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
+                    الماتيريال 📁</a></td>
+                <td><a href="https://drive.google.com/drive/folders/1r3fnYVDqSgXM4-Fok71PC1pd7v3y1Z_A" target="_blank"
+                    style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
+                    ليست الريكوردات 📺</a></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td style="font-weight: bold; color: #1d4ed8;">Logic Design</td>
+                <td><a href="https://drive.google.com/drive/folders/1MklaAC7n11ikHzVjS5yhd8WkMSv2B1is" target="_blank"
+                    style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
+                    الماتيريال 📁</a></td>
+                <td><a href="https://drive.google.com/drive/folders/1me0Btt4Vq_ObwSZDtkGSPnzRg5ftJ5iX" target="_blank"
+                    style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
+                    ليست الريكوردات 📺</a></td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td style="font-weight: bold; color: #1d4ed8;">Math 2</td>
+                <td><a href="https://drive.google.com/drive/folders/14qtHDSjKiBK6Kafxi5FCSU4V3NKXQPnP" target="_blank"
+                    style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
+                    الماتيريال 📁</a></td>
+                <td><a href="https://drive.google.com/drive/folders/1Zhy8xTkp5Zbbwf9ycdsqaY5B1c13Gwju" target="_blank"
+                    style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
+                    ليست الريكوردات 📺</a></td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td style="font-weight: bold; color: #1d4ed8;">Operation Research</td>
+                <td><a href="#" target="_blank"
+                    style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
+                    الماتيريال 📁</a></td>
+                <td><a href="#" target="_blank"
+                    style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
+                    ليست الريكوردات 📺</a></td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td style="font-weight: bold; color: #1d4ed8;">Discrete Math</td>
+                <td><a href="#" target="_blank"
+                    style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
+                    الماتيريال 📁</a></td>
+                <td><a href="#" target="_blank"
+                    style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
+                    ليست الريكوردات 📺</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="hero" style="margin-top:18px;">
+        <h2>تتبع المواد / المهام</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>المادة / المهمة</th>
+                <th>القائم</th>
+                <th>وقفنا لحد فين</th>
+                <th>الحالة</th>
+                <th>ملخص</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Programming 2 (OOP)</td>
+                <td>Ahmed Elshahat</td>
+                <td>سيكشن6&7</td>
+                <td><span class="badge status-2">Leader</span></td>
+                <td>لم يتم الانتهاء منه بعد</td>
+              </tr>
+              <tr>
+                <td>Logic design</td>
+                <td>Elsayed Elfiky</td>
+                <td>chapter 2</td>
+                <td><span class="badge status-1">Admin</span></td>
+                <td>لم يتم الانتهاء منه بعد</td>
+              </tr>
+              <tr>
+                <td>Math 2</td>
+                <td>Osama Mohamed</td>
+                <td>Chapter 2 (2.4)</td>
+                <td><span class="badge status-3">Admin</span></td>
+                <td>لم يتم الانتهاء منه بعد</td>
+              </tr>
+              <tr>
+                <td>Operation Research</td>
+                <td>Abanob Ramzy</td>
+                <td>Chapter 3</td>
+                <td><span class="badge status-1">Admin</span></td>
+                <td>لم يتم الانتهاء منه بعد</td>
+              </tr>
+              <tr>
+                <td>Discrete Math</td>
+                <td>Omar Elaidy</td>
+                <td>Chapter 2</td>
+                <td><span class="badge status-1">Member</span></td>
+                <td>لم يتم الانتهاء منه بعد</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <div class="hero" style="margin-top:18px;">
-      <h2 class="section-title">ملخصات وريكوردات المحاضرات</h2>
-      <p class="info-text"></p>
-      <div class="controls">
-        <input id="searchLecture" type="text" placeholder="بحث عن رقم محاضرة أو مادة...">
-        <select id="filterSubject">
-          <option value="all">كل المواد</option>
-          <option value="Programming 2">Programming 2</option>
-          <option value="Logic Design">Logic Design</option>
-          <option value="Math 2">Math 2</option>
-          <option value="Operation Research">Operation Research</option>
-        </select>
-        <button id="exportCsv">تصدير CSV</button>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>م.</th>
-              <th>المادة</th>
-              <th>فولدر الماتيريال والملخصات</th>
-              <th>فولدر ريكوردات المحاضرات</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td style="font-weight: bold; color: #1d4ed8;">Programming 2 (OOP)</td>
-              <td><a href="https://drive.google.com/drive/folders/1q6Pj04kaE-6e2rE2eKPbs9hPoliHaXsH" target="_blank"
-                  style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
-                  الماتيريال 📁</a></td>
-              <td><a href="https://drive.google.com/drive/folders/1r3fnYVDqSgXM4-Fok71PC1pd7v3y1Z_A" target="_blank"
-                  style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
-                  ليست الريكوردات 📺</a></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td style="font-weight: bold; color: #1d4ed8;">Logic Design</td>
-              <td><a href="https://drive.google.com/drive/folders/1MklaAC7n11ikHzVjS5yhd8WkMSv2B1is" target="_blank"
-                  style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
-                  الماتيريال 📁</a></td>
-              <td><a href="https://drive.google.com/drive/folders/1me0Btt4Vq_ObwSZDtkGSPnzRg5ftJ5iX" target="_blank"
-                  style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
-                  ليست الريكوردات 📺</a></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td style="font-weight: bold; color: #1d4ed8;">Math 2</td>
-              <td><a href="https://drive.google.com/drive/folders/14qtHDSjKiBK6Kafxi5FCSU4V3NKXQPnP" target="_blank"
-                  style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
-                  الماتيريال 📁</a></td>
-              <td><a href="https://drive.google.com/drive/folders/1Zhy8xTkp5Zbbwf9ycdsqaY5B1c13Gwju" target="_blank"
-                  style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
-                  ليست الريكوردات 📺</a></td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td style="font-weight: bold; color: #1d4ed8;">Operation Research</td>
-              <td><a href="#" target="_blank"
-                  style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
-                  الماتيريال 📁</a></td>
-              <td><a href="#" target="_blank"
-                  style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
-                  ليست الريكوردات 📺</a></td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td style="font-weight: bold; color: #1d4ed8;">Discrete Math</td>
-              <td><a href="#" target="_blank"
-                  style="display:inline-block; background: #10b981; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(16,185,129,0.3);">تحميل
-                  الماتيريال 📁</a></td>
-              <td><a href="#" target="_blank"
-                  style="display:inline-block; background: #3b82f6; color: white; padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 6px rgba(59,130,246,0.3);">بلاي
-                  ليست الريكوردات 📺</a></td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="container" style="margin-top: 20px;">
+      <div class="hero" style="border: 2px dashed #f87171; background: rgba(254, 242, 242, 0.85);">
+        <h2 style="color: #dc2626;">منطقة الخطر (للمسؤولين فقط)</h2>
+        <p style="color: #991b1b; font-weight: 600;">خاصة بالقائد Ahmed Elshahat لمسح كافة بيانات الكويز وتأهيل الموقع
+          للطلاب.</p>
+        <div class="controls" style="margin-top: 15px;">
+          <input type="password" id="resetCode" placeholder="أدخل الكود السري">
+          <button id="resetQuiz"
+            style="background: linear-gradient(135deg, #ef4444, #b91c1c); box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3); color: #fff;">محو
+            كل الداتا والنتيجة 🗑️</button>
+        </div>
       </div>
     </div>
 
-    <div class="hero" style="margin-top:18px;">
-      <h2>تتبع المواد / المهام</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>المادة / المهمة</th>
-              <th>القائم</th>
-              <th>وقفنا لحد فين</th>
-              <th>الحالة</th>
-              <th>ملخص</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Programming 2 (OOP)</td>
-              <td>Ahmed Elshahat</td>
-              <td>سيكشن6&7</td>
-              <td><span class="badge status-2">Leader</span></td>
-              <td>لم يتم الانتهاء منه بعد</td>
-            </tr>
-            <tr>
-              <td>Logic design</td>
-              <td>Elsayed Elfiky</td>
-              <td>chapter 2</td>
-              <td><span class="badge status-1">Admin</span></td>
-              <td>لم يتم الانتهاء منه بعد</td>
-            </tr>
-            <tr>
-              <td>Math 2</td>
-              <td>Osama Mohamed</td>
-              <td>Chapter 2 (2.4)</td>
-              <td><span class="badge status-3">Admin</span></td>
-              <td>لم يتم الانتهاء منه بعد</td>
-            </tr>
-            <tr>
-              <td>Operation Research</td>
-              <td>Abanob Ramzy</td>
-              <td>Chapter 3</td>
-              <td><span class="badge status-1">Admin</span></td>
-              <td>لم يتم الانتهاء منه بعد</td>
-            </tr>
-            <tr>
-              <td>Discrete Math</td>
-              <td>Omar Elaidy</td>
-              <td>Chapter 2</td>
-              <td><span class="badge status-1">Member</span></td>
-              <td>لم يتم الانتهاء منه بعد</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+    <footer
+      style="background:#1f3550; color:#fff; text-align:center; padding:14px 10px; border-top:1px solid rgba(255,255,255,.15); margin-top:18px;">
+      © حقوق الطبع والنشر تيم الدحيحة
+    </footer>
+    <script>
+      const searchInput = document.getElementById('searchLecture');
+      const subjectSelect = document.getElementById('filterSubject');
+      const table = document.querySelector('.hero .table-wrap table tbody');
+      const rows = Array.from(table.querySelectorAll('tr'));
 
-  <div class="container" style="margin-top: 20px;">
-    <div class="hero" style="border: 2px dashed #f87171; background: rgba(254, 242, 242, 0.85);">
-      <h2 style="color: #dc2626;">منطقة الخطر (للمسؤولين فقط)</h2>
-      <p style="color: #991b1b; font-weight: 600;">خاصة بالقائد Ahmed Elshahat لمسح كافة بيانات الكويز وتأهيل الموقع
-        للطلاب.</p>
-      <div class="controls" style="margin-top: 15px;">
-        <input type="password" id="resetCode" placeholder="أدخل الكود السري">
-        <button id="resetQuiz"
-          style="background: linear-gradient(135deg, #ef4444, #b91c1c); box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3); color: #fff;">محو
-          كل الداتا والنتيجة 🗑️</button>
-      </div>
-    </div>
-  </div>
+      function filterRows() {
+        const query = searchInput.value.trim().toLowerCase();
+        const subject = subjectSelect.value;
+        rows.forEach(row => {
+          const cells = row.querySelectorAll('td');
+          const lecture = cells[0]?.innerText.toLowerCase();
+          const section = cells[1]?.innerText.toLowerCase();
+          const course = cells[2]?.innerText;
 
-  <footer
-    style="background:#1f3550; color:#fff; text-align:center; padding:14px 10px; border-top:1px solid rgba(255,255,255,.15); margin-top:18px;">
-    © حقوق الطبع والنشر تيم الدحيحة
-  </footer>
-  <script>
-    const searchInput = document.getElementById('searchLecture');
-    const subjectSelect = document.getElementById('filterSubject');
-    const table = document.querySelector('.hero .table-wrap table tbody');
-    const rows = Array.from(table.querySelectorAll('tr'));
+          const matchQuery = !query || lecture.includes(query) || section.includes(query) || course.toLowerCase().includes(query);
+          const matchSubject = subject === 'all' || course === subject;
 
-    function filterRows() {
-      const query = searchInput.value.trim().toLowerCase();
-      const subject = subjectSelect.value;
-      rows.forEach(row => {
-        const cells = row.querySelectorAll('td');
-        const lecture = cells[0]?.innerText.toLowerCase();
-        const section = cells[1]?.innerText.toLowerCase();
-        const course = cells[2]?.innerText;
+          row.style.display = (matchQuery && matchSubject) ? '' : 'none';
+        });
+      }
 
-        const matchQuery = !query || lecture.includes(query) || section.includes(query) || course.toLowerCase().includes(query);
-        const matchSubject = subject === 'all' || course === subject;
+      function downloadCSV() {
+        const visibleRows = rows.filter(r => r.style.display !== 'none');
+        const csvData = ['"# المحاضرة","Section","المادة","رابط الملخص","رابط الريكورد"'];
+        visibleRows.forEach(row => {
+          const cols = Array.from(row.querySelectorAll('td')).map(td => '"' + td.innerText.replace(/"/g, '""') + '"');
+          csvData.push(cols.join(','));
+        });
 
-        row.style.display = (matchQuery && matchSubject) ? '' : 'none';
-      });
-    }
+        const blob = new Blob([csvData.join('\n')], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'lecture-records.csv';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
 
-    function downloadCSV() {
-      const visibleRows = rows.filter(r => r.style.display !== 'none');
-      const csvData = ['"# المحاضرة","Section","المادة","رابط الملخص","رابط الريكورد"'];
-      visibleRows.forEach(row => {
-        const cols = Array.from(row.querySelectorAll('td')).map(td => '"' + td.innerText.replace(/"/g, '""') + '"');
-        csvData.push(cols.join(','));
+      searchInput.addEventListener('input', filterRows);
+      subjectSelect.addEventListener('change', filterRows);
+      document.getElementById('exportCsv').addEventListener('click', downloadCSV);
+
+      const quizData = {
+        'C++': [
+          { q: 'Which line is correct to start a C++ program?', options: ['#include <iostream>', 'using namespace std;', 'int main()', 'cout << "Hello";'], answer: '#include <iostream>' },
+          { q: 'What statement enables cout without std:: prefix?', options: ['#include <iostream>', 'using namespace std;', 'std::cout', 'namespace std;'], answer: 'using namespace std;' },
+          { q: 'What is the correct signature for the main function?', options: ['main() {}', 'int main() {}', 'void main[]', 'function main()'], answer: 'int main() {}' },
+          { q: 'How do you print text to the console?', options: ['print("hi");', 'cout << "hi";', 'console.log("hi");', 'printf("hi");'], answer: 'cout << "hi";' },
+          { q: 'The correct way to declare an integer variable x is:', options: ['int x;', 'x int;', 'int = x;', 'int(x);'], answer: 'int x;' },
+          { q: 'How to assign value 5 to variable x?', options: ['x = 5;', 'int x = 5', 'x <- 5', '5 = x;'], answer: 'x = 5;' },
+          { q: 'Which is a float variable declaration?', options: ['float y;', 'int y;', 'string y;', 'double y;'], answer: 'float y;' },
+          { q: 'How to read user input into variable a?', options: ['cin >> a;', 'cout >> a;', 'scanf("%d", &a);', 'cin << a;'], answer: 'cin >> a;' },
+          { q: 'Which symbol ends a statement in C++?', options: [';', '.', ':', '?'], answer: ';' },
+          { q: 'How do you write a single-line comment?', options: ['// comment', '/* comment */', '# comment', '<!-- comment -->'], answer: '// comment' },
+          { q: 'How to declare a function named add that takes two ints?', options: ['int add(int a, int b);', 'function add(int a, int b);', 'add(int a, int b);', 'int add(a, b);'], answer: 'int add(int a, int b);' },
+          { q: 'How to define the function add that returns a+b?', options: ['int add(int a, int b) { return a + b; }', 'int add(int a, int b) => a + b;', 'function add(int a, int b){return a+b;}', 'add(int a, int b){return a+b;}'], answer: 'int add(int a, int b) { return a + b; }' },
+          { q: 'How to call function add with 2 and 3?', options: ['add(2,3);', 'add 2, 3;', 'add{2,3};', 'add(2 3);'], answer: 'add(2,3);' },
+          { q: 'How does function return value to caller?', options: ['return value;', 'end value;', 'stop value;', 'output value;'], answer: 'return value;' },
+          { q: 'Which is correct to define a void function?', options: ['void printMessage() { cout << "Hi"; }', 'void printMessage[] { cout << "Hi"; }', 'void printMessage() : cout << "Hi";', 'printMessage() { cout << "Hi"; }'], answer: 'void printMessage() { cout << "Hi"; }' },
+          { q: 'Which is call by value example?', options: ['int r = add(x, y);', 'int &r = add(x,y);', 'int r = &add(x,y);', 'int r = add(&x,&y);'], answer: 'int r = add(x, y);' },
+          { q: 'How to declare a constant int MAX with value 100?', options: ['const int MAX = 100;', 'int const MAX=100', '#define MAX 100', 'const MAX = 100;'], answer: 'const int MAX = 100;' },
+          { q: 'Which is correct array declaration?', options: ['int arr[5];', 'int arr();', 'arr int[5];', 'int arr{5};'], answer: 'int arr[5];' },
+          { q: 'How to initialize array values at declaration?', options: ['int arr[3] = {1,2,3};', 'int arr = {1,2,3};', 'int arr[3] = [1,2,3];', 'int arr(3)={1,2,3};'], answer: 'int arr[3] = {1,2,3};' },
+          { q: 'How to loop over array of 5 ints using for?', options: ['for(int i=0;i<5;i++) cout<<arr[i];', 'for(i=0;i<=5;i++) cout<<arr[i];', 'for(int i=1;i<=5;i++) cout<<arr[i];', 'for(int i=5;i>0;i--) cout<<arr[i];'], answer: 'for(int i=0;i<5;i++) cout<<arr[i];' },
+          { q: 'How to declare a function that returns double?', options: ['double avg(int a,int b);', 'int avg(int a,int b);', 'void avg(int a,int b);', 'avg(int a,int b) -> double;'], answer: 'double avg(int a,int b);' },
+          { q: 'What is the correct include for string type?', options: ['#include <string>', '#include <iostream>', '#include <vector>', '#include <sstream>'], answer: '#include <string>' },
+          { q: 'How to use the string type?', options: ['string name;', 'String name;', 'str name;', 'char name;'], answer: 'string name;' },
+          { q: 'Which is right to define function that returns square of n?', options: ['int square(int n) { return n * n; }', 'int square(int n) { return n + n; }', 'square(int n) { return n*n; }', 'int square(n) => n*n;'], answer: 'int square(int n) { return n * n; }' },
+          { q: 'Which is correct default return for main?', options: ['return 0;', 'return 1;', 'exit(0);', 'None;'], answer: 'return 0;' },
+          { q: 'Function with no parameter and no return should be declared as:', options: ['void hello()', 'int hello()', 'hello()', 'function hello()'], answer: 'void hello()' },
+          { q: 'Which option declares a reference parameter?', options: ['void update(int &x)', 'void update(int x)', 'void update(int *x)', 'void update(reference x)'], answer: 'void update(int &x)' },
+          { q: 'How to pass argument by value?', options: ['add(2, 3);', 'add(&a, &b);', 'add(a, b);', 'add(*a, *b);'], answer: 'add(a, b);' },
+          { q: 'How to declare a pointer to an integer?', options: ['int *ptr;', 'int ptr*;', 'pointer<int> ptr;', 'int ^ptr;'], answer: 'int *ptr;' },
+          { q: 'What is the valid C++ header include syntax?', options: ['#include <iostream>', '#include "iostream"', 'import iostream;', 'using <iostream>;'], answer: '#include <iostream>' },
+        ],
+        'Logic Design': [
+          { q: 'ماذا يعني boolean algebra؟', options: ['حساب حقيقي', 'حساب دوائي', 'حساب ضرب', 'حساب قوى'], answer: 'حساب دوائي' },
+          { q: 'البوابة NOT ينتج:', options: ['0 عندما الإدخال 1', '1 عندما الإدخال 1', '0 دائما', '1 دائما'], answer: '0 عندما الإدخال 1' },
+          { q: 'بوابة AND تعطي 1 عندما:', options: ['كل الإدخالات 1', 'إدخال واحد 1', 'كل الإدخالات 0', 'إدخال واحد 0'], answer: 'كل الإدخالات 1' },
+          { q: 'بوابة OR تعطي 0 عندما:', options: ['كل المدخلات 0', 'مدخل واحد 1', 'كل المدخلات 1', 'مدخلات مختلفة'], answer: 'كل المدخلات 0' },
+          { q: 'التمثيل المبدئي ل XOR هو:', options: ['A•B + A•¬B', 'A+B', 'A•B', '¬A + B'], answer: 'A•B + A•¬B' },
+          { q: 'في جدول الحقيقة A OR B إذا A=1 B=0 النتيجة=', options: ['0', '1', 'غير معرف', 'A'], answer: '1' },
+          { q: 'الـ De Morgan يعبر عن:', options: ['مُركب', 'حقيقة', 'قواعد تحويل', 'نقطة التوصيل'], answer: 'قواعد تحويل' },
+          { q: 'تقليل التعبير المنطقي هدفه:', options: ['زيادة التعقيد', 'تبسيط الدارة', 'إلغاء القرارات', 'تغيير الإدخالات'], answer: 'تبسيط الدارة' },
+          { q: 'بوابة NAND هي:', options: ['عكس AND', 'عكس OR', 'AND و OR', 'لا شيء'], answer: 'عكس AND' },
+          { q: 'بوابة NOR تنتج 1 عندما:', options: ['كلها 0', 'كلها 1', 'واحد 1 فقط', 'مزيج غير محدد'], answer: 'كلها 0' }
+        ],
+        'Math 2': [
+          { q: 'العلاقة المثلثية sin(π/2)=', options: ['0', '1', '-1', 'غير معرف'], answer: '1' },
+          { q: 'd/dx x^2 =', options: ['x', '2x', 'x^2', '2'], answer: '2x' },
+          { q: 'مجموع الأعداد من 1 إلى 10 هو', options: ['50', '55', '45', '60'], answer: '55' },
+          { q: 'إذا f(x)=x+1 فـ f(2)=', options: ['1', '2', '3', '4'], answer: '3' },
+          { q: 'التكامل ∫1 dx =', options: ['x + C', '1', '0', '2x'], answer: 'x + C' },
+          { q: 'جذر 16 هو', options: ['2', '3', '4', '5'], answer: '4' },
+          { q: '2^3 =', options: ['5', '6', '7', '8'], answer: '8' },
+          { q: 'المتسلسلة 1+1+1 =', options: ['1', '2', '3', 'غير منتهية'], answer: '3' },
+          { q: 'الزاوية القائمة درجة', options: ['45', '90', '180', '30'], answer: '90' },
+          { q: 'إذا x=3 و y=4 فـ x^2+y^2 =', options: ['5', '12', '25', '7'], answer: '25' }
+        ],
+        'Operation Research': [
+          { q: 'الهدف في linear programming هو', options: ['زيادة أو تقليل دالة هدف', 'إنشاء مخطط', 'كتابة معادلات فقط', 'حل دروس'], answer: 'زيادة أو تقليل دالة هدف' },
+          { q: 'أداة simplex تستخدم لـ', options: ['حل معادلات غير خطية', 'تحسين خطي', 'رسم المربعات', 'حساب المشتقات'], answer: 'تحسين خطي' },
+          { q: 'قيود problem تسمى', options: ['constraints', 'variables', 'objective', 'outcome'], answer: 'constraints' },
+          { q: 'متغيرات القرار عادة تكون', options: ['ثابتة', 'قابلة للتغيير', 'بحجم ثابت', 'خارجية'], answer: 'قابلة للتغيير' },
+          { q: 'حلfeasible يعني', options: ['قابل للتطبيق', 'غير قابل للتطبيق', 'مثالي', 'أولي'], answer: 'قابل للتطبيق' },
+          { q: 'المنطقة المسموح بها تسمى', options: ['feasible region', 'objective area', 'core set', 'base'], answer: 'feasible region' },
+          { q: 'انتهى من memilih', options: ['لا شيء', 'حل أمثل', 'خطأ', 'متداخل'], answer: 'حل أمثل' },
+          { q: 'متغير slack يُضاف لتحويل', options: ['= إلى ≤', '≤ إلى =', '≥ إلى ≤', '< إلى >'], answer: '≤ إلى =' },
+          { q: 'زيادة في d تابع بالأحرى تؤثر على', options: ['الحل', 'المتغيرات', 'القيود', 'المدخلات'], answer: 'الحل' },
+          { q: 'إذا objective = max 2x+3y فإن القيمة الأكبر تعتمد على', options: ['x و y', ' فقط x', ' فقط y', 'الثوابت'], answer: 'x و y' }
+        ]
+      };
+
+      const teamMembers = [
+        'Ahmed Elshahat', 'Elsayed Elfiky', 'Osama Mohamed', 'Abanob Ramzy', 'Omar Elaidy',
+        'Ahmed Mostafa', 'Ali Hendawy', 'Ahmed Kairy', 'Mohamed emam', 'Ibrahim Salama',
+        'Ibrahim Yasser', 'Ahmed Metwally', 'Islam Mohamed', 'Peter Azmy', 'Ahmed Ashraf', 'Islam Adelsattar', 'Anas Salah'
+      ];
+
+      const quizName = document.getElementById('quizName'), quizSubject = document.getElementById('quizSubject'), subjectHint = document.getElementById('subjectHint'), startQuiz = document.getElementById('startQuiz'), noAiCheckbox = document.getElementById('noAiCheckbox'), registeredNamesArea = document.getElementById('registeredNames');
+
+      quizSubject.addEventListener('change', () => {
+        const s = quizSubject.value;
+        if (['Programming 2', 'Logic Design', 'Math 2', 'Operation Research', 'Discrete Math'].includes(s)) subjectHint.innerText = 'ملاحظة: احنا لسه مش اخدنا JavaScript، بنشتغل على C++ في الكويز.';
+        else if (s === 'C++') subjectHint.innerText = 'تمام! الكويز في C++ جاهز الآن.';
+        else subjectHint.innerText = '';
       });
 
-      const blob = new Blob([csvData.join('\n')], { type: 'text/csv;charset=utf-8;' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'lecture-records.csv';
-      link.style.display = 'none';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-
-    searchInput.addEventListener('input', filterRows);
-    subjectSelect.addEventListener('change', filterRows);
-    document.getElementById('exportCsv').addEventListener('click', downloadCSV);
-
-    const quizData = {
-      'C++': [
-        { q: 'Which line is correct to start a C++ program?', options: ['#include <iostream>', 'using namespace std;', 'int main()', 'cout << "Hello";'], answer: '#include <iostream>' },
-        { q: 'What statement enables cout without std:: prefix?', options: ['#include <iostream>', 'using namespace std;', 'std::cout', 'namespace std;'], answer: 'using namespace std;' },
-        { q: 'What is the correct signature for the main function?', options: ['main() {}', 'int main() {}', 'void main[]', 'function main()'], answer: 'int main() {}' },
-        { q: 'How do you print text to the console?', options: ['print("hi");', 'cout << "hi";', 'console.log("hi");', 'printf("hi");'], answer: 'cout << "hi";' },
-        { q: 'The correct way to declare an integer variable x is:', options: ['int x;', 'x int;', 'int = x;', 'int(x);'], answer: 'int x;' },
-        { q: 'How to assign value 5 to variable x?', options: ['x = 5;', 'int x = 5', 'x <- 5', '5 = x;'], answer: 'x = 5;' },
-        { q: 'Which is a float variable declaration?', options: ['float y;', 'int y;', 'string y;', 'double y;'], answer: 'float y;' },
-        { q: 'How to read user input into variable a?', options: ['cin >> a;', 'cout >> a;', 'scanf("%d", &a);', 'cin << a;'], answer: 'cin >> a;' },
-        { q: 'Which symbol ends a statement in C++?', options: [';', '.', ':', '?'], answer: ';' },
-        { q: 'How do you write a single-line comment?', options: ['// comment', '/* comment */', '# comment', '<!-- comment -->'], answer: '// comment' },
-        { q: 'How to declare a function named add that takes two ints?', options: ['int add(int a, int b);', 'function add(int a, int b);', 'add(int a, int b);', 'int add(a, b);'], answer: 'int add(int a, int b);' },
-        { q: 'How to define the function add that returns a+b?', options: ['int add(int a, int b) { return a + b; }', 'int add(int a, int b) => a + b;', 'function add(int a, int b){return a+b;}', 'add(int a, int b){return a+b;}'], answer: 'int add(int a, int b) { return a + b; }' },
-        { q: 'How to call function add with 2 and 3?', options: ['add(2,3);', 'add 2, 3;', 'add{2,3};', 'add(2 3);'], answer: 'add(2,3);' },
-        { q: 'How does function return value to caller?', options: ['return value;', 'end value;', 'stop value;', 'output value;'], answer: 'return value;' },
-        { q: 'Which is correct to define a void function?', options: ['void printMessage() { cout << "Hi"; }', 'void printMessage[] { cout << "Hi"; }', 'void printMessage() : cout << "Hi";', 'printMessage() { cout << "Hi"; }'], answer: 'void printMessage() { cout << "Hi"; }' },
-        { q: 'Which is call by value example?', options: ['int r = add(x, y);', 'int &r = add(x,y);', 'int r = &add(x,y);', 'int r = add(&x,&y);'], answer: 'int r = add(x, y);' },
-        { q: 'How to declare a constant int MAX with value 100?', options: ['const int MAX = 100;', 'int const MAX=100', '#define MAX 100', 'const MAX = 100;'], answer: 'const int MAX = 100;' },
-        { q: 'Which is correct array declaration?', options: ['int arr[5];', 'int arr();', 'arr int[5];', 'int arr{5};'], answer: 'int arr[5];' },
-        { q: 'How to initialize array values at declaration?', options: ['int arr[3] = {1,2,3};', 'int arr = {1,2,3};', 'int arr[3] = [1,2,3];', 'int arr(3)={1,2,3};'], answer: 'int arr[3] = {1,2,3};' },
-        { q: 'How to loop over array of 5 ints using for?', options: ['for(int i=0;i<5;i++) cout<<arr[i];', 'for(i=0;i<=5;i++) cout<<arr[i];', 'for(int i=1;i<=5;i++) cout<<arr[i];', 'for(int i=5;i>0;i--) cout<<arr[i];'], answer: 'for(int i=0;i<5;i++) cout<<arr[i];' },
-        { q: 'How to declare a function that returns double?', options: ['double avg(int a,int b);', 'int avg(int a,int b);', 'void avg(int a,int b);', 'avg(int a,int b) -> double;'], answer: 'double avg(int a,int b);' },
-        { q: 'What is the correct include for string type?', options: ['#include <string>', '#include <iostream>', '#include <vector>', '#include <sstream>'], answer: '#include <string>' },
-        { q: 'How to use the string type?', options: ['string name;', 'String name;', 'str name;', 'char name;'], answer: 'string name;' },
-        { q: 'Which is right to define function that returns square of n?', options: ['int square(int n) { return n * n; }', 'int square(int n) { return n + n; }', 'square(int n) { return n*n; }', 'int square(n) => n*n;'], answer: 'int square(int n) { return n * n; }' },
-        { q: 'Which is correct default return for main?', options: ['return 0;', 'return 1;', 'exit(0);', 'None;'], answer: 'return 0;' },
-        { q: 'Function with no parameter and no return should be declared as:', options: ['void hello()', 'int hello()', 'hello()', 'function hello()'], answer: 'void hello()' },
-        { q: 'Which option declares a reference parameter?', options: ['void update(int &x)', 'void update(int x)', 'void update(int *x)', 'void update(reference x)'], answer: 'void update(int &x)' },
-        { q: 'How to pass argument by value?', options: ['add(2, 3);', 'add(&a, &b);', 'add(a, b);', 'add(*a, *b);'], answer: 'add(a, b);' },
-        { q: 'How to declare a pointer to an integer?', options: ['int *ptr;', 'int ptr*;', 'pointer<int> ptr;', 'int ^ptr;'], answer: 'int *ptr;' },
-        { q: 'What is the valid C++ header include syntax?', options: ['#include <iostream>', '#include "iostream"', 'import iostream;', 'using <iostream>;'], answer: '#include <iostream>' },
-      ],
-      'Logic Design': [
-        { q: 'ماذا يعني boolean algebra؟', options: ['حساب حقيقي', 'حساب دوائي', 'حساب ضرب', 'حساب قوى'], answer: 'حساب دوائي' },
-        { q: 'البوابة NOT ينتج:', options: ['0 عندما الإدخال 1', '1 عندما الإدخال 1', '0 دائما', '1 دائما'], answer: '0 عندما الإدخال 1' },
-        { q: 'بوابة AND تعطي 1 عندما:', options: ['كل الإدخالات 1', 'إدخال واحد 1', 'كل الإدخالات 0', 'إدخال واحد 0'], answer: 'كل الإدخالات 1' },
-        { q: 'بوابة OR تعطي 0 عندما:', options: ['كل المدخلات 0', 'مدخل واحد 1', 'كل المدخلات 1', 'مدخلات مختلفة'], answer: 'كل المدخلات 0' },
-        { q: 'التمثيل المبدئي ل XOR هو:', options: ['A•B + A•¬B', 'A+B', 'A•B', '¬A + B'], answer: 'A•B + A•¬B' },
-        { q: 'في جدول الحقيقة A OR B إذا A=1 B=0 النتيجة=', options: ['0', '1', 'غير معرف', 'A'], answer: '1' },
-        { q: 'الـ De Morgan يعبر عن:', options: ['مُركب', 'حقيقة', 'قواعد تحويل', 'نقطة التوصيل'], answer: 'قواعد تحويل' },
-        { q: 'تقليل التعبير المنطقي هدفه:', options: ['زيادة التعقيد', 'تبسيط الدارة', 'إلغاء القرارات', 'تغيير الإدخالات'], answer: 'تبسيط الدارة' },
-        { q: 'بوابة NAND هي:', options: ['عكس AND', 'عكس OR', 'AND و OR', 'لا شيء'], answer: 'عكس AND' },
-        { q: 'بوابة NOR تنتج 1 عندما:', options: ['كلها 0', 'كلها 1', 'واحد 1 فقط', 'مزيج غير محدد'], answer: 'كلها 0' }
-      ],
-      'Math 2': [
-        { q: 'العلاقة المثلثية sin(π/2)=', options: ['0', '1', '-1', 'غير معرف'], answer: '1' },
-        { q: 'd/dx x^2 =', options: ['x', '2x', 'x^2', '2'], answer: '2x' },
-        { q: 'مجموع الأعداد من 1 إلى 10 هو', options: ['50', '55', '45', '60'], answer: '55' },
-        { q: 'إذا f(x)=x+1 فـ f(2)=', options: ['1', '2', '3', '4'], answer: '3' },
-        { q: 'التكامل ∫1 dx =', options: ['x + C', '1', '0', '2x'], answer: 'x + C' },
-        { q: 'جذر 16 هو', options: ['2', '3', '4', '5'], answer: '4' },
-        { q: '2^3 =', options: ['5', '6', '7', '8'], answer: '8' },
-        { q: 'المتسلسلة 1+1+1 =', options: ['1', '2', '3', 'غير منتهية'], answer: '3' },
-        { q: 'الزاوية القائمة درجة', options: ['45', '90', '180', '30'], answer: '90' },
-        { q: 'إذا x=3 و y=4 فـ x^2+y^2 =', options: ['5', '12', '25', '7'], answer: '25' }
-      ],
-      'Operation Research': [
-        { q: 'الهدف في linear programming هو', options: ['زيادة أو تقليل دالة هدف', 'إنشاء مخطط', 'كتابة معادلات فقط', 'حل دروس'], answer: 'زيادة أو تقليل دالة هدف' },
-        { q: 'أداة simplex تستخدم لـ', options: ['حل معادلات غير خطية', 'تحسين خطي', 'رسم المربعات', 'حساب المشتقات'], answer: 'تحسين خطي' },
-        { q: 'قيود problem تسمى', options: ['constraints', 'variables', 'objective', 'outcome'], answer: 'constraints' },
-        { q: 'متغيرات القرار عادة تكون', options: ['ثابتة', 'قابلة للتغيير', 'بحجم ثابت', 'خارجية'], answer: 'قابلة للتغيير' },
-        { q: 'حلfeasible يعني', options: ['قابل للتطبيق', 'غير قابل للتطبيق', 'مثالي', 'أولي'], answer: 'قابل للتطبيق' },
-        { q: 'المنطقة المسموح بها تسمى', options: ['feasible region', 'objective area', 'core set', 'base'], answer: 'feasible region' },
-        { q: 'انتهى من memilih', options: ['لا شيء', 'حل أمثل', 'خطأ', 'متداخل'], answer: 'حل أمثل' },
-        { q: 'متغير slack يُضاف لتحويل', options: ['= إلى ≤', '≤ إلى =', '≥ إلى ≤', '< إلى >'], answer: '≤ إلى =' },
-        { q: 'زيادة في d تابع بالأحرى تؤثر على', options: ['الحل', 'المتغيرات', 'القيود', 'المدخلات'], answer: 'الحل' },
-        { q: 'إذا objective = max 2x+3y فإن القيمة الأكبر تعتمد على', options: ['x و y', ' فقط x', ' فقط y', 'الثوابت'], answer: 'x و y' }
-      ]
-    };
-
-    const teamMembers = [
-      'Ahmed Elshahat', 'Elsayed Elfiky', 'Osama Mohamed', 'Abanob Ramzy', 'Omar Elaidy',
-      'Ahmed Mostafa', 'Ali Hendawy', 'Ahmed Kairy', 'Mohamed emam', 'Ibrahim Salama',
-      'Ibrahim Yasser', 'Ahmed Metwally', 'Islam Mohamed', 'Peter Azmy', 'Ahmed Ashraf', 'Islam Adelsattar'
-    ];
-
-    const quizName = document.getElementById('quizName'), quizSubject = document.getElementById('quizSubject'), subjectHint = document.getElementById('subjectHint'), startQuiz = document.getElementById('startQuiz'), noAiCheckbox = document.getElementById('noAiCheckbox'), registeredNamesArea = document.getElementById('registeredNames');
-
-    quizSubject.addEventListener('change', () => {
-      const s = quizSubject.value;
-      if (['Programming 2', 'Logic Design', 'Math 2', 'Operation Research', 'Discrete Math'].includes(s)) subjectHint.innerText = 'ملاحظة: احنا لسه مش اخدنا JavaScript، بنشتغل على C++ في الكويز.';
-      else if (s === 'C++') subjectHint.innerText = 'تمام! الكويز في C++ جاهز الآن.';
-      else subjectHint.innerText = '';
-    });
-
-    function loadRegisteredNames() { try { return JSON.parse(localStorage.getItem('registeredQuizUsers') || '[]'); } catch { return []; } }
-    function saveRegisteredNames(u) { localStorage.setItem('registeredQuizUsers', JSON.stringify(u)); }
-    function showRegisteredNames() {
-      const now = new Date(), users = loadRegisteredNames();
-      const valid = users.filter(u => (now - new Date(u.time)) <= 30 * 60 * 1000);
-      if (valid.length !== users.length) saveRegisteredNames(valid);
-      registeredNamesArea.innerHTML = valid.slice(-20).reverse().map(u => {
-        const remaining = Math.max(0, 30 * 60 * 1000 - (now - new Date(u.time)));
-        const mins = Math.floor(remaining / 60000), secs = Math.floor((remaining % 60000) / 1000).toString().padStart(2, '0');
-        return `<li>${u.name} - ${u.subject} - سجل: ${new Date(u.time).toLocaleString('ar-EG')} - وقت متبقي: ${mins}:${secs}</li>`;
-      }).join('');
-    }
-    setInterval(showRegisteredNames, 10000); showRegisteredNames();
-
-    startQuiz.addEventListener('click', () => {
-      const n = quizName.value.trim(), s = quizSubject.value, ms = (s === 'Programming 2' ? 'C++' : s);
-      if (ms === 'C++') { alert('عذراً، انتهى وقت كويز C++!'); return; }
-      if (!n || !s) { alert('ادخل الاسم والمادة!'); return; }
-      if (!teamMembers.includes(n)) { alert('الاسم غير مسجل!'); return; }
-      if (!noAiCheckbox.checked) { alert('أكد عدم استخدام AI!'); return; }
-      const reg = loadRegisteredNames(), now = new Date().toISOString();
-      const exist = reg.findIndex(u => u.name === n && u.subject === ms);
-      if (exist === -1) {
-        reg.push({ name: n, subject: ms, time: now });
+      function loadRegisteredNames() { try { return JSON.parse(localStorage.getItem('registeredQuizUsers') || '[]'); } catch { return []; } }
+      function saveRegisteredNames(u) { localStorage.setItem('registeredQuizUsers', JSON.stringify(u)); }
+      function showRegisteredNames() {
+        const now = new Date(), users = loadRegisteredNames();
+        const valid = users.filter(u => (now - new Date(u.time)) <= 30 * 60 * 1000);
+        if (valid.length !== users.length) saveRegisteredNames(valid);
+        registeredNamesArea.innerHTML = valid.slice(-20).reverse().map(u => {
+          const remaining = Math.max(0, 30 * 60 * 1000 - (now - new Date(u.time)));
+          const mins = Math.floor(remaining / 60000), secs = Math.floor((remaining % 60000) / 1000).toString().padStart(2, '0');
+          return `<li>${u.name} - ${u.subject} - سجل: ${new Date(u.time).toLocaleString('ar-EG')} - وقت متبقي: ${mins}:${secs}</li>`;
+        }).join('');
       }
-      saveRegisteredNames(reg);
-      showRegisteredNames();
-      window.location.href = `quiz.html?name=${encodeURIComponent(n)}&subject=${encodeURIComponent(ms)}`;
-    });
+      setInterval(showRegisteredNames, 10000); showRegisteredNames();
 
-    document.getElementById('startMockExam').onclick = () => { alert('تجهيز امتحان 15 سؤال...'); window.location.href = `quiz.html?name=${encodeURIComponent((JSON.parse(localStorage.getItem('teamUser')) || {}).name || 'Guest')}&subject=MockExam`; };
-
-    /* --- AUTH & FIREBASE --- */
-    const firebaseConfig = {
-      apiKey: "AIzaSyA...",
-      authDomain: "znu-team-dashboard.firebaseapp.com",
-      databaseURL: "https://znu-team-dashboard-default-rtdb.firebaseio.com",
-      projectId: "znu-team-dashboard",
-      storageBucket: "znu-team-dashboard.appspot.com",
-      messagingSenderId: "...",
-      appId: "..."
-    };
-    let db = null;
-    try {
-      if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
-      db = firebaseConfig.apiKey.includes('...') ? null : firebase.database();
-    } catch(e) { console.warn("Firebase init failed: ", e); }
-
-    const creds = { "Ahmed Elshahat": "shahat_team_2024", "Elsayed Elfiky": "fiky_team_2024", "Osama Mohamed": "osama_team_2024", "Abanob Ramzy": "abanob_team_2024", "Ahmed Mostafa": "mostafa_team_2024", "Omar Elaidy": "omar_team_2024", "Ali Hendawy": "ali_team_2024", "Ahmed Kairy": "kairy_team_2024", "Mohamed emam": "emam_team_2024", "Ibrahim Salama": "salama_team_2024", "Ibrahim Yasser": "yasser_team_2024", "Ahmed Metwally": "metwally_team_2024", "Islam Mohamed": "islam_team_2024", "Peter Azmy": "peter_team_2024", "Ahmed Ashraf": "ashraf_team_2024", "Islam Adelsattar": "adelsattar_team_2024" };
-    let cU = JSON.parse(localStorage.getItem('teamUser')) || null;
-
-    window.handleLogin = () => {
-      const n = document.getElementById('loginUserName').value, p = document.getElementById('loginPassword').value, err = document.getElementById('loginError');
-      if (creds[n] === p) {
-        cU = { name: n, role: n === "Ahmed Elshahat" ? "Leader" : (["Elsayed Elfiky", "Osama Mohamed", "Abanob Ramzy", "Ahmed Mostafa"].includes(n) ? "Admin" : "Member") };
-        localStorage.setItem('teamUser', JSON.stringify(cU)); updateUI();
-      } else { err.style.display = 'block'; }
-    };
-
-    window.handleLogout = () => { localStorage.removeItem('teamUser'); location.reload(); };
-
-    function updateUI() {
-      const o = document.getElementById('loginOverlay'), g = document.getElementById('userGreeting'), w = document.getElementById('welcomeText'), s = document.getElementById('toggleLiveStatus');
-      if (cU) {
-        if (o) o.style.display = 'none';
-        if (g) { g.style.display = 'flex'; w.innerHTML = `مرحباً بك يا <span style="color: #0ea5e9; font-weight: bold;">${cU.role} ${cU.name}</span> 👋`; }
-        if (s) { s.classList.remove('locked-btn'); s.innerHTML = 'أنا أذاكر الآن ✍️🔥'; }
-        document.body.classList.toggle('is-admin', cU.role !== 'Member');
-      } else {
-        if (o) o.style.display = 'flex'; if (g) g.style.display = 'none';
-        if (s) { s.classList.add('locked-btn'); s.innerHTML = 'سجل دخولك لتعديل حالتك 🔒'; }
-      }
-    }
-
-    function updateCardsLocally() {
-      const sts = JSON.parse(localStorage.getItem('mockStatusData') || '{}');
-      const sks = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
-      document.querySelectorAll('.card').forEach(card => {
-        const b = card.querySelector('.status-badge');
-        if (!b) return;
-        const id = b.id.replace('status-', '').replace('-Admin', '').replace('-Sub', ''), s = sts[id] || 'offline';
-        b.className = `status-badge status-${s}`;
-        b.innerHTML = s === 'online' ? '<div class="pulse"></div> يذاكر الآن' : 'أوفلاين';
-        const sc = card.querySelector('.streak-count');
-        if (sc) {
-          // preserve original HTML integer if localStorage lacks record
-          if(sks[id] !== undefined) {
-             sc.innerText = sks[id];
-          } else if(!sks[id] && !sc.getAttribute('data-init')) {
-             sks[id] = parseInt(sc.innerText) || 0;
-             sc.setAttribute('data-init', 'true');
-             localStorage.setItem('mockStreakData', JSON.stringify(sks));
-          }
+      startQuiz.addEventListener('click', () => {
+        const n = quizName.value.trim(), s = quizSubject.value, ms = (s === 'Programming 2' ? 'C++' : s);
+        if (ms === 'C++') { alert('عذراً، انتهى وقت كويز C++!'); return; }
+        if (!n || !s) { alert('ادخل الاسم والمادة!'); return; }
+        if (!teamMembers.includes(n)) { alert('الاسم غير مسجل!'); return; }
+        if (!noAiCheckbox.checked) { alert('أكد عدم استخدام AI!'); return; }
+        const reg = loadRegisteredNames(), now = new Date().toISOString();
+        const exist = reg.findIndex(u => u.name === n && u.subject === ms);
+        if (exist === -1) {
+          reg.push({ name: n, subject: ms, time: now });
         }
+        saveRegisteredNames(reg);
+        showRegisteredNames();
+        window.location.href = `quiz.html?name=${encodeURIComponent(n)}&subject=${encodeURIComponent(ms)}`;
       });
-    }
 
-    window.toggleLiveStatus = async () => {
-      if (!cU) return;
-      const btn = document.getElementById('toggleLiveStatus'), key = cU.name.replace(/\s+/g, '-');
-      if (db) {
-        const ref = db.ref('status/' + key);
-        try {
-          const snap = await ref.once('value');
-          const next = snap.val() === 'online' ? 'offline' : 'online';
-          await ref.set(next);
-          btn.classList.add('btn-success-animate'); setTimeout(() => btn.classList.remove('btn-success-animate'), 500);
-        } catch (e) { alert("Error: " + e); }
-      } else {
-        let statusData = JSON.parse(localStorage.getItem('mockStatusData') || '{}');
-        const next = statusData[key] === 'online' ? 'offline' : 'online';
-        statusData[key] = next;
-        localStorage.setItem('mockStatusData', JSON.stringify(statusData));
-        btn.classList.add('btn-success-animate'); setTimeout(() => btn.classList.remove('btn-success-animate'), 500);
-        updateCardsLocally();
+      document.getElementById('startMockExam').onclick = () => { alert('تجهيز امتحان 15 سؤال...'); window.location.href = `quiz.html?name=${encodeURIComponent((JSON.parse(localStorage.getItem('teamUser')) || {}).name || 'Guest')}&subject=MockExam`; };
+
+      /* --- AUTH & FIREBASE --- */
+      const firebaseConfig = {
+        apiKey: "AIzaSyA...",
+        authDomain: "znu-team-dashboard.firebaseapp.com",
+        databaseURL: "https://znu-team-dashboard-default-rtdb.firebaseio.com",
+        projectId: "znu-team-dashboard",
+        storageBucket: "znu-team-dashboard.appspot.com",
+        messagingSenderId: "...",
+        appId: "..."
+      };
+      let db = null;
+      try {
+        if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+        db = firebaseConfig.apiKey.includes('...') ? null : firebase.database();
+      } catch (e) { console.warn("Firebase init failed: ", e); }
+
+      const creds = { "Ahmed Elshahat": "shahat_team_2024", "Elsayed Elfiky": "fiky_team_2024", "Osama Mohamed": "osama_team_2024", "Abanob Ramzy": "abanob_team_2024", "Ahmed Mostafa": "mostafa_team_2024", "Omar Elaidy": "omar_team_2024", "Ali Hendawy": "ali_team_2024", "Ahmed Kairy": "kairy_team_2024", "Mohamed emam": "emam_team_2024", "Ibrahim Salama": "salama_team_2024", "Ibrahim Yasser": "yasser_team_2024", "Ahmed Metwally": "metwally_team_2024", "Islam Mohamed": "islam_team_2024", "Peter Azmy": "peter_team_2024", "Ahmed Ashraf": "ashraf_team_2024", "Islam Adelsattar": "adelsattar_team_2024", "Anas Salah": "anas_team_2024" };
+      let cU = JSON.parse(localStorage.getItem('teamUser')) || null;
+
+      window.handleLogin = () => {
+        const n = document.getElementById('loginUserName').value, p = document.getElementById('loginPassword').value, err = document.getElementById('loginError');
+        if (creds[n] === p) {
+          cU = { name: n, role: n === "Ahmed Elshahat" ? "Leader" : (["Elsayed Elfiky", "Osama Mohamed", "Abanob Ramzy", "Ahmed Mostafa"].includes(n) ? "Admin" : "Member") };
+          localStorage.setItem('teamUser', JSON.stringify(cU)); updateUI();
+        } else { err.style.display = 'block'; }
+      };
+
+      window.handleLogout = () => { localStorage.removeItem('teamUser'); location.reload(); };
+
+      function updateUI() {
+        const o = document.getElementById('loginOverlay'), g = document.getElementById('userGreeting'), w = document.getElementById('welcomeText'), s = document.getElementById('toggleLiveStatus');
+        if (cU) {
+          if (o) o.style.display = 'none';
+          if (g) { g.style.display = 'flex'; w.innerHTML = `مرحباً بك يا <span style="color: #0ea5e9; font-weight: bold;">${cU.role} ${cU.name}</span> 👋`; }
+          if (s) { s.classList.remove('locked-btn'); s.innerHTML = 'أنا أذاكر الآن ✍️🔥'; }
+          document.body.classList.toggle('is-admin', cU.role !== 'Member');
+        } else {
+          if (o) o.style.display = 'flex'; if (g) g.style.display = 'none';
+          if (s) { s.classList.add('locked-btn'); s.innerHTML = 'سجل دخولك لتعديل حالتك 🔒'; }
+        }
       }
-    };
 
-    window.awardStreak = async (btn) => {
-      if (!cU || cU.role === 'Member') return;
-      const b = btn.closest('.card').querySelector('.status-badge');
-      if (!b) return;
-      const id = b.id.replace('status-', '').replace('-Admin', '').replace('-Sub', '');
-      
-      if (db) {
-        const ref = db.ref('streaks/' + id);
-        try {
-          const snap = await ref.once('value');
-          await ref.set((snap.val() || 0) + 1);
-          btn.innerHTML = 'تم! ✨'; setTimeout(() => btn.innerHTML = 'إعطاء 🔥', 1500);
-        } catch (err) { console.error(err); }
-      } else {
-        let streakData = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
-        streakData[id] = (streakData[id] || 0) + 1;
-        localStorage.setItem('mockStreakData', JSON.stringify(streakData));
-        btn.innerHTML = 'تم! ✨'; setTimeout(() => btn.innerHTML = 'إعطاء 🔥', 1500);
-        updateCardsLocally();
-      }
-    };
-
-    if (db) {
-      db.ref().on('value', (snap) => {
-        const data = snap.val() || {}, sts = data.status || {}, sks = data.streaks || {};
+      function updateCardsLocally() {
+        const sts = JSON.parse(localStorage.getItem('mockStatusData') || '{}');
+        const sks = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
         document.querySelectorAll('.card').forEach(card => {
           const b = card.querySelector('.status-badge');
           if (!b) return;
@@ -2326,181 +2281,247 @@ public:
           b.className = `status-badge status-${s}`;
           b.innerHTML = s === 'online' ? '<div class="pulse"></div> يذاكر الآن' : 'أوفلاين';
           const sc = card.querySelector('.streak-count');
-          if (sc) sc.innerText = sks[id] || 0;
-        });
-      });
-    } else {
-      updateCardsLocally();
-    }
-
-    updateUI();
-
-    // === Accessory Tools Logic ===
-
-    // 1. Pomodoro Timer
-    let pomoInterval;
-    let pomoTimeLeft = 25 * 60;
-    let isPomoRunning = false;
-    let isPomoBreak = false;
-    let pomoSessions = parseInt(localStorage.getItem('pomoSessions') || '0');
-    
-    const pomoTimeDisplay = document.getElementById('pomoTime');
-    const btnFocus = document.getElementById('pomoStart');
-    const btnBreak = document.getElementById('pomoBreak');
-    const btnReset = document.getElementById('pomoReset');
-    const pomoCountEl = document.getElementById('pomoSessionCount');
-    const pomoHoursEl = document.getElementById('pomoSessionHours');
-    const audioSelector = document.getElementById('audioSelector');
-    const focusAudio = document.getElementById('focusAudio');
-
-    function updatePomoStats() {
-      if(pomoCountEl) pomoCountEl.innerText = pomoSessions;
-      if(pomoHoursEl) pomoHoursEl.innerText = (pomoSessions * 25 / 60).toFixed(1);
-    }
-    updatePomoStats();
-
-    function updatePomoDisplay() {
-      if(!pomoTimeDisplay) return;
-      const m = Math.floor(pomoTimeLeft / 60).toString().padStart(2, '0');
-      const s = (pomoTimeLeft % 60).toString().padStart(2, '0');
-      pomoTimeDisplay.innerText = `${m}:${s}`;
-    }
-
-    function togglePomo() {
-      if (isPomoRunning) {
-        clearInterval(pomoInterval);
-        isPomoRunning = false;
-        if(btnFocus) btnFocus.innerText = isPomoBreak ? "استئناف الراحة" : "استئناف التركيز";
-      } else {
-        isPomoRunning = true;
-        if(btnFocus) btnFocus.innerText = "إيقاف مؤقت";
-        pomoInterval = setInterval(() => {
-          if (pomoTimeLeft > 0) {
-            pomoTimeLeft--;
-            updatePomoDisplay();
-          } else {
-            clearInterval(pomoInterval);
-            isPomoRunning = false;
-            if (!isPomoBreak) {
-              pomoSessions++;
-              localStorage.setItem('pomoSessions', pomoSessions);
-              updatePomoStats();
-              alert("انتهى وقت التركيز! خذ استراحة.");
-              setBreak();
-            } else {
-              alert("انتهت الاستراحة! حان وقت التركيز.");
-              setFocus();
+          if (sc) {
+            // preserve original HTML integer if localStorage lacks record
+            if (sks[id] !== undefined) {
+              sc.innerText = sks[id];
+            } else if (!sks[id] && !sc.getAttribute('data-init')) {
+              sks[id] = parseInt(sc.innerText) || 0;
+              sc.setAttribute('data-init', 'true');
+              localStorage.setItem('mockStreakData', JSON.stringify(sks));
             }
           }
-        }, 1000);
+        });
       }
-    }
 
-    function setFocus() {
-      clearInterval(pomoInterval);
-      isPomoRunning = false;
-      isPomoBreak = false;
-      pomoTimeLeft = 25 * 60;
-      if(btnFocus) btnFocus.innerText = "بدأ التركيز";
-      updatePomoDisplay();
-    }
-
-    function setBreak() {
-      clearInterval(pomoInterval);
-      isPomoRunning = false;
-      isPomoBreak = true;
-      pomoTimeLeft = 5 * 60;
-      if(btnFocus) btnFocus.innerText = "بدأ الراحة";
-      updatePomoDisplay();
-    }
-
-    if(btnFocus) btnFocus.addEventListener('click', togglePomo);
-    if(btnBreak) btnBreak.addEventListener('click', setBreak);
-    if(btnReset) btnReset.addEventListener('click', setFocus);
-
-    if (audioSelector && focusAudio) {
-      audioSelector.addEventListener('change', (e) => {
-        if (e.target.value) {
-          focusAudio.src = e.target.value;
-          focusAudio.play();
+      window.toggleLiveStatus = async () => {
+        if (!cU) return;
+        const btn = document.getElementById('toggleLiveStatus'), key = cU.name.replace(/\s+/g, '-');
+        if (db) {
+          const ref = db.ref('status/' + key);
+          try {
+            const snap = await ref.once('value');
+            const next = snap.val() === 'online' ? 'offline' : 'online';
+            await ref.set(next);
+            btn.classList.add('btn-success-animate'); setTimeout(() => btn.classList.remove('btn-success-animate'), 500);
+          } catch (e) { alert("Error: " + e); }
         } else {
-          focusAudio.pause();
-          focusAudio.src = '';
+          let statusData = JSON.parse(localStorage.getItem('mockStatusData') || '{}');
+          const next = statusData[key] === 'online' ? 'offline' : 'online';
+          statusData[key] = next;
+          localStorage.setItem('mockStatusData', JSON.stringify(statusData));
+          btn.classList.add('btn-success-animate'); setTimeout(() => btn.classList.remove('btn-success-animate'), 500);
+          updateCardsLocally();
         }
-      });
-    }
+      };
 
-    // 2. Todo List
-    const todoInput = document.getElementById('todoInput');
-    const todoAdd = document.getElementById('todoAdd');
-    const todoList = document.getElementById('todoList');
-    let todos = JSON.parse(localStorage.getItem('dailyTodos') || '[]');
+      window.awardStreak = async (btn) => {
+        if (!cU || cU.role === 'Member') return;
+        const b = btn.closest('.card').querySelector('.status-badge');
+        if (!b) return;
+        const id = b.id.replace('status-', '').replace('-Admin', '').replace('-Sub', '');
 
-    function renderTodos() {
-      if (!todoList) return;
-      todoList.innerHTML = '';
-      todos.forEach((t, i) => {
-        const li = document.createElement('li');
-        li.style.display = 'flex';
-        li.style.justifyContent = 'space-between';
-        li.style.background = '#f8fafc';
-        li.style.padding = '8px';
-        li.style.marginBottom = '5px';
-        li.style.borderRadius = '5px';
-        
-        const span = document.createElement('span');
-        span.innerText = t.text;
-        if (t.done) span.style.textDecoration = 'line-through';
-        span.style.cursor = 'pointer';
-        span.style.flex = '1';
-        span.onclick = () => { todos[i].done = !todos[i].done; saveTodos(); };
-
-        const delBtn = document.createElement('button');
-        delBtn.innerText = '❌';
-        delBtn.style.background = 'transparent';
-        delBtn.style.color = 'red';
-        delBtn.style.border = 'none';
-        delBtn.style.cursor = 'pointer';
-        delBtn.onclick = () => { todos.splice(i, 1); saveTodos(); };
-
-        li.appendChild(span);
-        li.appendChild(delBtn);
-        todoList.appendChild(li);
-      });
-    }
-
-    function saveTodos() {
-      localStorage.setItem('dailyTodos', JSON.stringify(todos));
-      renderTodos();
-    }
-
-    if (todoAdd && todoInput) {
-      todoAdd.addEventListener('click', () => {
-        if (todoInput.value.trim()) {
-          todos.push({ text: todoInput.value.trim(), done: false });
-          todoInput.value = '';
-          saveTodos();
+        if (db) {
+          const ref = db.ref('streaks/' + id);
+          try {
+            const snap = await ref.once('value');
+            await ref.set((snap.val() || 0) + 1);
+            btn.innerHTML = 'تم! ✨'; setTimeout(() => btn.innerHTML = 'إعطاء 🔥', 1500);
+          } catch (err) { console.error(err); }
+        } else {
+          let streakData = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
+          streakData[id] = (streakData[id] || 0) + 1;
+          localStorage.setItem('mockStreakData', JSON.stringify(streakData));
+          btn.innerHTML = 'تم! ✨'; setTimeout(() => btn.innerHTML = 'إعطاء 🔥', 1500);
+          updateCardsLocally();
         }
-      });
-      todoInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') todoAdd.click();
-      });
-      renderTodos();
-    }
+      };
 
-    // 3. GPA Calculator
-    const gpaCourses = document.getElementById('gpaCourses');
-    const addGpaCourse = document.getElementById('addGpaCourse');
-    const calcGpaBtn = document.getElementById('calcGpaBtn');
-    const gpaResult = document.getElementById('gpaResult');
+      if (db) {
+        db.ref().on('value', (snap) => {
+          const data = snap.val() || {}, sts = data.status || {}, sks = data.streaks || {};
+          document.querySelectorAll('.card').forEach(card => {
+            const b = card.querySelector('.status-badge');
+            if (!b) return;
+            const id = b.id.replace('status-', '').replace('-Admin', '').replace('-Sub', ''), s = sts[id] || 'offline';
+            b.className = `status-badge status-${s}`;
+            b.innerHTML = s === 'online' ? '<div class="pulse"></div> يذاكر الآن' : 'أوفلاين';
+            const sc = card.querySelector('.streak-count');
+            if (sc) sc.innerText = sks[id] || 0;
+          });
+        });
+      } else {
+        updateCardsLocally();
+      }
 
-    function createGpaRow() {
-      const div = document.createElement('div');
-      div.style.display = 'flex';
-      div.style.gap = '5px';
-      div.style.marginBottom = '8px';
-      div.className = 'gpa-row';
-      div.innerHTML = `
+      updateUI();
+
+      // === Accessory Tools Logic ===
+
+      // 1. Pomodoro Timer
+      let pomoInterval;
+      let pomoTimeLeft = 25 * 60;
+      let isPomoRunning = false;
+      let isPomoBreak = false;
+      let pomoSessions = parseInt(localStorage.getItem('pomoSessions') || '0');
+
+      const pomoTimeDisplay = document.getElementById('pomoTime');
+      const btnFocus = document.getElementById('pomoStart');
+      const btnBreak = document.getElementById('pomoBreak');
+      const btnReset = document.getElementById('pomoReset');
+      const pomoCountEl = document.getElementById('pomoSessionCount');
+      const pomoHoursEl = document.getElementById('pomoSessionHours');
+      const audioSelector = document.getElementById('audioSelector');
+      const focusAudio = document.getElementById('focusAudio');
+
+      function updatePomoStats() {
+        if (pomoCountEl) pomoCountEl.innerText = pomoSessions;
+        if (pomoHoursEl) pomoHoursEl.innerText = (pomoSessions * 25 / 60).toFixed(1);
+      }
+      updatePomoStats();
+
+      function updatePomoDisplay() {
+        if (!pomoTimeDisplay) return;
+        const m = Math.floor(pomoTimeLeft / 60).toString().padStart(2, '0');
+        const s = (pomoTimeLeft % 60).toString().padStart(2, '0');
+        pomoTimeDisplay.innerText = `${m}:${s}`;
+      }
+
+      function togglePomo() {
+        if (isPomoRunning) {
+          clearInterval(pomoInterval);
+          isPomoRunning = false;
+          if (btnFocus) btnFocus.innerText = isPomoBreak ? "استئناف الراحة" : "استئناف التركيز";
+        } else {
+          isPomoRunning = true;
+          if (btnFocus) btnFocus.innerText = "إيقاف مؤقت";
+          pomoInterval = setInterval(() => {
+            if (pomoTimeLeft > 0) {
+              pomoTimeLeft--;
+              updatePomoDisplay();
+            } else {
+              clearInterval(pomoInterval);
+              isPomoRunning = false;
+              if (!isPomoBreak) {
+                pomoSessions++;
+                localStorage.setItem('pomoSessions', pomoSessions);
+                updatePomoStats();
+                alert("انتهى وقت التركيز! خذ استراحة.");
+                setBreak();
+              } else {
+                alert("انتهت الاستراحة! حان وقت التركيز.");
+                setFocus();
+              }
+            }
+          }, 1000);
+        }
+      }
+
+      function setFocus() {
+        clearInterval(pomoInterval);
+        isPomoRunning = false;
+        isPomoBreak = false;
+        pomoTimeLeft = 25 * 60;
+        if (btnFocus) btnFocus.innerText = "بدأ التركيز";
+        updatePomoDisplay();
+      }
+
+      function setBreak() {
+        clearInterval(pomoInterval);
+        isPomoRunning = false;
+        isPomoBreak = true;
+        pomoTimeLeft = 5 * 60;
+        if (btnFocus) btnFocus.innerText = "بدأ الراحة";
+        updatePomoDisplay();
+      }
+
+      if (btnFocus) btnFocus.addEventListener('click', togglePomo);
+      if (btnBreak) btnBreak.addEventListener('click', setBreak);
+      if (btnReset) btnReset.addEventListener('click', setFocus);
+
+      if (audioSelector && focusAudio) {
+        audioSelector.addEventListener('change', (e) => {
+          if (e.target.value) {
+            focusAudio.src = e.target.value;
+            focusAudio.play();
+          } else {
+            focusAudio.pause();
+            focusAudio.src = '';
+          }
+        });
+      }
+
+      // 2. Todo List
+      const todoInput = document.getElementById('todoInput');
+      const todoAdd = document.getElementById('todoAdd');
+      const todoList = document.getElementById('todoList');
+      let todos = JSON.parse(localStorage.getItem('dailyTodos') || '[]');
+
+      function renderTodos() {
+        if (!todoList) return;
+        todoList.innerHTML = '';
+        todos.forEach((t, i) => {
+          const li = document.createElement('li');
+          li.style.display = 'flex';
+          li.style.justifyContent = 'space-between';
+          li.style.background = '#f8fafc';
+          li.style.padding = '8px';
+          li.style.marginBottom = '5px';
+          li.style.borderRadius = '5px';
+
+          const span = document.createElement('span');
+          span.innerText = t.text;
+          if (t.done) span.style.textDecoration = 'line-through';
+          span.style.cursor = 'pointer';
+          span.style.flex = '1';
+          span.onclick = () => { todos[i].done = !todos[i].done; saveTodos(); };
+
+          const delBtn = document.createElement('button');
+          delBtn.innerText = '❌';
+          delBtn.style.background = 'transparent';
+          delBtn.style.color = 'red';
+          delBtn.style.border = 'none';
+          delBtn.style.cursor = 'pointer';
+          delBtn.onclick = () => { todos.splice(i, 1); saveTodos(); };
+
+          li.appendChild(span);
+          li.appendChild(delBtn);
+          todoList.appendChild(li);
+        });
+      }
+
+      function saveTodos() {
+        localStorage.setItem('dailyTodos', JSON.stringify(todos));
+        renderTodos();
+      }
+
+      if (todoAdd && todoInput) {
+        todoAdd.addEventListener('click', () => {
+          if (todoInput.value.trim()) {
+            todos.push({ text: todoInput.value.trim(), done: false });
+            todoInput.value = '';
+            saveTodos();
+          }
+        });
+        todoInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') todoAdd.click();
+        });
+        renderTodos();
+      }
+
+      // 3. GPA Calculator
+      const gpaCourses = document.getElementById('gpaCourses');
+      const addGpaCourse = document.getElementById('addGpaCourse');
+      const calcGpaBtn = document.getElementById('calcGpaBtn');
+      const gpaResult = document.getElementById('gpaResult');
+
+      function createGpaRow() {
+        const div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.gap = '5px';
+        div.style.marginBottom = '8px';
+        div.className = 'gpa-row';
+        div.innerHTML = `
         <input type="text" placeholder="المادة" style="flex:2; padding:5px; min-width:0;">
         <select class="gpa-grade" style="flex:1; padding:5px; min-width:0;">
           <option value="4.0">A+</option>
@@ -2516,342 +2537,342 @@ public:
         <input type="number" class="gpa-hours" placeholder="ساعات" style="flex:1; padding:5px; min-width:0;" min="1" max="6" value="3">
         <button onclick="this.parentElement.remove()" style="background:#ef4444; color:white; padding:5px; border:none; cursor:pointer; width:30px;">❌</button>
       `;
-      if(gpaCourses) gpaCourses.appendChild(div);
-    }
-
-    if (addGpaCourse) {
-      addGpaCourse.addEventListener('click', createGpaRow);
-      if (gpaCourses && gpaCourses.children.length === 0) {
-        createGpaRow(); createGpaRow(); createGpaRow();
+        if (gpaCourses) gpaCourses.appendChild(div);
       }
-    }
 
-    if (calcGpaBtn) {
-      calcGpaBtn.addEventListener('click', () => {
-        let totalPts = 0;
-        let totalHrs = 0;
-        document.querySelectorAll('.gpa-row').forEach(row => {
-          const g = parseFloat(row.querySelector('.gpa-grade').value);
-          const h = parseFloat(row.querySelector('.gpa-hours').value) || 0;
-          if (h > 0) {
-            totalPts += (g * h);
-            totalHrs += h;
-          }
+      if (addGpaCourse) {
+        addGpaCourse.addEventListener('click', createGpaRow);
+        if (gpaCourses && gpaCourses.children.length === 0) {
+          createGpaRow(); createGpaRow(); createGpaRow();
+        }
+      }
+
+      if (calcGpaBtn) {
+        calcGpaBtn.addEventListener('click', () => {
+          let totalPts = 0;
+          let totalHrs = 0;
+          document.querySelectorAll('.gpa-row').forEach(row => {
+            const g = parseFloat(row.querySelector('.gpa-grade').value);
+            const h = parseFloat(row.querySelector('.gpa-hours').value) || 0;
+            if (h > 0) {
+              totalPts += (g * h);
+              totalHrs += h;
+            }
+          });
+          if (gpaResult) gpaResult.innerText = totalHrs > 0 ? (totalPts / totalHrs).toFixed(2) : "0.00";
         });
-        if(gpaResult) gpaResult.innerText = totalHrs > 0 ? (totalPts / totalHrs).toFixed(2) : "0.00";
-      });
-    }
+      }
 
-    // 4. Flashcards
-    const flashcardsData = [
-      {q: "ما هو الـ OOP؟", a: "برمجة كائنية التوجه."},
-      {q: "ما هي Database؟", a: "قاعدة بيانات لتخزين المعلومات بشكل منظم."},
-      {q: "ما هو الـ API؟", a: "واجهة برمجة تطبيقات للتواصل بين الأنظمة."}
-    ];
-    let fcIndex = 0;
-    const fcQuestion = document.getElementById('fcQuestion');
-    const fcAnswer = document.getElementById('fcAnswer');
-    const flashcardElement = document.getElementById('flashcardElement');
-    const fcNext = document.getElementById('fcNext');
-    let fcFlipped = false;
+      // 4. Flashcards
+      const flashcardsData = [
+        { q: "ما هو الـ OOP؟", a: "برمجة كائنية التوجه." },
+        { q: "ما هي Database؟", a: "قاعدة بيانات لتخزين المعلومات بشكل منظم." },
+        { q: "ما هو الـ API؟", a: "واجهة برمجة تطبيقات للتواصل بين الأنظمة." }
+      ];
+      let fcIndex = 0;
+      const fcQuestion = document.getElementById('fcQuestion');
+      const fcAnswer = document.getElementById('fcAnswer');
+      const flashcardElement = document.getElementById('flashcardElement');
+      const fcNext = document.getElementById('fcNext');
+      let fcFlipped = false;
 
-    if (fcNext && flashcardElement) {
-      flashcardElement.addEventListener('click', () => {
-        fcFlipped = !fcFlipped;
-        flashcardElement.classList.toggle('is-flipped', fcFlipped);
-      });
-      fcNext.addEventListener('click', () => {
-        fcFlipped = false;
-        flashcardElement.classList.remove('is-flipped');
-        fcIndex = (fcIndex + 1) % flashcardsData.length;
-        setTimeout(() => {
-          if(fcQuestion) fcQuestion.innerText = flashcardsData[fcIndex].q;
-          if(fcAnswer) fcAnswer.innerText = flashcardsData[fcIndex].a;
-        }, 150);
-      });
-    }
+      if (fcNext && flashcardElement) {
+        flashcardElement.addEventListener('click', () => {
+          fcFlipped = !fcFlipped;
+          flashcardElement.classList.toggle('is-flipped', fcFlipped);
+        });
+        fcNext.addEventListener('click', () => {
+          fcFlipped = false;
+          flashcardElement.classList.remove('is-flipped');
+          fcIndex = (fcIndex + 1) % flashcardsData.length;
+          setTimeout(() => {
+            if (fcQuestion) fcQuestion.innerText = flashcardsData[fcIndex].q;
+            if (fcAnswer) fcAnswer.innerText = flashcardsData[fcIndex].a;
+          }, 150);
+        });
+      }
 
-    // 5. Debug Challenge
-    const showDebugAnswer = document.getElementById('showDebugAnswer');
-    const debugAnswer = document.getElementById('debugAnswer');
-    if (showDebugAnswer && debugAnswer) {
-      showDebugAnswer.addEventListener('click', () => {
-        debugAnswer.style.display = debugAnswer.style.display === 'block' ? 'none' : 'block';
-      });
-    }
+      // 5. Debug Challenge
+      const showDebugAnswer = document.getElementById('showDebugAnswer');
+      const debugAnswer = document.getElementById('debugAnswer');
+      if (showDebugAnswer && debugAnswer) {
+        showDebugAnswer.addEventListener('click', () => {
+          debugAnswer.style.display = debugAnswer.style.display === 'block' ? 'none' : 'block';
+        });
+      }
 
-    // 6. Roulette
-    const spinWheelBtn = document.getElementById('spinWheel');
-    const wheel = document.getElementById('wheel');
-    const rouletteResult = document.getElementById('rouletteResult');
-    const wheelSubjects = ["C++", "Logic Design", "Math 2", "Operation Research", "English", "Physics"];
-    
-    if (spinWheelBtn && wheel) {
-      wheel.style.background = 'conic-gradient(#fca5a5 0 60deg, #fcd34d 60deg 120deg, #86efac 120deg 180deg, #93c5fd 180deg 240deg, #c4b5fd 240deg 300deg, #f9a8d4 300deg 360deg)';
-      wheel.style.borderRadius = '50%';
-      
-      spinWheelBtn.addEventListener('click', () => {
-        spinWheelBtn.disabled = true;
-        if(rouletteResult) rouletteResult.innerText = "جاري اللف...";
-        const deg = Math.floor(Math.random() * 360) + 1440;
-        wheel.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.2, 1)';
-        wheel.style.transform = `rotate(${deg}deg)`;
-        
-        setTimeout(() => {
-          const finalDeg = deg % 360;
-          const index = Math.floor((360 - finalDeg) / 60) % 6;
-          if(rouletteResult) rouletteResult.innerText = `ذاكر دلوقتي: ${wheelSubjects[index]} 🎯`;
-          spinWheelBtn.disabled = false;
-          wheel.style.transition = 'none';
-          wheel.style.transform = `rotate(${finalDeg}deg)`;
-        }, 3000);
-      });
-    }
+      // 6. Roulette
+      const spinWheelBtn = document.getElementById('spinWheel');
+      const wheel = document.getElementById('wheel');
+      const rouletteResult = document.getElementById('rouletteResult');
+      const wheelSubjects = ["C++", "Logic Design", "Math 2", "Operation Research", "English", "Physics"];
 
-    // 7. Countdown
-    const countdownContainer = document.getElementById('countdownContainer');
-    const cdName = document.getElementById('cdName');
-    const cdDate = document.getElementById('cdDate');
-    const addCdBtn = document.getElementById('addCdBtn');
-    let countdowns = JSON.parse(localStorage.getItem('studyCountdowns') || '[]');
+      if (spinWheelBtn && wheel) {
+        wheel.style.background = 'conic-gradient(#fca5a5 0 60deg, #fcd34d 60deg 120deg, #86efac 120deg 180deg, #93c5fd 180deg 240deg, #c4b5fd 240deg 300deg, #f9a8d4 300deg 360deg)';
+        wheel.style.borderRadius = '50%';
 
-    function renderCountdowns() {
-      if(!countdownContainer) return;
-      countdownContainer.innerHTML = '';
-      countdowns.forEach((cd, i) => {
-        const diff = new Date(cd.date) - new Date();
-        const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-        const div = document.createElement('div');
-        div.style.display = 'flex';
-        div.style.justifyContent = 'space-between';
-        div.style.padding = '8px';
-        div.style.background = days >= 0 ? '#eff6ff' : '#fef2f2';
-        div.style.marginBottom = '5px';
-        div.style.borderRadius = '5px';
-        div.innerHTML = `
+        spinWheelBtn.addEventListener('click', () => {
+          spinWheelBtn.disabled = true;
+          if (rouletteResult) rouletteResult.innerText = "جاري اللف...";
+          const deg = Math.floor(Math.random() * 360) + 1440;
+          wheel.style.transition = 'transform 3s cubic-bezier(0.2, 0.8, 0.2, 1)';
+          wheel.style.transform = `rotate(${deg}deg)`;
+
+          setTimeout(() => {
+            const finalDeg = deg % 360;
+            const index = Math.floor((360 - finalDeg) / 60) % 6;
+            if (rouletteResult) rouletteResult.innerText = `ذاكر دلوقتي: ${wheelSubjects[index]} 🎯`;
+            spinWheelBtn.disabled = false;
+            wheel.style.transition = 'none';
+            wheel.style.transform = `rotate(${finalDeg}deg)`;
+          }, 3000);
+        });
+      }
+
+      // 7. Countdown
+      const countdownContainer = document.getElementById('countdownContainer');
+      const cdName = document.getElementById('cdName');
+      const cdDate = document.getElementById('cdDate');
+      const addCdBtn = document.getElementById('addCdBtn');
+      let countdowns = JSON.parse(localStorage.getItem('studyCountdowns') || '[]');
+
+      function renderCountdowns() {
+        if (!countdownContainer) return;
+        countdownContainer.innerHTML = '';
+        countdowns.forEach((cd, i) => {
+          const diff = new Date(cd.date) - new Date();
+          const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+          const div = document.createElement('div');
+          div.style.display = 'flex';
+          div.style.justifyContent = 'space-between';
+          div.style.padding = '8px';
+          div.style.background = days >= 0 ? '#eff6ff' : '#fef2f2';
+          div.style.marginBottom = '5px';
+          div.style.borderRadius = '5px';
+          div.innerHTML = `
           <span>${cd.name}</span>
           <span style="font-weight:bold; color:${days >= 0 ? '#2563eb' : '#dc2626'};">${days >= 0 ? 'باقي ' + days + ' يوم' : 'انتهى'}</span>
           <button style="border:none; background:transparent; color:red; cursor:pointer;" onclick="deleteCd(${i})">❌</button>
         `;
-        countdownContainer.appendChild(div);
-      });
-    }
-    
-    window.deleteCd = (i) => {
-      countdowns.splice(i, 1);
-      localStorage.setItem('studyCountdowns', JSON.stringify(countdowns));
-      renderCountdowns();
-    };
-
-    if (addCdBtn && cdName && cdDate) {
-      addCdBtn.addEventListener('click', () => {
-        if (cdName.value && cdDate.value) {
-          countdowns.push({ name: cdName.value, date: cdDate.value });
-          localStorage.setItem('studyCountdowns', JSON.stringify(countdowns));
-          cdName.value = '';
-          cdDate.value = '';
-          renderCountdowns();
-        }
-      });
-      renderCountdowns();
-      if(countdowns.length === 0) {
-        countdowns.push({name: 'الميدتيرم', date: '2026-04-02'});
-        renderCountdowns();
-        localStorage.setItem('studyCountdowns', JSON.stringify(countdowns));
+          countdownContainer.appendChild(div);
+        });
       }
-    }
 
-    // 8. Quick Notes
-    const quickNotes = document.getElementById('quickNotes');
-    const clearNotesBtn = document.getElementById('clearNotesBtn');
-    if (quickNotes) {
-      quickNotes.value = localStorage.getItem('studyQuickNotes') || '';
-      quickNotes.addEventListener('input', () => {
-        localStorage.setItem('studyQuickNotes', quickNotes.value);
-      });
-      if (clearNotesBtn) {
-        clearNotesBtn.addEventListener('click', () => {
-          if (confirm('هل أنت متأكد من مسح الملاحظات؟')) {
-            quickNotes.value = '';
-            localStorage.removeItem('studyQuickNotes');
+      window.deleteCd = (i) => {
+        countdowns.splice(i, 1);
+        localStorage.setItem('studyCountdowns', JSON.stringify(countdowns));
+        renderCountdowns();
+      };
+
+      if (addCdBtn && cdName && cdDate) {
+        addCdBtn.addEventListener('click', () => {
+          if (cdName.value && cdDate.value) {
+            countdowns.push({ name: cdName.value, date: cdDate.value });
+            localStorage.setItem('studyCountdowns', JSON.stringify(countdowns));
+            cdName.value = '';
+            cdDate.value = '';
+            renderCountdowns();
+          }
+        });
+        renderCountdowns();
+        if (countdowns.length === 0) {
+          countdowns.push({ name: 'الميدتيرم', date: '2026-04-02' });
+          renderCountdowns();
+          localStorage.setItem('studyCountdowns', JSON.stringify(countdowns));
+        }
+      }
+
+      // 8. Quick Notes
+      const quickNotes = document.getElementById('quickNotes');
+      const clearNotesBtn = document.getElementById('clearNotesBtn');
+      if (quickNotes) {
+        quickNotes.value = localStorage.getItem('studyQuickNotes') || '';
+        quickNotes.addEventListener('input', () => {
+          localStorage.setItem('studyQuickNotes', quickNotes.value);
+        });
+        if (clearNotesBtn) {
+          clearNotesBtn.addEventListener('click', () => {
+            if (confirm('هل أنت متأكد من مسح الملاحظات؟')) {
+              quickNotes.value = '';
+              localStorage.removeItem('studyQuickNotes');
+            }
+          });
+        }
+      }
+
+      // 9. Drawing Board
+      const canvas = document.getElementById('drawingBoard');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.parentElement.clientWidth || 300;
+        canvas.height = 200;
+        // Background white
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        let drawing = false;
+
+        canvas.style.touchAction = 'none';
+
+        const getPos = (e) => {
+          const rect = canvas.getBoundingClientRect();
+          if (e.touches) {
+            return { x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top };
+          }
+          return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+        };
+
+        const startDraw = (e) => {
+          drawing = true;
+          const pos = getPos(e);
+          ctx.beginPath();
+          ctx.moveTo(pos.x, pos.y);
+        };
+
+        const draw = (e) => {
+          if (!drawing) return;
+          e.preventDefault();
+          const pos = getPos(e);
+          ctx.lineTo(pos.x, pos.y);
+          ctx.stroke();
+        };
+
+        const stopDraw = () => {
+          drawing = false;
+          ctx.closePath();
+        };
+
+        canvas.addEventListener('mousedown', startDraw);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDraw);
+        canvas.addEventListener('mouseleave', stopDraw);
+
+        canvas.addEventListener('touchstart', startDraw, { passive: false });
+        canvas.addEventListener('touchmove', draw, { passive: false });
+        canvas.addEventListener('touchend', stopDraw);
+      }
+
+      // 10. Theme and Focus Toggles
+      const themeToggle = document.getElementById('themeToggle');
+      const focusToggle = document.getElementById('focusToggle');
+
+      if (themeToggle) {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.body.classList.add('dark-mode');
+          themeToggle.innerHTML = '☀️';
+        }
+        themeToggle.addEventListener('click', () => {
+          document.body.classList.toggle('dark-mode');
+          const isDark = document.body.classList.contains('dark-mode');
+          themeToggle.innerHTML = isDark ? '☀️' : '🌙';
+          localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+      }
+
+      if (focusToggle) {
+        focusToggle.addEventListener('click', () => {
+          document.body.classList.toggle('focus-active');
+          if (document.body.classList.contains('focus-active')) {
+            const pomoSection = document.getElementById('pomoHero');
+            if (pomoSection) pomoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         });
       }
-    }
 
-    // 9. Drawing Board
-    const canvas = document.getElementById('drawingBoard');
-    if (canvas) {
-      const ctx = canvas.getContext('2d');
-      canvas.width = canvas.parentElement.clientWidth || 300;
-      canvas.height = 200;
-      // Background white
-      ctx.fillStyle = "white";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      let drawing = false;
-
-      canvas.style.touchAction = 'none';
-
-      const getPos = (e) => {
-        const rect = canvas.getBoundingClientRect();
-        if(e.touches) {
-          return { x: e.touches[0].clientX - rect.left, y: e.touches[0].clientY - rect.top };
-        }
-        return { x: e.clientX - rect.left, y: e.clientY - rect.top };
-      };
-
-      const startDraw = (e) => {
-        drawing = true;
-        const pos = getPos(e);
-        ctx.beginPath();
-        ctx.moveTo(pos.x, pos.y);
-      };
-
-      const draw = (e) => {
-        if (!drawing) return;
-        e.preventDefault();
-        const pos = getPos(e);
-        ctx.lineTo(pos.x, pos.y);
-        ctx.stroke();
-      };
-
-      const stopDraw = () => {
-        drawing = false;
-        ctx.closePath();
-      };
-
-      canvas.addEventListener('mousedown', startDraw);
-      canvas.addEventListener('mousemove', draw);
-      canvas.addEventListener('mouseup', stopDraw);
-      canvas.addEventListener('mouseleave', stopDraw);
-      
-      canvas.addEventListener('touchstart', startDraw, {passive: false});
-      canvas.addEventListener('touchmove', draw, {passive: false});
-      canvas.addEventListener('touchend', stopDraw);
-    }
-
-    // 10. Theme and Focus Toggles
-    const themeToggle = document.getElementById('themeToggle');
-    const focusToggle = document.getElementById('focusToggle');
-    
-    if (themeToggle) {
-      if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-        themeToggle.innerHTML = '☀️';
+      // 11. Motivational Quotes
+      const quotes = [
+        "النجاح هو مجموع محاولات صغيرة تتكرر كل يوم.",
+        "تذكر دائماً لماذا بدأت، لا تتوقف الآن.",
+        "تعب اليوم هو راحة الغد المشرق بإذن الله.",
+        "كلما زاد اجتهادك، زاد حظك في النجاح.",
+        "المذاكرة هي سلاحك لتغيير مستقبلك.",
+        "لا تنتظر الفرصة، بل اصنعها بنفسك.",
+        "القمة تتسع للجميع، لكنها لا تقبل إلا المجتهدين."
+      ];
+      const quoteEl = document.getElementById('motivationalQuote');
+      if (quoteEl) {
+        quoteEl.innerText = quotes[Math.floor(Math.random() * quotes.length)];
+        setInterval(() => {
+          quoteEl.style.opacity = 0;
+          setTimeout(() => {
+            quoteEl.innerText = quotes[Math.floor(Math.random() * quotes.length)];
+            quoteEl.style.opacity = 1;
+          }, 1000);
+        }, 30000);
+        quoteEl.style.transition = 'opacity 1s ease';
       }
-      themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const isDark = document.body.classList.contains('dark-mode');
-        themeToggle.innerHTML = isDark ? '☀️' : '🌙';
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      });
-    }
-    
-    if (focusToggle) {
-      focusToggle.addEventListener('click', () => {
-        document.body.classList.toggle('focus-active');
-        if (document.body.classList.contains('focus-active')) {
-          const pomoSection = document.getElementById('pomoHero');
-          if(pomoSection) pomoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    }
 
-    // 11. Motivational Quotes
-    const quotes = [
-      "النجاح هو مجموع محاولات صغيرة تتكرر كل يوم.",
-      "تذكر دائماً لماذا بدأت، لا تتوقف الآن.",
-      "تعب اليوم هو راحة الغد المشرق بإذن الله.",
-      "كلما زاد اجتهادك، زاد حظك في النجاح.",
-      "المذاكرة هي سلاحك لتغيير مستقبلك.",
-      "لا تنتظر الفرصة، بل اصنعها بنفسك.",
-      "القمة تتسع للجميع، لكنها لا تقبل إلا المجتهدين."
-    ];
-    const quoteEl = document.getElementById('motivationalQuote');
-    if (quoteEl) {
-      quoteEl.innerText = quotes[Math.floor(Math.random() * quotes.length)];
+      // 12. Auto-streak while studying (Every 5 minutes)
+      let studyTimer = 0;
       setInterval(() => {
-        quoteEl.style.opacity = 0;
-        setTimeout(() => {
-          quoteEl.innerText = quotes[Math.floor(Math.random() * quotes.length)];
-          quoteEl.style.opacity = 1;
-        }, 1000);
-      }, 30000);
-      quoteEl.style.transition = 'opacity 1s ease';
-    }
-
-    // 12. Auto-streak while studying (Every 5 minutes)
-    let studyTimer = 0;
-    setInterval(() => {
-      if (isPomoRunning && !isPomoBreak && cU) {
-        studyTimer++;
-        if (studyTimer >= 5) { // 5 minutes
-          studyTimer = 0;
-          let streakData = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
-          const id = cU.name.replace(/\s+/g, '-');
-          streakData[id] = (streakData[id] || 0) + 1;
-          localStorage.setItem('mockStreakData', JSON.stringify(streakData));
-          updateCardsLocally();
-          console.log("Auto-streak awarded!");
-        }
-      } else {
-        studyTimer = 0;
-      }
-    }, 60000); // Check every minute
-
-    // 13. Daily Challenge
-    const challenges = [
-      { q: "ما هي اللغة المستخدمة في برمجة Android الأساسية بجانب Java؟", a: "Kotlin", o: ["Swift", "Kotlin", "Python", "C#"] },
-      { q: "ما هو اختصار SQL؟", a: "Structured Query Language", o: ["Simple Query Lang", "Structured Query Language", "System Quick Link"] },
-      { q: "ما هو الـ DOM في تطوير الويب؟", a: "Document Object Model", o: ["Data Object Mode", "Document Object Model", "Direct Order Maker"] }
-    ];
-    const dailyChallengeContent = document.getElementById('dailyChallengeContent');
-    const challengeQuestion = document.getElementById('challengeQuestion');
-    const challengeOptions = document.getElementById('challengeOptions');
-    const challengeResult = document.getElementById('challengeResult');
-
-    function loadDailyChallenge() {
-      if (!challengeQuestion) return;
-      const today = new Date().toDateString();
-      const lastAnswered = localStorage.getItem('lastAnsweredChallenge');
-      
-      if (lastAnswered === today) {
-        dailyChallengeContent.innerHTML = "<p style='text-align:center;'>✅ أنجزت تحدي اليوم بنجاح! عد غداً لتحدي جديد.</p>";
-        return;
-      }
-
-      const challenge = challenges[Math.floor(Math.random() * challenges.length)];
-      challengeQuestion.innerText = challenge.q;
-      challengeOptions.innerHTML = '';
-      challenge.o.forEach(opt => {
-        const btn = document.createElement('button');
-        btn.innerText = opt;
-        btn.style.width = '100%';
-        btn.onclick = () => {
-          if (opt === challenge.a) {
-            challengeResult.innerText = "صح! 🎉 خد 🔥 هدية.";
-            challengeResult.style.color = "green";
-            localStorage.setItem('lastAnsweredChallenge', today);
-            
-            // Award streak
-            if (cU) {
-              let streakData = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
-              const id = cU.name.replace(/\s+/g, '-');
-              streakData[id] = (streakData[id] || 0) + 1;
-              localStorage.setItem('mockStreakData', JSON.stringify(streakData));
-              updateCardsLocally();
-            }
-            setTimeout(loadDailyChallenge, 2000);
-          } else {
-            challengeResult.innerText = "لأ، حاول تاني! 🤔";
-            challengeResult.style.color = "red";
+        if (isPomoRunning && !isPomoBreak && cU) {
+          studyTimer++;
+          if (studyTimer >= 5) { // 5 minutes
+            studyTimer = 0;
+            let streakData = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
+            const id = cU.name.replace(/\s+/g, '-');
+            streakData[id] = (streakData[id] || 0) + 1;
+            localStorage.setItem('mockStreakData', JSON.stringify(streakData));
+            updateCardsLocally();
+            console.log("Auto-streak awarded!");
           }
-        };
-        challengeOptions.appendChild(btn);
-      });
-    }
-    loadDailyChallenge();
-  </script>
+        } else {
+          studyTimer = 0;
+        }
+      }, 60000); // Check every minute
+
+      // 13. Daily Challenge
+      const challenges = [
+        { q: "ما هي اللغة المستخدمة في برمجة Android الأساسية بجانب Java؟", a: "Kotlin", o: ["Swift", "Kotlin", "Python", "C#"] },
+        { q: "ما هو اختصار SQL؟", a: "Structured Query Language", o: ["Simple Query Lang", "Structured Query Language", "System Quick Link"] },
+        { q: "ما هو الـ DOM في تطوير الويب؟", a: "Document Object Model", o: ["Data Object Mode", "Document Object Model", "Direct Order Maker"] }
+      ];
+      const dailyChallengeContent = document.getElementById('dailyChallengeContent');
+      const challengeQuestion = document.getElementById('challengeQuestion');
+      const challengeOptions = document.getElementById('challengeOptions');
+      const challengeResult = document.getElementById('challengeResult');
+
+      function loadDailyChallenge() {
+        if (!challengeQuestion) return;
+        const today = new Date().toDateString();
+        const lastAnswered = localStorage.getItem('lastAnsweredChallenge');
+
+        if (lastAnswered === today) {
+          dailyChallengeContent.innerHTML = "<p style='text-align:center;'>✅ أنجزت تحدي اليوم بنجاح! عد غداً لتحدي جديد.</p>";
+          return;
+        }
+
+        const challenge = challenges[Math.floor(Math.random() * challenges.length)];
+        challengeQuestion.innerText = challenge.q;
+        challengeOptions.innerHTML = '';
+        challenge.o.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.innerText = opt;
+          btn.style.width = '100%';
+          btn.onclick = () => {
+            if (opt === challenge.a) {
+              challengeResult.innerText = "صح! 🎉 خد 🔥 هدية.";
+              challengeResult.style.color = "green";
+              localStorage.setItem('lastAnsweredChallenge', today);
+
+              // Award streak
+              if (cU) {
+                let streakData = JSON.parse(localStorage.getItem('mockStreakData') || '{}');
+                const id = cU.name.replace(/\s+/g, '-');
+                streakData[id] = (streakData[id] || 0) + 1;
+                localStorage.setItem('mockStreakData', JSON.stringify(streakData));
+                updateCardsLocally();
+              }
+              setTimeout(loadDailyChallenge, 2000);
+            } else {
+              challengeResult.innerText = "لأ، حاول تاني! 🤔";
+              challengeResult.style.color = "red";
+            }
+          };
+          challengeOptions.appendChild(btn);
+        });
+      }
+      loadDailyChallenge();
+    </script>
 </body>
 
 </html>
