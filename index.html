@@ -1242,6 +1242,7 @@
             <option>Ahmed Ashraf</option>
             <option>Islam Adelsattar</option>
             <option>Anas Salah</option>
+            <option>Mohamed Ahmed</option>
           </select>
         </div>
         <div class="input-group">
@@ -1843,6 +1844,15 @@ public:
           <span class="tag">Member</span>
           <div class="status-badge status-offline" id="status-Anas-Salah">أوفلاين</div>
         </div>
+        <div class="card">
+          <div class="photo-circle-mini"><img src="./image/image19.jpeg" alt="Member 13"></div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <h3>13 - Mohamed Ahmed</h3>
+            <span class="streak-fire" title="Study Streak">🔥 0</span>
+          </div>
+          <span class="tag">Member</span>
+          <div class="status-badge status-offline" id="status-Mohamed-Ahmed">أوفلاين</div>
+        </div>
       </div>
 
 
@@ -1874,6 +1884,7 @@ public:
             <option value="Ahmed Ashraf"></option>
             <option value="Islam Adelsattar"></option>
             <option value="Anas Salah"></option>
+            <option value="Mohamed Ahmed"></option>
           </datalist>
           <select id="quizSubject">
             <option value="">اختر المادة</option>
@@ -2260,7 +2271,7 @@ public:
       const teamMembers = [
         'Ahmed Elshahat', 'Elsayed Elfiky', 'Osama Mohamed', 'Abanob Ramzy', 'Omar Elaidy',
         'Ahmed Mostafa', 'Ali Hendawy', 'Ahmed Kairy', 'Mohamed emam', 'Ibrahim Salama',
-        'Ibrahim Yasser', 'Ahmed Metwally', 'Islam Mohamed', 'Peter Azmy', 'Ahmed Ashraf', 'Islam Adelsattar', 'Anas Salah'
+        'Ibrahim Yasser', 'Ahmed Metwally', 'Islam Mohamed', 'Peter Azmy', 'Ahmed Ashraf', 'Islam Adelsattar', 'Anas Salah', 'Mohamed Ahmed'
       ];
 
       const quizName = document.getElementById('quizName'), quizSubject = document.getElementById('quizSubject'), subjectHint = document.getElementById('subjectHint'), startQuiz = document.getElementById('startQuiz'), noAiCheckbox = document.getElementById('noAiCheckbox'), registeredNamesArea = document.getElementById('registeredNames');
@@ -2320,7 +2331,7 @@ public:
         db = firebaseConfig.apiKey.includes('...') ? null : firebase.database();
       } catch (e) { console.warn("Firebase init failed: ", e); }
 
-      const creds = { "Ahmed Elshahat": "shahat_team_2024", "Elsayed Elfiky": "fiky_team_2024", "Osama Mohamed": "osama_team_2024", "Abanob Ramzy": "abanob_team_2024", "Ahmed Mostafa": "mostafa_team_2024", "Omar Elaidy": "omar_team_2024", "Ali Hendawy": "ali_team_2024", "Ahmed Kairy": "kairy_team_2024", "Mohamed emam": "emam_team_2024", "Ibrahim Salama": "salama_team_2024", "Ibrahim Yasser": "yasser_team_2024", "Ahmed Metwally": "metwally_team_2024", "Islam Mohamed": "islam_team_2024", "Peter Azmy": "peter_team_2024", "Ahmed Ashraf": "ashraf_team_2024", "Islam Adelsattar": "adelsattar_team_2024", "Anas Salah": "anas_team_2024" };
+      const creds = { "Ahmed Elshahat": "shahat_team_2024", "Elsayed Elfiky": "fiky_team_2024", "Osama Mohamed": "osama_team_2024", "Abanob Ramzy": "abanob_team_2024", "Ahmed Mostafa": "mostafa_team_2024", "Omar Elaidy": "omar_team_2024", "Ali Hendawy": "ali_team_2024", "Ahmed Kairy": "kairy_team_2024", "Mohamed emam": "emam_team_2024", "Ibrahim Salama": "salama_team_2024", "Ibrahim Yasser": "yasser_team_2024", "Ahmed Metwally": "metwally_team_2024", "Islam Mohamed": "islam_team_2024", "Peter Azmy": "peter_team_2024", "Ahmed Ashraf": "ashraf_team_2024", "Islam Adelsattar": "adelsattar_team_2024", "Anas Salah": "anas_team_2024", "Mohamed Ahmed": "mohamed_team_2024" };
       let cU = JSON.parse(localStorage.getItem('teamUser')) || null;
 
       window.handleLogin = () => {
