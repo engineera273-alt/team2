@@ -1267,7 +1267,7 @@
         <span style="font-size: 1.2rem; z-index: 2; color: #fff; background: transparent; padding-right: 5px;">📢</span>
         <div style="flex: 1; display: flex; align-items: center;">
           <div class="scrolling-text">
-            <span>ان شاء الله انهارده هنذاكر التصميم المنطقي (Logic design) وان شاء الله هنفتح zoom الي حابب يسأل في
+            <span id="scrollingSubject">ان شاء الله انهارده هنذاكر التصميم المنطقي (Logic design) وان شاء الله هنفتح zoom الي حابب يسأل في
               حاجه + هيكون في حل اسئله</span>
           </div>
         </div>
@@ -2354,7 +2354,28 @@ public:
         updateCardsLocally();
       }
 
+      function updateAnnouncement() {
+        const scheduleMapping = {
+          "22/3": "التصميم المنطقي (Logic design)",
+          "23/3": "Programming 2",
+          "24/3": "Discrete math",
+          "25/3": "Operation Research",
+          "26/3": "Math 2 (البدء)",
+          "27/3": "Math 2 (مراجعة نهائية)"
+        };
+        const now = new Date();
+        const dateKey = `${now.getDate()}/${now.getMonth() + 1}`;
+        const subject = scheduleMapping[dateKey];
+        if (subject) {
+          const banner = document.getElementById('scrollingSubject');
+          if (banner) {
+            banner.innerText = `ان شاء الله انهارده هنذاكر ${subject} وان شاء الله هنفتح zoom الي حابب يسأل في حاجه + هيكون في حل اسئله`;
+          }
+        }
+      }
+
       updateUI();
+      updateAnnouncement();
 
       // === Accessory Tools Logic ===
 
